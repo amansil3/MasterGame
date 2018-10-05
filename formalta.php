@@ -166,8 +166,8 @@
 			</div>
 			<div class="input-group">
 				<label style="margin-right: 6rem;">Actividad:</label>
-				<select name="actividad" style="text-align: center">
-				    		<?php
+				<!-- select name="actividad" style="text-align: center">
+				    		<?php /*
 				    			require ("Conectar.php")
 				    		?>
 				    		<?php
@@ -186,9 +186,9 @@
 							   		echo '<option value="'.$value["id"] .'">';
 							   		echo  $value["nombre"].' '. $value["nivel"];
 							   		echo '</option>';
-							   	}
+							   	}*/
 				    		?>
-				</select>
+				</select> -->
 			</div>
 			<div class="input-group">
 				<button type="submit" class="btn btn-success" name="register_btn">Dar de Alta</button>

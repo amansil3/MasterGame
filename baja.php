@@ -87,7 +87,7 @@
 					$pdo = conectar();
 
 					//Preparamos la eliminacion
-					$eliminacion=$pdo->prepare("DELETE FROM socios WHERE id_socio=:numeroRecibido");
+					$eliminacion=$pdo->prepare("DELETE FROM socios WHERE id=:numeroRecibido");
 
 					//Vinculamos el parámetro :numeroRecibido con el id recibido por GET:
 					$eliminacion->bindValue(':numeroRecibido',$_GET['id']);

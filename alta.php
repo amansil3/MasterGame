@@ -89,7 +89,7 @@
 						$DNI = $_POST['DNI'];
 						$telefono = $_POST['telefono'];
 						$direccion = $_POST['direccion'];
-						$actividad = $_POST['actividad'];
+						//$actividad = $_POST['actividad'];
 
 						//Conecto a la BD
 						$pdo = conectar();
@@ -97,7 +97,7 @@
 						//Preparo la sentencia INSERT, con parámetros llamados :a, :b, :c, :d, :e, :f
 						$insercion = $pdo -> prepare("INSERT INTO socios (nombre, apellido, telefono, DNI, direccion) VALUES (:a, :b, :c, :d, :e);");
 
-						$insercion1 = $pdo -> prepare ("INSERT INTO socio_actividad (actividad_id) VALUES (:f);");
+						//$insercion1 = $pdo -> prepare ("INSERT INTO socio_actividad (actividad_id) VALUES (:f);");
 
 						//Le asigno valor a los parámetros :a , :b, :c, :d, :e, :f
 						$insercion -> bindValue(':a',$nombre);
@@ -107,22 +107,18 @@
 						$insercion -> bindValue(':e',$direccion);
 
 
-						$insercion1 -> bindValue(':f',$actividad);
+						//$insercion1 -> bindValue(':f',$actividad);
 
-						$insercion -> execute();
-						$insercion -> execute();
+						//$insercion -> execute();
 						
 						// Preparo la sentencia INSERT para tabla pivot:
 						//$activityselect = $pdo -> prepare("INSERT INTO socio.actividad (socio_id, actividad_id) 
 							//VALUES (:f);");
 
 						// Verifico DNI mediante que no exista el socio mediante un Select:
-						$idsocionuevo = $pdo -> prepare("SELECT id from socios WHERE DNI = $DNI");
-						$idsocionuevo -> execute ();
+						//$idsocionuevo = $pdo -> prepare("SELECT id from socios WHERE DNI = $DNI");
+						//$idsocionuevo -> execute ();
 						
-						$row1 = $idsocionuevo->fetchAll(PDO::FETCH_ASSOC);
-
-						print_r($idsocionuevo);
 
 						// Asigno valor a los parámetros :f
 						//$activityselect -> bindValue(':f',$actividad);
@@ -132,19 +128,10 @@
 						if ($insercion -> execute() ) {
 						 //Si la inserción fue exitosa:
 							echo "El socio fue agregado."."<br><br>";
-							if ($activityselect -> execute() ){
-							   	echo "Funciono el segundo select";
-							    }
-							else{
-							  	echo "No funciono el segundo select";
-							}
 						}
 						else {
 						    echo "Error al agregar al socio";
 						}
-							//else {
-							//	echo "El socio ingresado ya existe. ";
-							//}	
 					
 					?>	
 					<a href="crud.php" class="btn btn btn-primary"> Volver a la página de socios </a>
