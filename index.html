@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	<!-- Load js files -->
+	<script src="/object/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/object/js/bootstrap.bundle.js"></script>
+
+	<!-- Load CSS & Icons library -->
+	<link rel="stylesheet" href="/object/css/bootstrap.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!-- Responsive design for mobile navigation -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Loading Script -->
+	<script src="jquery-1.8.3.js"></script>
+
+	<style>
+		body {
+		    font-family: Arial;
+		}
+		
+	</style>
+
+	<!-- Assign UTF-8 -->
+	<meta charset="utf-8" />
+
+	<title>
+		INDEX
+	</title>
+
+	</head>
+
+	<body>
+
+	<!-- Charging Page-->
+
+	<!-- Cosas de style para animar el gif 
+		.content {
+		display:none;
+		}
+
+		.preload {
+			margin:0;
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin-right: -50%;
+			transform:translate(-50%, -50%);
+		}
+	
+	El div
+
+    <div class="preload">
+    	<img src="/object/images/cargando.gif" />
+    </div> -->
+
+	<div class="content">
+
+		<!-- Navbar -->
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
+		style="position: sticky; z-index: 1071; top: 0;">
+			<div class="d-flex justify-content-end">
+		    <a class="navbar-brand" href="#">
+			    <img src="/object/images/cn.png" width="80" height="30" class="d-inline-block align-top" alt="">
+			    MasterGame
+			</a>
+			<div class="nav navbar-nav navbar-right">
+				<div class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav mr-auto">
+			    		<li class="nav-item active">
+			    			<a class="nav-link" href="index.html" style="margin-right: 1rem;">Inicio <span class="sr-only">(current)</span></a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="FichasEmpleados.php">Personal</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="FichasEmpleados.php">Proveedores</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="crud.php">Clientes</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="stock.php">Gestionar Stock</a>
+			    		</li>
+			    	</ul>
+			    	<span class="navbar-text">
+			    	</span>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Banner -->
+		<nav class="bodi" style="height: 150px;">
+		</nav>
+
+		<!-- Content -->
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #009688 !important; color: #fff; top: 0;">
+			<h3>Sistema de Logística</h3>
+		</nav>
+
+		<!-- Links to other pages -->
+
+		<div class="container-fluid content-row" style="margin-top: 2rem; margin-bottom: 2rem;">
+			<div class="card-deck row">
+			  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			    <div class="hovereffect">
+			        <img class="card-img-top" src="/object/images/carnetvector.jpg" alt="">
+			        <div class="overlay">
+			           <h2>Ver Personal</h2>
+				        <a class="info" href="FichasEmpleados.php">
+				          	 	Ver fichas de los trabajadores
+				        </a>
+			        </div>
+			    </div>
+			  </div>
+			  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			    <div class="hovereffect">
+			        <img class="card-img-top" src="/object/images/provider_vector.png" alt="">
+			        <div class="overlay">
+			           <h2>Ver Personal y Socios</h2>
+				        <a class="info" href="consultauser.php">
+				          	 	Ver Proveedores
+				        </a>
+			        </div>
+			    </div>
+			  </div>
+			  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			  	<div class="hovereffect">
+			        <img class="card-img-top" src="/object/images/byciclevector.jpg" alt="">
+			        <div class="overlay">
+			           <h2>Ver Socios y Actividades</h2>
+				        <a class="info" href="nuevaconsulta.php">
+				          	 	Ver Socios y Actividades
+				        </a>
+			        </div>
+			    </div>
+			  </div>
+			  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			  	<div class="hovereffect">
+			        <img class="card-img-top" src="/object/images/checklistvector.jpg" alt="">
+			        <div class="overlay">
+			           <h2>Resumen</h2>
+				        <a class="info" href="Estadisticas.php">
+				          	 	Ver el resumen del club
+				        </a>
+			        </div>
+			    </div>
+			  </div>
+			</div>
+			<div class="card-deck row" style="margin-top: 2rem;">
+			  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			  	<div class="hovereffect">
+			        <img class="card-img-top" src="/object/images/se.jpg" alt="">
+			        <div class="overlay">
+			           <h2>Actualizar datos</h2>
+				        <a class="info" href="crud.php">
+				          	 	Actualizar datos de los socios
+				        </a>
+			        </div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+		
+		<!-- Footer -->
+		<footer class="page-footer font-small teal pt-4" style="background-color: #009688 !important; color: #fff;">
+
+		    <!-- Footer Text -->
+		    <div class="container-fluid text-center text-md-left">
+
+		      <!-- Grid row -->
+		      <div class="row">
+
+		        <!-- Grid column -->
+		        <div class="col-md-6 mt-md-0 mt-3">
+
+		          <!-- Content -->
+		          <h5 class="text-uppercase font-weight-bold">Footer text 1</h5>
+		          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae harum esse fugiat. Itaque, culpa?</p>
+
+		        </div>
+		        <!-- Grid column -->
+
+		        <hr class="clearfix w-100 d-md-none pb-3">
+
+		        <!-- Grid column -->
+		        <div class="col-md-6 mb-md-0 mb-3">
+
+		          <!-- Content -->
+		          <h5 class="text-uppercase font-weight-bold">Footer text 2</h5>
+		          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id excepturi hic.</p>
+
+		        </div>
+		        <!-- Grid column -->
+
+		      </div>
+		      <!-- Grid row -->
+
+		    </div>
+		    <!-- Footer Text -->
+
+		    <!-- Copyright -->
+		    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+		      <a href="https://mdbootstrap.com/bootstrap-tutorial/" style="color: #fff;"> MDBootstrap.com</a>
+		    </div>
+		    <!-- Copyright -->
+
+		  </footer>
+		</div>
+		  <!-- Footer -->
+		<!--
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			    <div class="hovereffectt">
+			        <img class="img-responsive" src="http://placehold.it/350x200" alt="">
+			            <div class="overlay">
+			                <h2>Effect 10</h2>
+			                <p class="icon-links">
+			                    <a href="#">
+			                        <span class="fab fa-twitter"></span>
+			                    </a>
+			                    <a href="#">
+			                        <span class="fab fa-facebook"></span>
+			                    </a>
+			                    <a href="#">
+			                        <span class="fab fa-instagram"></span>
+			                    </a>
+			                </p>
+			            </div>
+			    </div>
+			</div>
+		-->
+
+		<!-- Loading Script 
+
+		<script>
+			$(function() {
+				$(".preload").fadeOut(2000, function() {
+					$(".content").fadeIn(1000);
+				});
+			});
+		</script>  -->
+		
+	</body>
+</html>
+
