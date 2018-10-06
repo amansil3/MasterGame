@@ -30,29 +30,36 @@
 
 		<!-- Navbar -->
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-		    <a class="navbar-brand" href="#">
-			    <img src="/object/images/cn.png" width="80" height="30" class="d-inline-block align-top" alt="">
-			    Club de Natación
+		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
+		style="position: sticky; z-index: 1071; top: 0;">
+			<div class="d-flex justify-content-end">
+		    <a class="navbar-brand" href="#"  style="color: #fff;">
+			    <img src="/object/images/cn.png" width="80" height="30" class="d-inline-block align-top">
+			    Sistema de Logística
 			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarText">
-				<ul class="navbar-nav mr-auto">
-		    		<li class="nav-item active">
-		    			<a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
-		    		</li>
-		    		<li class="nav-item">
-		    			<a class="nav-link" href="FichasEmpleados.php">Personal</a>
-		    		</li>
-		    		<li class="nav-item">
-		    			<a class="nav-link" href="crud.php">Socios</a>
-		    		</li>
-		    	</ul>
-		    	<span class="navbar-text">
-		    	</span>
+			<div class="nav navbar-nav navbar-right">
+				<div class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav mr-auto">
+			    		<li class="nav-item active">
+			    			<a class="nav-link" href="index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="crud.php" style="color: #fff;">Clientes</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="stock.php" style="color: #fff;">Gestionar Stock</a>
+			    		</li>
+			    	</ul>
+			    	<span class="navbar-text">
+			    	</span>
+				</div>
 			</div>
 		</nav>
 
