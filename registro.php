@@ -27,21 +27,19 @@
 	</title>
 	</head>
 	<body>
-		
-		<?php
-			require ("Conectar.php")
-		?>
-		
+		<?php include('functions.php') ?>
+
 		<h1> Registro </h1>
 
 		<form method="post" action="register.php">
+			<?php echo display_error(); ?>
 			<div class="input-group">
 				<label>Usuario</label>
-				<input type="text" name="username" value="">
+				<input type="text" name="username" value="<?php echo $username; ?>">
 			</div>
 			<div class="input-group">
 				<label>Email</label>
-				<input type="email" name="email" value="">
+				<input type="email" name="email" value="<?php echo $email; ?>">
 			</div>
 			<div class="input-group">
 				<label>Contraseña</label>

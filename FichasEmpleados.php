@@ -35,7 +35,7 @@
 
 		    <a class="navbar-brand" href="#">
 			    <img src="/object/images/cn.png" width="80" height="30" class="d-inline-block align-top" alt="">
-			    Club de Natación
+			    Sistema de Logística
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -49,7 +49,7 @@
 		    			<a class="nav-link" href="FichasEmpleados.php">Personal</a>
 		    		</li>
 		    		<li class="nav-item">
-		    			<a class="nav-link" href="crud.php">Socios</a>
+		    			<a class="nav-link" href="crud.php">Clientes</a>
 		    		</li>
 		    	</ul>
 		    	<span class="navbar-text">
@@ -75,7 +75,7 @@
 
 				<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
 
-				<h1>Personal del Club</h1> <br>
+				<h1>Personal</h1> <br>
 				<?php
 					require('Conectar.php');
 				?>

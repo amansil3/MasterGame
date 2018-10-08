@@ -23,7 +23,7 @@
 	<meta charset="utf-8" />
 
 	<title>
-		Alta, Baja y Modificación
+		Clientes
 	</title>
 	</head>
 	<body>
@@ -209,7 +209,7 @@
 					<ul class="section-nav" style="list-style: none; margin-top: 4rem;">
 						<li class="toc-entry toc-h2">
 							<a href="formAlta.php" style="color:#99979c"> 
-								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo socio 
+								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo cliente 
 							</a> 
 						</li>
 						<li class="toc-entry toc-h2">
