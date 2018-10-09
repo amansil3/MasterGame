@@ -1,0 +1,53 @@
+<html>
+	<meta charset=UTF-8>
+	<head>
+		<title>
+		Formulario
+		</title>
+	</head>
+	<body>
+		<center>
+			<h1>CREAR UN REMITO</h1>
+		</center>
+		<br>
+		<form action="altaremito.php" method="post">
+			<br>
+			Nombre: <input name="nombre"> Apellido: <input name="apellido"><br><br>
+			DNI: <input name="dni"><br><br>
+			Telefono: <input name="telefono"><br><br>
+			<table>
+				<tr>
+					<td>
+						Productos (separar con ; c/u, menos el ultimo)
+					</td>
+					<td>
+						Garantías (separar con ; c/u, menos el ultimo)
+					</td>
+					<td>
+						Valores (separar con ; c/u, menos el ultimo)
+					</td>
+					<td>
+						Cantidad (separar con ; c/u, menos el ultimo)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="producto" cols="40" rows="5"></textarea>
+					</td>
+					<td>
+						<textarea name="garantia" cols="40" rows="5"></textarea>
+					</td>
+					<td>
+						<textarea name="valor" cols="40" rows="5"></textarea>
+					</td>
+					<td>
+						<textarea name="cantidad" cols="40" rows="5"></textarea>
+					</td>
+				</tr>
+			</table>	
+			<input type="submit" value="Agregar remito">
+		</form>
+		<br>
+		<a href="../index.html">Volver al inicio</a>
+	</body>
+</html>

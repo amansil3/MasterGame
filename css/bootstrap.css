@@ -9346,4 +9346,10 @@ transition-delay:.2s;
 .bode{
   background-image: url("/mastergay/images/MGSC.jpg");
 }
+/*@page 
+    {
+        size:  auto;    auto es el valor inicial 
+        margin: 1mm;  afecta el margen en la configuración de impresión 
+    }
+*/
 /*# sourceMappingURL=bootstrap.css.map */

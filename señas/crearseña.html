@@ -1,0 +1,48 @@
+<html>
+	<meta charset=UTF-8>
+	<head>
+		<title>
+		Formulario de seña
+		</title>
+	</head>
+	<body>
+		<center>
+			<h1>CREAR UNA SEÑA</h1>
+		</center>
+		<br>
+		<form action="altaseña.php" method="post">
+			<br>
+			Nombre: <input name="nombre"> Apellido: <input name="apellido"><br><br>
+			DNI: <input name="dni"><br><br>
+			Telefono: <input name="telefono"><br><br>
+			<table>
+				<tr>
+					<td>
+						Productos 
+					</td>
+					<td>
+						Señas (sin el $)
+					</td>
+					<td>
+						Valor total del producto (sin el $)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="producto" cols="40" rows="5"></textarea>
+					</td>
+					<td>
+						<textarea name="seña" cols="40" rows="5"></textarea>
+					</td>
+					<td>
+						<textarea name="valor" cols="40" rows="5"></textarea>
+					</td>
+				</tr>
+			</table>
+			<br>*Separar con ";" cada uno de los productos/señas/valores, menos el ultimo<br><br>
+			<input type="submit" value="Agregar seña">
+		</form>
+		<br>
+		<a href="../index.html">Volver al inicio</a>
+	</body>
+</html>
