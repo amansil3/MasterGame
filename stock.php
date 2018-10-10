@@ -1,51 +1,84 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<script src="/object/jquery/jquery-3.2.1.min.js"></script>
-	<script src="/object/js/bootstrap.bundle.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Load js files -->
+	<script src="/mastergay/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/mastergay/js/bootstrap.bundle.js"></script>
+
+	<!-- Load CSS & Icons library -->
 	<link rel="stylesheet" href="/object/css/bootstrap.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<!-- Load icon library
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  -->
+
+	<!-- Responsive design for mobile navigation -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<style>
 		body {
 		    font-family: Arial;
 		}
-
-		* {
-		    box-sizing: border-box;
-		}
 	</style>
+
+	<!-- Assign UTF-8 -->
+	<meta charset="utf-8" />
+
 	<title>
-		Stock
+		Clientes
 	</title>
 	</head>
 	<body>
-		<div class="wrapper">
-			<nav class="navbar navbar-dark bg-dark justify-content-between">
-				<ul class="nav nav-pills left">
-					<a class="navbar-brand" href="/object/indeps.html">BN</a>
-					<button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarNavDropdown">
-					<ul class="navbar-nav">
-					  <li class="nav-item active">
-					    <a class="nav-link" href="/object/indeps.html">Incio<span class="sr-only">(current)</span></a>
-					  </li>
-					  <li class="nav-item">
-					    <a class="nav-link" href="/object/stock.php">Stock</a>
-					  </li>
-					  <li class="nav-item">
-					    <a class="nav-link" href="#">Contacto</a>
-					  </li>
-				    </ul>
-				  </div>
-				</ul>
-			</nav>
-		</div>
-		<?php
+
+		<!-- Navbar -->
+		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
+		style="position: sticky; z-index: 1071; top: 0;">
+			<div class="d-flex justify-content-end">
+		    <a class="navbar-brand" href="#"  style="color: #fff;">
+			    Sistema de Logística
+			</a>
+			<div class="nav navbar-nav navbar-right">
+				<div class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav mr-auto">
+			    		<li class="nav-item active">
+			    			<a class="nav-link" href="index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="crud.php" style="color: #fff;">Clientes</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="stock.php" style="color: #fff;">Gestionar Stock</a>
+			    		</li>
+			    	</ul>
+			    	<span class="navbar-text">
+			    	</span>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Content -->
+
+		<div class="container-fluid" style="margin-top: 3rem;">
+			<div class="row flex-xl-nowrap">
+
+				<!-- Left Sidebar -->
+
+				<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+					helloworld!
+					helloworld!
+					helloworld!
+					helloworld!
+				</div>
+
+				<!-- Main body -->
+
+				<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+					<?php
 			// Tipo de vehiculo
 			abstract class Vehicle
 			{
@@ -151,7 +184,7 @@
 		for ($i=0; $i <$id ; $i++) { 
 			$id=$id+1;
 			}
-		echo '<h1 class="display-5" align="center"> Tabla de Autos en Stock </h1>
+		echo '<h1 class="display-5" align="center"> Tabla de Juegos en Stock </h1>
 			  <div class = "container" style = "padding-top: 1em"
 				<div class = "table responsive">
 					<label id="searchLabel">
