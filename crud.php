@@ -147,46 +147,6 @@
 												  </div>
 												</div>
 											</td>';
-												/* 
-									    	<td>
-									    		<a href="modificar.php?id='.$elSocio['id'].'">
-									    			<button class="btn btn-info">
-										    			<i class="far fa-edit"></i>
-									    			</button>
-									    		</a>
-									    	  </td>';
-									   	/*
-									    echo '<td>
-									     <th scope="col">Modificación</th> 
-									    		<button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
-									    			<i class="fas fa-plane-departure"></i>
-											  			Test
-												</button>
-												<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-												  <div class="modal-dialog" role="document">
-												    <div class="modal-content">
-												      <div class="modal-header">
-												        <h5 class="modal-title" id="exampleModalLabel">
-												        	Eliminar Socio
-												        </h5>
-												        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												          <span aria-hidden="true">&times;</span>
-												        </button>
-												      </div>
-												      <div class="modal-body">
-												        ¿Está seguro que desea borrar al socio?
-												        Esto es irreversible
-												      </div>
-												      <div class="modal-footer">
-												        <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-												        <button type="button" class="btn btn-danger" data-href="baja.php?id='.$elSocio['id_socio'].'"> Borrar
-												        </button>
-												      </div>
-												    </div>
-												  </div>
-												</div>
-											  </td>';
-										*/
 
 									    //Celda con el link para eliminar:
 									    echo '<td>
@@ -219,28 +179,6 @@
 						</li>
 					</ul>
 				</div>
-
-				<!-- Footer -->
-		
-			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-			    <div class="hovereffectt">
-			        <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-			            <div class="overlay">
-			                <h2>Effect 10</h2>
-			                <p class="icon-links">
-			                    <a href="#">
-			                        <span class="fab fa-twitter"></span>
-			                    </a>
-			                    <a href="#">
-			                        <span class="fab fa-facebook"></span>
-			                    </a>
-			                    <a href="#">
-			                        <span class="fab fa-instagram"></span>
-			                    </a>
-			                </p>
-			            </div>
-			    </div>
-			</div>
 
 			</div>
 

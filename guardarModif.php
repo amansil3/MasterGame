@@ -93,7 +93,7 @@
 						    echo "Datos modificados correctamente";
 						}
 						else {
-						    echo "Error al modificar los datos del socio";
+						    echo "Error al modificar los datos del cliente";
 						}
 					?>
 

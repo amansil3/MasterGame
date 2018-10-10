@@ -141,7 +141,7 @@
 		<!-- Form -->
 
 		<div class="container" align="center">
-			<h1>Alta de Socios</h1>
+			<h1>Alta de Clientes</h1>
 
 		<form method="post" action="alta.php">
 			<div class="input-group">
@@ -163,32 +163,6 @@
 			<div class="input-group">
 				<label>Dirección:</label>
 				<input type="text" name="direccion"  name="direccion" required minlength="8">
-			</div>
-			<div class="input-group">
-				<label style="margin-right: 6rem;">Actividad:</label>
-				<!-- select name="actividad" style="text-align: center">
-				    		<?php /*
-				    			require ("Conectar.php")
-				    		?>
-				    		<?php
-				    			$pdo = conectar();
-
-				    			//query
-				    			$st = $pdo->prepare('SELECT actividades.id, actividades.nombre, actividades.nivel FROM actividades ORDER BY id asc');
-				    			$st -> execute();
-				    			$row = $st->fetchAll(PDO::FETCH_ASSOC);
-
-				    			//asd
-				    			$tamañorow = sizeof($row);
-				    			for ($i=0; $i < $tamañorow; $i++) { 
-							   		$value = $row[$i];
-
-							   		echo '<option value="'.$value["id"] .'">';
-							   		echo  $value["nombre"].' '. $value["nivel"];
-							   		echo '</option>';
-							   	}*/
-				    		?>
-				</select> -->
 			</div>
 			<div class="input-group">
 				<button type="submit" class="btn btn-success" name="register_btn">Dar de Alta</button>

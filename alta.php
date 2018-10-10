@@ -97,7 +97,6 @@
 						//Preparo la sentencia INSERT, con parámetros llamados :a, :b, :c, :d, :e, :f
 						$insercion = $pdo -> prepare("INSERT INTO socios (nombre, apellido, telefono, DNI, direccion) VALUES (:a, :b, :c, :d, :e);");
 
-						//$insercion1 = $pdo -> prepare ("INSERT INTO socio_actividad (actividad_id) VALUES (:f);");
 
 						//Le asigno valor a los parámetros :a , :b, :c, :d, :e, :f
 						$insercion -> bindValue(':a',$nombre);
@@ -106,23 +105,6 @@
 						$insercion -> bindValue(':d',$DNI);
 						$insercion -> bindValue(':e',$direccion);
 
-
-						//$insercion1 -> bindValue(':f',$actividad);
-
-						//$insercion -> execute();
-						
-						// Preparo la sentencia INSERT para tabla pivot:
-						//$activityselect = $pdo -> prepare("INSERT INTO socio.actividad (socio_id, actividad_id) 
-							//VALUES (:f);");
-
-						// Verifico DNI mediante que no exista el socio mediante un Select:
-						//$idsocionuevo = $pdo -> prepare("SELECT id from socios WHERE DNI = $DNI");
-						//$idsocionuevo -> execute ();
-						
-
-						// Asigno valor a los parámetros :f
-						//$activityselect -> bindValue(':f',$actividad);
-						//$activityselect -> execute ();
 
 						//Ejecutamos la sentencia preparada antes:
 						if ($insercion -> execute() ) {
