@@ -1,1 +1,1 @@
-# mastergay
+# mastergame project
