@@ -7,7 +7,7 @@
 	<script src="/mastergay/js/bootstrap.bundle.js"></script>
 
 	<!-- Load CSS & Icons library -->
-	<link rel="stylesheet" href="/mastergay/css/bootstrap.css">
+	<link rel="stylesheet" href="/object/css/bootstrap.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	<!-- Responsive design for mobile navigation -->
@@ -219,6 +219,28 @@
 						</li>
 					</ul>
 				</div>
+
+				<!-- Footer -->
+		
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			    <div class="hovereffectt">
+			        <img class="img-responsive" src="http://placehold.it/350x200" alt="">
+			            <div class="overlay">
+			                <h2>Effect 10</h2>
+			                <p class="icon-links">
+			                    <a href="#">
+			                        <span class="fab fa-twitter"></span>
+			                    </a>
+			                    <a href="#">
+			                        <span class="fab fa-facebook"></span>
+			                    </a>
+			                    <a href="#">
+			                        <span class="fab fa-instagram"></span>
+			                    </a>
+			                </p>
+			            </div>
+			    </div>
+			</div>
 
 			</div>
 
