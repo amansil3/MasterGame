@@ -2,11 +2,11 @@
 	<head>
 	
 	<!-- Load js files -->
-	<script src="/object/jquery/jquery-3.2.1.min.js"></script>
-	<script src="/object/js/bootstrap.bundle.js"></script>
+	<script src="/MasterGame/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/MasterGame/js/bootstrap.bundle.js"></script>
 
 	<!-- Load CSS & Icons library -->
-	<link rel="stylesheet" href="/object/css/bootstrap.css">
+	<link rel="stylesheet" href="/MasterGame/css/bootstrap.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	<!-- Responsive design for mobile navigation -->
@@ -33,8 +33,8 @@
 		style="position: sticky; z-index: 1071; top: 0;">
 
 		    <a class="navbar-brand" href="#">
-			    <img src="/object/images/cn.png" width="80" height="30" class="d-inline-block align-top" alt="">
-			    Club de Natación
+			    <img src="/MasterGame/images/cn.png" width="80" height="30" class="d-inline-block align-top" alt="">
+			    Sistema de Logística
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -109,10 +109,10 @@
 						//Ejecutamos la sentencia preparada antes:
 						if ($insercion -> execute() ) {
 						 //Si la inserción fue exitosa:
-							echo "El socio fue agregado."."<br><br>";
+							echo "El Cliente fue agregado."."<br><br>";
 						}
 						else {
-						    echo "Error al agregar al socio";
+						    echo "Error al agregar al cliente";
 						}
 					
 					?>	

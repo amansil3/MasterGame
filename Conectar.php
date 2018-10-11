@@ -5,7 +5,7 @@
         //Esta función conviene que esté en un archivo aparte, para reutilizarla en todos los archivos.
         //Datos del servidor
         $servidor =  'localhost';
-        $nombreBD = 'clubnatacion';
+        $nombreBD = 'sistema';
         $usuario = 'root';
         $clave = '';
         try {

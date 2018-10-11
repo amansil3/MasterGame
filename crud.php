@@ -3,8 +3,8 @@
 	<head>
 	
 	<!-- Load js files -->
-	<script src="/mastergay/jquery/jquery-3.2.1.min.js"></script>
-	<script src="/mastergay/js/bootstrap.bundle.js"></script>
+	<script src="/MasterGame/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/MasterGame/js/bootstrap.bundle.js"></script>
 
 	<!-- Load CSS & Icons library -->
 	<link rel="stylesheet" href="/object/css/bootstrap.css">
@@ -34,8 +34,7 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
 			<div class="d-flex justify-content-end">
-		    <a class="navbar-brand" href="#"  style="color: #fff;">
-			    <img src="/object/images/cn.png" width="80" height="30" class="d-inline-block align-top">
+		    <a class="navbar-brand" style="color: #fff;">
 			    Sistema de Logística
 			</a>
 			<div class="nav navbar-nav navbar-right">
@@ -82,11 +81,12 @@
 				<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
 					<?php
 						require('Conectar.php');
+
 						$pdo = conectar();
 						//La función conectar() está definida en Conectar.php, y conecta a la BD, 
 						//retornando un objeto de clase PDO con la conexión.
 
-						$consulta = $pdo->prepare("SELECT socios.nombre as socio, socios.apellido, socios.DNI, socios.id, socio_actividad.actividad_id, actividades.nombre as actividades FROM socios LEFT JOIN socio_actividad ON socios.id = socio_actividad.socio_id LEFT JOIN actividades ON socio_actividad.actividad_id = actividades.id;");
+						$consulta = $pdo->prepare("SELECT socios.nombre as socio, socios.apellido, socios.DNI, socios.id  FROM socios");
 
 						//Aqui no hay parámetros, puede ejecutarse esta consulta con
 						// $pdo->query(), lo omitimos por brevedad.
@@ -101,7 +101,6 @@
 										<th scope="col">Nombre</th>
 										<th scope="col">Apellido</th>
 										<th scope="col">DNI</th>
-										<th scope="col">Actividad </th>
 										<th scope="col">Editar</th>
 										<th scope="col">Borrar</th>
 									</tr>
@@ -112,42 +111,15 @@
 									    echo '<td>'. $elSocio['socio']. '</td>';
 									    echo '<td>'. $elSocio['apellido'] .'</td>';
 									    echo '<td style="text-align=center">'. $elSocio['DNI'] .'</td>';
-									    echo '<td>';
-									   	if ($elSocio['actividades']==null) {
-									    	echo 'Sin asignar </td>';
-									    	}
-									    else {
-									    	echo $elSocio['actividades'] .'</td>'; 
-									    }
 
 									    //Celda con el link para editar:
-
-									    echo '<td>
-												<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
-												<i class="fa fa-edit"></i>
-												</button>
-
-												<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-												  <div class="modal-dialog" role="document">
-												    <div class="modal-content">
-												      <div class="modal-header">
-												        <h5 class="modal-title" id="exampleModalLabel">Editar Usuario </h5>
-												        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												          <span aria-hidden="true">&times;</span>
-												        </button>
-												      </div>
-												      <div class="modal-body">
-												      ...
-												      </div>
-												      <div class="modal-footer">
-												        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-												        <button type="button" class="btn btn-primary">Save changes</button>
-												      </div>
-												    </div>
-												  </div>
-												</div>
-											</td>';
-
+									   echo '<td>
+									    		<a href="modificar.php?id='.$elSocio['id'].'">
+									    			<button class="btn btn-info">
+										    			<i class="far fa-edit"></i>	
+										    		</button>
+									    		</a>
+									    	 </td>';
 									    //Celda con el link para eliminar:
 									    echo '<td>
 									    		<a href="baja.php?id='.$elSocio['id'].'">

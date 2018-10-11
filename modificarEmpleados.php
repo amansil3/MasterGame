@@ -174,7 +174,7 @@
 						$pdo = conectar();
 
 						//Consultamos los datos actuales del socio:
-						$consulta=$pdo->prepare("SELECT nombre, apellido, DNI FROM socios WHERE id=:numeroRecibido");
+						$consulta=$pdo->prepare("SELECT nombre, apellido, DNI FROM personales WHERE id=:numeroRecibido");
 
 						//Vinculamos el parámetro :numeroRecibido con el id recibido por GET:
 						$consulta->bindValue(':numeroRecibido',$_GET['id']);
@@ -184,23 +184,37 @@
 
 						//Armamos un formulario para que el usuario ingrese los nuevos datos:
 						echo '<div class="container" align="center">
-							<h1>Modificar Socio</h1>';
-							echo '<form action="guardarModif.php" method="post">';
+
+							<h1>Modificar Empleado</h1>';
+							// Formulario
+							echo '<form action="guardarModifEmpleados.php" method="post">';
+
+							//ID , Hidden
 							echo "<input name='numero' type='hidden' value='{$_GET['id']}'>";
+
+							//Input Nombre
 							echo '<div class="input-group">';
 								echo "<label> Nombre: </label>
 									<input type='text' name='nombre' value='{$datos[0]['nombre']}' required>
 								</div>";
+
+							//Input Apellido
 							echo '<div class="input-group">';
 								echo "<label> Apellido: </label>
 									<input type='text' name='apellido' value='{$datos[0]['apellido']}' required>
 									</div>";
+
+							//Input DNI
 							echo '<div class="input-group">';
 								echo "<label> DNI: </label>
 									<input name='DNI' type='number' value='{$datos[0]['DNI']}' min=7000000 required>
 								</div>";
+
+							//Submit
 							echo '<input type="submit" value="Modificar datos" class="btn btn btn-primary">';
 							echo '<a href="crud.php" class="btn btn btn-primary"> Cancelar </a>';
+
+							//Cierre Formulario
 							echo '</form>
 						</div>';
 

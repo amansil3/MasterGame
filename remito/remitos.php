@@ -42,7 +42,7 @@
 		style="position: sticky; z-index: 1071; top: 0;">
 			<div class="d-flex justify-content-end">
 		    <a class="navbar-brand" href="#"  style="color: #fff;">
-			    <img src="/mastergay/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="CRAPERO 3000 MASTER GAY">
+			    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="CRAPERO 3000 MASTER GAY">
 			    Sistema de Logística
 			</a>
 		</nav>
@@ -119,5 +119,5 @@
 			?>
 		<!-- END OF PHP -->
 
-			<a href=/mastergay/indexnico.html class="btn btn-success" style="margin-top: 2rem;">Volver al menu de Facturación</a>
-			<a href=/mastergay/index.html class="btn btn-success" style="margin-top: 2rem;">Volver al Inicio</a>
+			<a href=/MasterGame/indexnico.html class="btn btn-success" style="margin-top: 2rem;">Volver al menu de Facturación</a>
+			<a href=/MasterGame/index.html class="btn btn-success" style="margin-top: 2rem;">Volver al Inicio</a>

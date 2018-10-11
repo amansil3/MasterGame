@@ -29,38 +29,41 @@
 	<body>
 
 		<!-- Navbar -->
-		
+
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
-			<div class="d-flex justify-content-end">
+			
 		    <a class="navbar-brand" href="#"  style="color: #fff;">
 			    Sistema de Logística
 			</a>
+
+			<!-- Logo & Links to other pages -->
 			<div class="nav navbar-nav navbar-right">
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav mr-auto">
 			    		<li class="nav-item active">
-			    			<a class="nav-link" href="index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
+			    			<a class="nav-link" href="/MasterGame/index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    			<a class="nav-link" href="/MasterGame/FichasEmpleados.php" style="color: #fff;">Personal</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    			<a class="nav-link" href="/MasterGame/FichasEmpleados.php" style="color: #fff;">Proveedores</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="crud.php" style="color: #fff;">Clientes</a>
+			    			<a class="nav-link" href="/MasterGame/crud.php" style="color: #fff;">Clientes</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="stock.php" style="color: #fff;">Gestionar Stock</a>
+			    			<a class="nav-link" href="/MasterGame/stock.php" style="color: #fff;">Gestionar Stock</a>
 			    		</li>
 			    	</ul>
 			    	<span class="navbar-text">
 			    	</span>
 				</div>
 			</div>
-		</nav>
+			<!-- End of Logo & Links to other pages -->
 
+		</nav>
 		<!-- Content -->
 
 		<div class="container-fluid" style="margin-top: 3rem;">
