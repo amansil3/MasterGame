@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2018 a las 16:37:34
+-- Tiempo de generación: 11-10-2018 a las 16:55:05
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -112,6 +112,7 @@ INSERT INTO `personales` (`id`, `nombre`, `apellido`, `DNI`, `fecha_ingreso_labo
 
 CREATE TABLE `proveedores` (
   `id` int(100) NOT NULL,
+  `cuit` int(50) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `telefono` varchar(100) NOT NULL,
   `direccion` varchar(100) NOT NULL
@@ -143,6 +144,24 @@ CREATE TABLE `remitos` (
 INSERT INTO `remitos` (`nro_remito`, `fecha`, `nombre`, `apellido`, `dni`, `telefono`, `producto`, `cantidad`, `garantia`, `valor`) VALUES
 (1, '2018-10-09', 'Matias', 'Ramirez', 40457721, 2147483647, 'IMPRESORA EPSON XP441; MONITOR SAMSUNG 22\"', 2, '1 año;2 años', 6000),
 (2, '2018-10-09', 'JUAN', 'PERUGGIA', 39369741, 2147483647, 'MONITOR SAMSUNG LCD', 1, '1 AÑO', 2000);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `senias`
+--
+
+CREATE TABLE `senias` (
+  `nro_seña` int(50) NOT NULL,
+  `fecha` date NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `dni` int(50) NOT NULL,
+  `telefono` int(50) NOT NULL,
+  `producto` varchar(255) NOT NULL,
+  `senia` int(50) NOT NULL,
+  `valor` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 

@@ -1,5 +1,5 @@
 <?php
-require('funciones.php');
+require('../Conectar.php');
 $pdo = conectar();
 $consulta = $pdo->prepare("SELECT nro_seña, fecha, nombre, apellido, dni, telefono, producto, seña, valor, resto FROM señas");
 $consulta->execute();
