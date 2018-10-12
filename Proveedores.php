@@ -29,8 +29,6 @@
 	<body>
 
 		<!-- Navbar -->
-
-		
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
 			<div class="d-flex justify-content-end">
@@ -79,6 +77,7 @@
 				<!-- Main body -->
 
 				<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+
 					<?php
 						require('Conectar.php');
 
@@ -86,7 +85,7 @@
 						//La función conectar() está definida en Conectar.php, y conecta a la BD, 
 						//retornando un objeto de clase PDO con la conexión.
 
-						$consulta = $pdo->prepare("SELECT socios.nombre as socio, socios.apellido, socios.DNI, socios.id  FROM socios");
+						$consulta = $pdo->prepare("SELECT proveedores.id, proveedores.cuit, proveedores.nombre, proveedores.telefono, proveedores.direccion FROM proveedores");
 
 						//Aqui no hay parámetros, puede ejecutarse esta consulta con
 						// $pdo->query(), lo omitimos por brevedad.
@@ -94,27 +93,31 @@
 						$consulta -> execute();
 						$resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
-						//Mostramos los resultados en una tabla:
+						//Tabla
 						echo '<table class="table table-bordered table-sm table-hover table-striped" style="text-align:center;">
 								<thead class="thead-dark" style="text-align:center";>
 									<tr>
 										<th scope="col">Nombre</th>
-										<th scope="col">Apellido</th>
-										<th scope="col">DNI</th>
+										<th scope="col">CUIT</th>
+										<th scope="col">Telefono</th>
+										<th scope="col">Dirección</th>
 										<th scope="col">Editar</th>
 										<th scope="col">Borrar</th>
 									</tr>
 								</thead>
 								<tbody>';
-									foreach ($resultado as $elSocio) {
+
+								//mediante un foreach muestro los resultados de la consulta
+									foreach ($resultado as $proveedor) {
 									    echo '<tr>';
-									    echo '<td>'. $elSocio['socio']. '</td>';
-									    echo '<td>'. $elSocio['apellido'] .'</td>';
-									    echo '<td style="text-align=center">'. $elSocio['DNI'] .'</td>';
+									    echo '<td>'. $proovedor['cuit']. '</td>';
+									    echo '<td>'. $proveedor['nombre'] .'</td>';
+									    echo '<td>'. $proveedor['telefono'] .'</td>';
+									    echo '<td>'. $proveedor['direccion'] .'</td>';
 
 									    //Celda con el link para editar:
 									   echo '<td>
-									    		<a href="modificar.php?id='.$elSocio['id'].'">
+									    		<a href="modificar.php?id='.$proveedor['id'].'">
 									    			<button class="btn btn-info">
 										    			<i class="far fa-edit"></i>	
 										    		</button>
@@ -122,7 +125,7 @@
 									    	 </td>';
 									    //Celda con el link para eliminar:
 									    echo '<td>
-									    		<a href="baja.php?id='.$elSocio['id'].'">
+									    		<a href="baja.php?id='.$proveedor['id'].'">
 									    			<button class="btn btn-danger">
 										    			<i class="far fa-trash-alt"></i>	
 										    		</button>
@@ -140,8 +143,8 @@
 				<div class="d-none d-xl-block col-xl-2 bd-toc">
 					<ul class="section-nav" style="list-style: none; margin-top: 4rem;">
 						<li class="toc-entry toc-h2">
-							<a href="formAlta.php" style="color:#99979c"> 
-								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo cliente 
+							<a href="formAltaProveedores.php" style="color:#99979c"> 
+								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo proveedor
 							</a> 
 						</li>
 						<li class="toc-entry toc-h2">

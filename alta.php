@@ -1,81 +1,81 @@
 <html>
 	<head>
-	
-	<!-- Load js files -->
-	<script src="/MasterGame/jquery/jquery-3.2.1.min.js"></script>
-	<script src="/MasterGame/js/bootstrap.bundle.js"></script>
+		
+		<!-- Load js files -->
+		<script src="/MasterGame/jquery/jquery-3.2.1.min.js"></script>
+		<script src="/MasterGame/js/bootstrap.bundle.js"></script>
 
-	<!-- Load CSS & Icons library -->
-	<link rel="stylesheet" href="/MasterGame/css/bootstrap.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<!-- Load CSS & Icons library -->
+		<link rel="stylesheet" href="/MasterGame/css/bootstrap.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-	<!-- Responsive design for mobile navigation -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Responsive design for mobile navigation -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<style>
-		body {
-		    font-family: Arial;
-		}
-	</style>
+		<style>
+			body {
+			    font-family: Arial;
+			}
+		</style>
 
-	<!-- Assign UTF-8 -->
-	<meta charset="utf-8" />
+		<!-- Assign UTF-8 -->
+		<meta charset="utf-8" />
 
-	<title>
-		Alta
-	</title>
+		<title>
+			Alta
+		</title>
+
 	</head>
 	<body>
 
 		<!-- Navbar -->
-
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
 
-		    <a class="navbar-brand" href="#">
-			    <img src="/MasterGame/images/cn.png" width="80" height="30" class="d-inline-block align-top" alt="">
+		    <a class="navbar-brand" style="color: #fff;">
 			    Sistema de Logística
 			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarText">
-				<ul class="navbar-nav mr-auto">
-		    		<li class="nav-item active">
-		    			<a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
-		    		</li>
-		    		<li class="nav-item">
-		    			<a class="nav-link" href="FichasEmpleados.php">Personal</a>
-		    		</li>
-		    		<li class="nav-item">
-		    			<a class="nav-link" href="crud.php">Socios</a>
-		    		</li>
-		    	</ul>
-		    	<span class="navbar-text">
-		    	</span>
+			
+			<div class="nav navbar-nav navbar-right">
+				<div class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav mr-auto">
+			    		<li class="nav-item active">
+			    			<a class="nav-link" href="index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="crud.php" style="color: #fff;">Clientes</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="stock.php" style="color: #fff;">Gestionar Stock</a>
+			    		</li>
+			    	</ul>
+			    	<span class="navbar-text">
+			    	</span>
+				</div>
 			</div>
 		</nav>
-
 		<!-- End of Navbar -->
 
 		<!-- Content -->
-
 		<div class="container-fluid" style="margin-top: 3rem;">
 			<div class="row flex-xl-nowrap">
 
 				<!-- Left Sidebar -->
-
 				<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
 					helloworld!
 					helloworld!
 					helloworld!
 					helloworld!
 				</div>
-
 				<!-- End of Sidebar -->
 
 				<!-- Main body -->
-
 				<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
 
 					<?php	
@@ -89,7 +89,6 @@
 						$DNI = $_POST['DNI'];
 						$telefono = $_POST['telefono'];
 						$direccion = $_POST['direccion'];
-						//$actividad = $_POST['actividad'];
 
 						//Conecto a la BD
 						$pdo = conectar();
@@ -116,15 +115,14 @@
 						}
 					
 					?>	
+					<!-- Links -->
 					<a href="crud.php" class="btn btn btn-primary"> Volver a la página de socios </a>
 					<a href="index.html" class="btn btn btn-primary"> Volver al Inicio </a>
 
 				</main>
-
 				<!-- End of Main Body-->
 
 				<!-- Right Sidebar -->
-
 				<div class="d-none d-xl-block col-xl-2 bd-toc">
 					<ul class="section-nav" style="list-style: none; margin-top: 4rem;">
 						<li class="toc-entry toc-h2">
@@ -139,13 +137,11 @@
 						</li>
 					</ul>
 				</div>
-
 				<!-- End of  Sidebar -->
 
 			</div>
 
 		</div>
-
 		<!-- End of Content -->
 
 	</body> 
