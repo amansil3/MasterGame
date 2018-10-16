@@ -39,19 +39,19 @@
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav mr-auto">
 			    		<li class="nav-item active">
-			    			<a class="nav-link" href="index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
+			    			<a class="nav-link" href="../index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Personal</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Proveedores</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="crud.php" style="color: #fff;">Clientes</a>
+			    			<a class="nav-link" href="../crud.php" style="color: #fff;">Clientes</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="stock.php" style="color: #fff;">Gestionar Stock</a>
+			    			<a class="nav-link" href="../stock.php" style="color: #fff;">Gestionar Stock</a>
 			    		</li>
 			    	</ul>
 			    	<span class="navbar-text">
@@ -79,7 +79,7 @@
 				<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
 
 					<?php
-						require('Conectar.php');
+						require('../Conectar.php');
 
 						$pdo = conectar();
 						//La función conectar() está definida en Conectar.php, y conecta a la BD, 

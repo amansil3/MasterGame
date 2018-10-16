@@ -1,401 +1,402 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	<!-- Load js files -->
+	<script src="/object/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/object/js/bootstrap.bundle.js"></script>
 
-<HTML>
-<HEAD>
-	
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
-	<TITLE></TITLE>
-	<META NAME="GENERATOR" CONTENT="OpenOffice 4.1.5  (Win32)">
-	<META NAME="CREATED" CONTENT="0;0">
-	<META NAME="CHANGED" CONTENT="20171214;17492154">
-	
-	<STYLE>
-		<!-- 
-		BODY,DIV,TABLE,THEAD,TBODY,TFOOT,TR,TH,TD,P { font-family:"Arial"; font-size:x-small }
-		 -->
-	</STYLE>
-	
-</HEAD>
+	<!-- Load CSS & Icons library -->
+	<link rel="stylesheet" href="/object/css/bootstrap.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-<BODY TEXT="#000000">
-<TABLE FRAME=VOID CELLSPACING=0 COLS=10 RULES=NONE BORDER=0>
-	<COLGROUP><COL WIDTH=146><COL WIDTH=235><COL WIDTH=137><COL WIDTH=129><COL WIDTH=137><COL WIDTH=129><COL WIDTH=137><COL WIDTH=137><COL WIDTH=142><COL WIDTH=91></COLGROUP>
-	<TBODY>
-		<TR>
-			<TD WIDTH=146 HEIGHT=17 ALIGN=LEFT>PRECIO EFECTIVO</TD>
-			<TD WIDTH=235 ALIGN=LEFT>PRECIO 1 PAGO Y DEBITO</TD>
-			<TD WIDTH=137 ALIGN=LEFT>PRECIO 3 PAGOS</TD>
-			<TD WIDTH=129 ALIGN=LEFT>3 CUOTAS</TD>
-			<TD WIDTH=137 ALIGN=LEFT>PRECIO 6 PAGOS</TD>
-			<TD WIDTH=129 ALIGN=LEFT>6 CUOTAS</TD>
-			<TD WIDTH=137 ALIGN=LEFT>PRECIO 9 PAGOS</TD>
-			<TD WIDTH=137 ALIGN=LEFT>9 CUOTAS</TD>
-			<TD WIDTH=142 ALIGN=LEFT>PRECIO 12 PAGOS</TD>
-			<TD WIDTH=91 ALIGN=LEFT>12 CUOTAS</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="390" SDNUM="11274;">390</TD>
-			<TD ALIGN=RIGHT SDVAL="450" SDNUM="11274;">450</TD>
-			<TD ALIGN=RIGHT SDVAL="490" SDNUM="11274;0;0">490</TD>
-			<TD ALIGN=RIGHT SDVAL="163,333333333333" SDNUM="11274;0;0">163</TD>
-			<TD ALIGN=RIGHT SDVAL="520" SDNUM="11274;0;0">520</TD>
-			<TD ALIGN=RIGHT SDVAL="86,6666666666667" SDNUM="11274;0;0">87</TD>
-			<TD ALIGN=RIGHT SDVAL="560" SDNUM="11274;0;0">560</TD>
-			<TD ALIGN=RIGHT SDVAL="62,2222222222222" SDNUM="11274;0;0">62</TD>
-			<TD ALIGN=RIGHT SDVAL="590" SDNUM="11274;0;0">590</TD>
-			<TD ALIGN=RIGHT SDVAL="49,1666666666667" SDNUM="11274;0;0">49</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="490" SDNUM="11274;">490</TD>
-			<TD ALIGN=RIGHT SDVAL="550" SDNUM="11274;">550</TD>
-			<TD ALIGN=RIGHT SDVAL="590" SDNUM="11274;0;0">590</TD>
-			<TD ALIGN=RIGHT SDVAL="196,666666666667" SDNUM="11274;0;0">197</TD>
-			<TD ALIGN=RIGHT SDVAL="620" SDNUM="11274;0;0">620</TD>
-			<TD ALIGN=RIGHT SDVAL="103,333333333333" SDNUM="11274;0;0">103</TD>
-			<TD ALIGN=RIGHT SDVAL="660" SDNUM="11274;0;0">660</TD>
-			<TD ALIGN=RIGHT SDVAL="73,3333333333333" SDNUM="11274;0;0">73</TD>
-			<TD ALIGN=RIGHT SDVAL="690" SDNUM="11274;0;0">690</TD>
-			<TD ALIGN=RIGHT SDVAL="57,5" SDNUM="11274;0;0">58</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="590" SDNUM="11274;">590</TD>
-			<TD ALIGN=RIGHT SDVAL="650" SDNUM="11274;">650</TD>
-			<TD ALIGN=RIGHT SDVAL="690" SDNUM="11274;0;0">690</TD>
-			<TD ALIGN=RIGHT SDVAL="230" SDNUM="11274;0;0">230</TD>
-			<TD ALIGN=RIGHT SDVAL="730" SDNUM="11274;0;0">730</TD>
-			<TD ALIGN=RIGHT SDVAL="121,666666666667" SDNUM="11274;0;0">122</TD>
-			<TD ALIGN=RIGHT SDVAL="790" SDNUM="11274;0;0">790</TD>
-			<TD ALIGN=RIGHT SDVAL="87,7777777777778" SDNUM="11274;0;0">88</TD>
-			<TD ALIGN=RIGHT SDVAL="790" SDNUM="11274;0;0">790</TD>
-			<TD ALIGN=RIGHT SDVAL="65,8333333333333" SDNUM="11274;0;0">66</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="690" SDNUM="11274;">690</TD>
-			<TD ALIGN=RIGHT SDVAL="790" SDNUM="11274;">790</TD>
-			<TD ALIGN=RIGHT SDVAL="820" SDNUM="11274;0;0">820</TD>
-			<TD ALIGN=RIGHT SDVAL="273,333333333333" SDNUM="11274;0;0">273</TD>
-			<TD ALIGN=RIGHT SDVAL="870" SDNUM="11274;0;0">870</TD>
-			<TD ALIGN=RIGHT SDVAL="145" SDNUM="11274;0;0">145</TD>
-			<TD ALIGN=RIGHT SDVAL="930" SDNUM="11274;0;0">930</TD>
-			<TD ALIGN=RIGHT SDVAL="103,333333333333" SDNUM="11274;0;0">103</TD>
-			<TD ALIGN=RIGHT SDVAL="990" SDNUM="11274;0;0">990</TD>
-			<TD ALIGN=RIGHT SDVAL="82,5" SDNUM="11274;0;0">83</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="790" SDNUM="11274;">790</TD>
-			<TD ALIGN=RIGHT SDVAL="890" SDNUM="11274;">890</TD>
-			<TD ALIGN=RIGHT SDVAL="950" SDNUM="11274;0;0">950</TD>
-			<TD ALIGN=RIGHT SDVAL="316,666666666667" SDNUM="11274;0;0">317</TD>
-			<TD ALIGN=RIGHT SDVAL="990" SDNUM="11274;0;0">990</TD>
-			<TD ALIGN=RIGHT SDVAL="165" SDNUM="11274;0;0">165</TD>
-			<TD ALIGN=RIGHT SDVAL="1050" SDNUM="11274;0;0">1050</TD>
-			<TD ALIGN=RIGHT SDVAL="116,666666666667" SDNUM="11274;0;0">117</TD>
-			<TD ALIGN=RIGHT SDVAL="1090" SDNUM="11274;0;0">1090</TD>
-			<TD ALIGN=RIGHT SDVAL="90,8333333333333" SDNUM="11274;0;0">91</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="890" SDNUM="11274;">890</TD>
-			<TD ALIGN=RIGHT SDVAL="990" SDNUM="11274;">990</TD>
-			<TD ALIGN=RIGHT SDVAL="1050" SDNUM="11274;0;0">1050</TD>
-			<TD ALIGN=RIGHT SDVAL="350" SDNUM="11274;0;0">350</TD>
-			<TD ALIGN=RIGHT SDVAL="1130" SDNUM="11274;0;0">1130</TD>
-			<TD ALIGN=RIGHT SDVAL="188,333333333333" SDNUM="11274;0;0">188</TD>
-			<TD ALIGN=RIGHT SDVAL="1190" SDNUM="11274;0;0">1190</TD>
-			<TD ALIGN=RIGHT SDVAL="132,222222222222" SDNUM="11274;0;0">132</TD>
-			<TD ALIGN=RIGHT SDVAL="1190" SDNUM="11274;0;0">1190</TD>
-			<TD ALIGN=RIGHT SDVAL="99,1666666666667" SDNUM="11274;0;0">99</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="990" SDNUM="11274;">990</TD>
-			<TD ALIGN=RIGHT SDVAL="1090" SDNUM="11274;">1090</TD>
-			<TD ALIGN=RIGHT SDVAL="1190" SDNUM="11274;0;0">1190</TD>
-			<TD ALIGN=RIGHT SDVAL="396,666666666667" SDNUM="11274;0;0">397</TD>
-			<TD ALIGN=RIGHT SDVAL="1250" SDNUM="11274;0;0">1250</TD>
-			<TD ALIGN=RIGHT SDVAL="208,333333333333" SDNUM="11274;0;0">208</TD>
-			<TD ALIGN=RIGHT SDVAL="1350" SDNUM="11274;0;0">1350</TD>
-			<TD ALIGN=RIGHT SDVAL="150" SDNUM="11274;0;0">150</TD>
-			<TD ALIGN=RIGHT SDVAL="1390" SDNUM="11274;0;0">1390</TD>
-			<TD ALIGN=RIGHT SDVAL="115,833333333333" SDNUM="11274;0;0">116</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="1090" SDNUM="11274;">1090</TD>
-			<TD ALIGN=RIGHT SDVAL="1190" SDNUM="11274;">1190</TD>
-			<TD ALIGN=RIGHT SDVAL="1290" SDNUM="11274;0;0">1290</TD>
-			<TD ALIGN=RIGHT SDVAL="430" SDNUM="11274;0;0">430</TD>
-			<TD ALIGN=RIGHT SDVAL="1350" SDNUM="11274;0;0">1350</TD>
-			<TD ALIGN=RIGHT SDVAL="225" SDNUM="11274;0;0">225</TD>
-			<TD ALIGN=RIGHT SDVAL="1450" SDNUM="11274;0;0">1450</TD>
-			<TD ALIGN=RIGHT SDVAL="161,111111111111" SDNUM="11274;0;0">161</TD>
-			<TD ALIGN=RIGHT SDVAL="1490" SDNUM="11274;0;0">1490</TD>
-			<TD ALIGN=RIGHT SDVAL="124,166666666667" SDNUM="11274;0;0">124</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="1190" SDNUM="11274;">1190</TD>
-			<TD ALIGN=RIGHT SDVAL="1290" SDNUM="11274;">1290</TD>
-			<TD ALIGN=RIGHT SDVAL="1390" SDNUM="11274;0;0">1390</TD>
-			<TD ALIGN=RIGHT SDVAL="463,333333333333" SDNUM="11274;0;0">463</TD>
-			<TD ALIGN=RIGHT SDVAL="1450" SDNUM="11274;0;0">1450</TD>
-			<TD ALIGN=RIGHT SDVAL="241,666666666667" SDNUM="11274;0;0">242</TD>
-			<TD ALIGN=RIGHT SDVAL="1550" SDNUM="11274;0;0">1550</TD>
-			<TD ALIGN=RIGHT SDVAL="172,222222222222" SDNUM="11274;0;0">172</TD>
-			<TD ALIGN=RIGHT SDVAL="1590" SDNUM="11274;0;0">1590</TD>
-			<TD ALIGN=RIGHT SDVAL="132,5" SDNUM="11274;0;0">133</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="1290" SDNUM="11274;">1290</TD>
-			<TD ALIGN=RIGHT SDVAL="1390" SDNUM="11274;">1390</TD>
-			<TD ALIGN=RIGHT SDVAL="1550" SDNUM="11274;0;0">1550</TD>
-			<TD ALIGN=RIGHT SDVAL="516,666666666667" SDNUM="11274;0;0">517</TD>
-			<TD ALIGN=RIGHT SDVAL="1650" SDNUM="11274;0;0">1650</TD>
-			<TD ALIGN=RIGHT SDVAL="275" SDNUM="11274;0;0">275</TD>
-			<TD ALIGN=RIGHT SDVAL="1750" SDNUM="11274;0;0">1750</TD>
-			<TD ALIGN=RIGHT SDVAL="194,444444444444" SDNUM="11274;0;0">194</TD>
-			<TD ALIGN=RIGHT SDVAL="1790" SDNUM="11274;0;0">1790</TD>
-			<TD ALIGN=RIGHT SDVAL="149,166666666667" SDNUM="11274;0;0">149</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="1390" SDNUM="11274;">1390</TD>
-			<TD ALIGN=RIGHT SDVAL="1490" SDNUM="11274;">1490</TD>
-			<TD ALIGN=RIGHT SDVAL="1650" SDNUM="11274;0;0">1650</TD>
-			<TD ALIGN=RIGHT SDVAL="550" SDNUM="11274;0;0">550</TD>
-			<TD ALIGN=RIGHT SDVAL="1750" SDNUM="11274;0;0">1750</TD>
-			<TD ALIGN=RIGHT SDVAL="291,666666666667" SDNUM="11274;0;0">292</TD>
-			<TD ALIGN=RIGHT SDVAL="1850" SDNUM="11274;0;0">1850</TD>
-			<TD ALIGN=RIGHT SDVAL="205,555555555556" SDNUM="11274;0;0">206</TD>
-			<TD ALIGN=RIGHT SDVAL="1890" SDNUM="11274;0;0">1890</TD>
-			<TD ALIGN=RIGHT SDVAL="157,5" SDNUM="11274;0;0">158</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="1490" SDNUM="11274;">1490</TD>
-			<TD ALIGN=RIGHT SDVAL="1650" SDNUM="11274;">1650</TD>
-			<TD ALIGN=RIGHT SDVAL="1750" SDNUM="11274;0;0">1750</TD>
-			<TD ALIGN=RIGHT SDVAL="583,333333333333" SDNUM="11274;0;0">583</TD>
-			<TD ALIGN=RIGHT SDVAL="1850" SDNUM="11274;0;0">1850</TD>
-			<TD ALIGN=RIGHT SDVAL="308,333333333333" SDNUM="11274;0;0">308</TD>
-			<TD ALIGN=RIGHT SDVAL="1950" SDNUM="11274;0;0">1950</TD>
-			<TD ALIGN=RIGHT SDVAL="216,666666666667" SDNUM="11274;0;0">217</TD>
-			<TD ALIGN=RIGHT SDVAL="2050" SDNUM="11274;0;0">2050</TD>
-			<TD ALIGN=RIGHT SDVAL="170,833333333333" SDNUM="11274;0;0">171</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="1990" SDNUM="11274;">1990</TD>
-			<TD ALIGN=RIGHT SDVAL="2290" SDNUM="11274;">2290</TD>
-			<TD ALIGN=RIGHT SDVAL="2490" SDNUM="11274;">2490</TD>
-			<TD ALIGN=RIGHT SDVAL="830" SDNUM="11274;0;0">830</TD>
-			<TD ALIGN=RIGHT SDVAL="2590" SDNUM="11274;">2590</TD>
-			<TD ALIGN=RIGHT SDVAL="431,666666666667" SDNUM="11274;0;0">432</TD>
-			<TD ALIGN=RIGHT SDVAL="2750" SDNUM="11274;">2750</TD>
-			<TD ALIGN=RIGHT SDVAL="305,555555555556" SDNUM="11274;0;0">306</TD>
-			<TD ALIGN=RIGHT SDVAL="2990" SDNUM="11274;">2990</TD>
-			<TD ALIGN=RIGHT SDVAL="249,166666666667" SDNUM="11274;0;0">249</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="2490" SDNUM="11274;">2490</TD>
-			<TD ALIGN=RIGHT SDVAL="2790" SDNUM="11274;">2790</TD>
-			<TD ALIGN=RIGHT SDVAL="2990" SDNUM="11274;">2990</TD>
-			<TD ALIGN=RIGHT SDVAL="996,666666666667" SDNUM="11274;0;0">997</TD>
-			<TD ALIGN=RIGHT SDVAL="3150" SDNUM="11274;">3150</TD>
-			<TD ALIGN=RIGHT SDVAL="525" SDNUM="11274;0;0">525</TD>
-			<TD ALIGN=RIGHT SDVAL="3290" SDNUM="11274;">3290</TD>
-			<TD ALIGN=RIGHT SDVAL="365,555555555556" SDNUM="11274;0;0">366</TD>
-			<TD ALIGN=RIGHT SDVAL="3490" SDNUM="11274;">3490</TD>
-			<TD ALIGN=RIGHT SDVAL="290,833333333333" SDNUM="11274;0;0">291</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="4490" SDNUM="11274;">4490</TD>
-			<TD ALIGN=RIGHT SDVAL="4990" SDNUM="11274;">4990</TD>
-			<TD ALIGN=RIGHT SDVAL="5390" SDNUM="11274;">5390</TD>
-			<TD ALIGN=RIGHT SDVAL="1796,66666666667" SDNUM="11274;0;0">1797</TD>
-			<TD ALIGN=RIGHT SDVAL="5590" SDNUM="11274;">5590</TD>
-			<TD ALIGN=RIGHT SDVAL="931,666666666667" SDNUM="11274;0;0">932</TD>
-			<TD ALIGN=RIGHT SDVAL="5890" SDNUM="11274;">5890</TD>
-			<TD ALIGN=RIGHT SDVAL="654,444444444444" SDNUM="11274;0;0">654</TD>
-			<TD ALIGN=RIGHT SDVAL="6190" SDNUM="11274;">6190</TD>
-			<TD ALIGN=RIGHT SDVAL="515,833333333333" SDNUM="11274;0;0">516</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="4990" SDNUM="11274;">4990</TD>
-			<TD ALIGN=RIGHT SDVAL="5590" SDNUM="11274;">5590</TD>
-			<TD ALIGN=RIGHT SDVAL="5990" SDNUM="11274;">5990</TD>
-			<TD ALIGN=RIGHT SDVAL="1996,66666666667" SDNUM="11274;0;0">1997</TD>
-			<TD ALIGN=RIGHT SDVAL="6290" SDNUM="11274;">6290</TD>
-			<TD ALIGN=RIGHT SDVAL="1048,33333333333" SDNUM="11274;0;0">1048</TD>
-			<TD ALIGN=RIGHT SDVAL="6590" SDNUM="11274;">6590</TD>
-			<TD ALIGN=RIGHT SDVAL="732,222222222222" SDNUM="11274;0;0">732</TD>
-			<TD ALIGN=RIGHT SDVAL="6890" SDNUM="11274;">6890</TD>
-			<TD ALIGN=RIGHT SDVAL="574,166666666667" SDNUM="11274;0;0">574</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="5990" SDNUM="11274;">5990</TD>
-			<TD ALIGN=RIGHT SDVAL="6690" SDNUM="11274;">6690</TD>
-			<TD ALIGN=RIGHT SDVAL="7190" SDNUM="11274;">7190</TD>
-			<TD ALIGN=RIGHT SDVAL="2396,66666666667" SDNUM="11274;0;0">2397</TD>
-			<TD ALIGN=RIGHT SDVAL="7490" SDNUM="11274;">7490</TD>
-			<TD ALIGN=RIGHT SDVAL="1248,33333333333" SDNUM="11274;0;0">1248</TD>
-			<TD ALIGN=RIGHT SDVAL="7790" SDNUM="11274;">7790</TD>
-			<TD ALIGN=RIGHT SDVAL="865,555555555556" SDNUM="11274;0;0">866</TD>
-			<TD ALIGN=RIGHT SDVAL="8290" SDNUM="11274;">8290</TD>
-			<TD ALIGN=RIGHT SDVAL="690,833333333333" SDNUM="11274;0;0">691</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="6490" SDNUM="11274;">6490</TD>
-			<TD ALIGN=RIGHT SDVAL="7490" SDNUM="11274;">7490</TD>
-			<TD ALIGN=RIGHT SDVAL="7990" SDNUM="11274;">7990</TD>
-			<TD ALIGN=RIGHT SDVAL="2663,33333333333" SDNUM="11274;0;0">2663</TD>
-			<TD ALIGN=RIGHT SDVAL="8490" SDNUM="11274;">8490</TD>
-			<TD ALIGN=RIGHT SDVAL="1415" SDNUM="11274;0;0">1415</TD>
-			<TD ALIGN=RIGHT SDVAL="8990" SDNUM="11274;">8990</TD>
-			<TD ALIGN=RIGHT SDVAL="998,888888888889" SDNUM="11274;0;0">999</TD>
-			<TD ALIGN=RIGHT SDVAL="9490" SDNUM="11274;">9490</TD>
-			<TD ALIGN=RIGHT SDVAL="790,833333333333" SDNUM="11274;0;0">791</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="6990" SDNUM="11274;">6990</TD>
-			<TD ALIGN=RIGHT SDVAL="7990" SDNUM="11274;">7990</TD>
-			<TD ALIGN=RIGHT SDVAL="8490" SDNUM="11274;0;0">8490</TD>
-			<TD ALIGN=RIGHT SDVAL="2830" SDNUM="11274;0;0">2830</TD>
-			<TD ALIGN=RIGHT SDVAL="8990" SDNUM="11274;0;0">8990</TD>
-			<TD ALIGN=RIGHT SDVAL="1498,33333333333" SDNUM="11274;0;0">1498</TD>
-			<TD ALIGN=RIGHT SDVAL="9490" SDNUM="11274;0;0">9490</TD>
-			<TD ALIGN=RIGHT SDVAL="1054,44444444444" SDNUM="11274;0;0">1054</TD>
-			<TD ALIGN=RIGHT SDVAL="9990" SDNUM="11274;0;0">9990</TD>
-			<TD ALIGN=RIGHT SDVAL="832,5" SDNUM="11274;0;0">833</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="8490" SDNUM="11274;">8490</TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=RIGHT SDVAL="11990" SDNUM="11274;">11990</TD>
-			<TD ALIGN=RIGHT SDVAL="999,166666666667" SDNUM="11274;0;0">999</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="8990" SDNUM="11274;">8990</TD>
-			<TD ALIGN=RIGHT SDVAL="9990" SDNUM="11274;">9990</TD>
-			<TD ALIGN=RIGHT SDVAL="10990" SDNUM="11274;0;0">10990</TD>
-			<TD ALIGN=RIGHT SDVAL="3663,33333333333" SDNUM="11274;0;0">3663</TD>
-			<TD ALIGN=RIGHT SDVAL="11490" SDNUM="11274;0;0">11490</TD>
-			<TD ALIGN=RIGHT SDVAL="1915" SDNUM="11274;0;0">1915</TD>
-			<TD ALIGN=RIGHT SDVAL="11990" SDNUM="11274;0;0">11990</TD>
-			<TD ALIGN=RIGHT SDVAL="1332,22222222222" SDNUM="11274;0;0">1332</TD>
-			<TD ALIGN=RIGHT SDVAL="12990" SDNUM="11274;0;0">12990</TD>
-			<TD ALIGN=RIGHT SDVAL="1082,5" SDNUM="11274;0;0">1083</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="9490" SDNUM="11274;">9490</TD>
-			<TD ALIGN=RIGHT SDVAL="10490" SDNUM="11274;">10490</TD>
-			<TD ALIGN=RIGHT SDVAL="11490" SDNUM="11274;0;0">11490</TD>
-			<TD ALIGN=RIGHT SDVAL="3830" SDNUM="11274;0;0">3830</TD>
-			<TD ALIGN=RIGHT SDVAL="11990" SDNUM="11274;0;0">11990</TD>
-			<TD ALIGN=RIGHT SDVAL="1998,33333333333" SDNUM="11274;0;0">1998</TD>
-			<TD ALIGN=RIGHT SDVAL="12490" SDNUM="11274;0;0">12490</TD>
-			<TD ALIGN=RIGHT SDVAL="1387,77777777778" SDNUM="11274;0;0">1388</TD>
-			<TD ALIGN=RIGHT SDVAL="13490" SDNUM="11274;0;0">13490</TD>
-			<TD ALIGN=RIGHT SDVAL="1124,16666666667" SDNUM="11274;0;0">1124</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="12000" SDNUM="11274;">12000</TD>
-			<TD ALIGN=RIGHT SDVAL="13990" SDNUM="11274;">13990</TD>
-			<TD ALIGN=RIGHT SDVAL="14990" SDNUM="11274;0;0">14990</TD>
-			<TD ALIGN=RIGHT SDVAL="4996,66666666667" SDNUM="11274;0;0">4997</TD>
-			<TD ALIGN=RIGHT SDVAL="15490" SDNUM="11274;0;0">15490</TD>
-			<TD ALIGN=RIGHT SDVAL="2581,66666666667" SDNUM="11274;0;0">2582</TD>
-			<TD ALIGN=RIGHT SDVAL="16490" SDNUM="11274;0;0">16490</TD>
-			<TD ALIGN=RIGHT SDVAL="1832,22222222222" SDNUM="11274;0;0">1832</TD>
-			<TD ALIGN=RIGHT SDVAL="17490" SDNUM="11274;0;0">17490</TD>
-			<TD ALIGN=RIGHT SDVAL="1457,5" SDNUM="11274;0;0">1458</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=RIGHT SDVAL="12990" SDNUM="11274;">12990</TD>
-			<TD ALIGN=RIGHT SDVAL="14990" SDNUM="11274;">14990</TD>
-			<TD ALIGN=RIGHT SDVAL="15990" SDNUM="11274;0;0">15990</TD>
-			<TD ALIGN=RIGHT SDVAL="5330" SDNUM="11274;0;0">5330</TD>
-			<TD ALIGN=RIGHT SDVAL="16490" SDNUM="11274;0;0">16490</TD>
-			<TD ALIGN=RIGHT SDVAL="2748,33333333333" SDNUM="11274;0;0">2748</TD>
-			<TD ALIGN=RIGHT SDVAL="17490" SDNUM="11274;0;0">17490</TD>
-			<TD ALIGN=RIGHT SDVAL="1943,33333333333" SDNUM="11274;0;0">1943</TD>
-			<TD ALIGN=RIGHT SDVAL="18490" SDNUM="11274;0;0">18490</TD>
-			<TD ALIGN=RIGHT SDVAL="1540,83333333333" SDNUM="11274;0;0">1541</TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=LEFT>1 cuota</TD>
-			<TD ALIGN=LEFT> 5.5% total</TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=LEFT>3 cuotas</TD>
-			<TD ALIGN=LEFT> 12% total</TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=LEFT>6 cuotas</TD>
-			<TD ALIGN=LEFT> 15% total</TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=LEFT>9 cuotas</TD>
-			<TD ALIGN=LEFT> 19% total</TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-		</TR>
-		<TR>
-			<TD HEIGHT=17 ALIGN=LEFT>12 cuotas</TD>
-			<TD ALIGN=LEFT> 23% total</TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-			<TD ALIGN=LEFT><BR></TD>
-		</TR>
-	</TBODY>
-</TABLE>
+	<!-- Responsive design for mobile navigation -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Loading Script -->
+	<script src="jquery-1.8.3.js"></script>
+
+	<style>
+		body {
+		    font-family: Arial;
+		}
+		
+	</style>
+
+	<!-- Assign UTF-8 -->
+	<meta charset="utf-8" />
+
+	<title>
+		Facturación
+	</title>
+
+	</head>
+
+	<body style="background-color: #eee;">
+
+		<div class="content">
+
+			<!-- Navbar -->			
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
+			style="position: sticky; z-index: 1071; top: 0;">
+				<div class="d-flex justify-content-end">
+			    <a class="navbar-brand" href="#"  style="color: #fff;">
+				    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="Sistema de Logística">
+				    Sistema de Logística
+				</a>
+			</nav>
+
+			<!-- Content -->
+
+			<div class="container-fluid" style="margin-top: 3rem;">
+				<div class="row flex-xl-nowrap">
+
+					<!-- Left Sidebar -->
+					<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+						<table class="table table-bordered table-sm table-hover table-striped" style="text-align:center;">
+							<thead class="thead-dark" style="text-align: center;">
+								<tr>
+									<th scope="col">Cuotas</th>
+									<th scope="col">Interés</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td height=17 align=left>1 cuota</td>
+									<td align=left> 5.5% total</td>
+								</tr>
+								<tr>
+									<td height=17 align=left>3 cuotas</td>
+									<td align=left> 12% total</td>
+								</tr>
+								<tr>
+									<td height=17 align=left>6 cuotas</td>
+									<td align=left> 15% total</td>
+								</tr>
+								<tr>
+									<td height=17 align=left>9 cuotas</td>
+									<td align=left> 19% total</td>
+								</tr>
+								<tr>
+									<td height=17 align=left>12 cuotas</td>
+									<td align=left> 23% total</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<!-- Main body -->
+
+					<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+
+					<!-- Tabla -->
+					<table class="table table-bordered table-sm table-hover table-striped" style="text-align:center;">
+						<thead class="thead-dark" style="text-align: center;">
+							<tr>
+								<th width=146 height=17 align=left>PRECIO EFECTIVO</th>
+								<th width=235 align=left>PRECIO 1 PAGO Y DEBITO</th>
+								<th width=137 align=left>PRECIO 3 PAGOS</th>
+								<th width=129 align=left>3 CUOTAS</th>
+								<th width=137 align=left>PRECIO 6 PAGOS</th>
+								<th width=129 align=left>6 CUOTAS</th>
+								<th width=137 align=left>PRECIO 9 PAGOS</th>
+								<th width=137 align=left>9 CUOTAS</th>
+								<th width=142 align=left>PRECIO 12 PAGOS</th>
+								<th width=91 align=left>12 CUOTAS</th>
+							</tr>
+						</thead>
+						<tbody style="text-align: center;">
+							<tr>
+								<td height=17 align=right sdval="390" sdnum="11274;">390</td>
+								<td align=right sdval="450" sdnum="11274;">450</td>
+								<td align=right sdval="490" sdnum="11274;0;0">490</td>
+								<td align=right sdval="163,333333333333" sdnum="11274;0;0">163</td>
+								<td align=right sdval="520" sdnum="11274;0;0">520</td>
+								<td align=right sdval="86,6666666666667" sdnum="11274;0;0">87</td>
+								<td align=right sdval="560" sdnum="11274;0;0">560</td>
+								<td align=right sdval="62,2222222222222" sdnum="11274;0;0">62</td>
+								<td align=right sdval="590" sdnum="11274;0;0">590</td>
+								<td align=right sdval="49,1666666666667" sdnum="11274;0;0">49</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="490" sdnum="11274;">490</td>
+								<td align=right sdval="550" sdnum="11274;">550</td>
+								<td align=right sdval="590" sdnum="11274;0;0">590</td>
+								<td align=right sdval="196,666666666667" sdnum="11274;0;0">197</td>
+								<td align=right sdval="620" sdnum="11274;0;0">620</td>
+								<td align=right sdval="103,333333333333" sdnum="11274;0;0">103</td>
+								<td align=right sdval="660" sdnum="11274;0;0">660</td>
+								<td align=right sdval="73,3333333333333" sdnum="11274;0;0">73</td>
+								<td align=right sdval="690" sdnum="11274;0;0">690</td>
+								<td align=right sdval="57,5" sdnum="11274;0;0">58</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="590" sdnum="11274;">590</td>
+								<td align=right sdval="650" sdnum="11274;">650</td>
+								<td align=right sdval="690" sdnum="11274;0;0">690</td>
+								<td align=right sdval="230" sdnum="11274;0;0">230</td>
+								<td align=right sdval="730" sdnum="11274;0;0">730</td>
+								<td align=right sdval="121,666666666667" sdnum="11274;0;0">122</td>
+								<td align=right sdval="790" sdnum="11274;0;0">790</td>
+								<td align=right sdval="87,7777777777778" sdnum="11274;0;0">88</td>
+								<td align=right sdval="790" sdnum="11274;0;0">790</td>
+								<td align=right sdval="65,8333333333333" sdnum="11274;0;0">66</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="690" sdnum="11274;">690</td>
+								<td align=right sdval="790" sdnum="11274;">790</td>
+								<td align=right sdval="820" sdnum="11274;0;0">820</td>
+								<td align=right sdval="273,333333333333" sdnum="11274;0;0">273</td>
+								<td align=right sdval="870" sdnum="11274;0;0">870</td>
+								<td align=right sdval="145" sdnum="11274;0;0">145</td>
+								<td align=right sdval="930" sdnum="11274;0;0">930</td>
+								<td align=right sdval="103,333333333333" sdnum="11274;0;0">103</td>
+								<td align=right sdval="990" sdnum="11274;0;0">990</td>
+								<td align=right sdval="82,5" sdnum="11274;0;0">83</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="790" sdnum="11274;">790</td>
+								<td align=right sdval="890" sdnum="11274;">890</td>
+								<td align=right sdval="950" sdnum="11274;0;0">950</td>
+								<td align=right sdval="316,666666666667" sdnum="11274;0;0">317</td>
+								<td align=right sdval="990" sdnum="11274;0;0">990</td>
+								<td align=right sdval="165" sdnum="11274;0;0">165</td>
+								<td align=right sdval="1050" sdnum="11274;0;0">1050</td>
+								<td align=right sdval="116,666666666667" sdnum="11274;0;0">117</td>
+								<td align=right sdval="1090" sdnum="11274;0;0">1090</td>
+								<td align=right sdval="90,8333333333333" sdnum="11274;0;0">91</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="890" sdnum="11274;">890</td>
+								<td align=right sdval="990" sdnum="11274;">990</td>
+								<td align=right sdval="1050" sdnum="11274;0;0">1050</td>
+								<td align=right sdval="350" sdnum="11274;0;0">350</td>
+								<td align=right sdval="1130" sdnum="11274;0;0">1130</td>
+								<td align=right sdval="188,333333333333" sdnum="11274;0;0">188</td>
+								<td align=right sdval="1190" sdnum="11274;0;0">1190</td>
+								<td align=right sdval="132,222222222222" sdnum="11274;0;0">132</td>
+								<td align=right sdval="1190" sdnum="11274;0;0">1190</td>
+								<td align=right sdval="99,1666666666667" sdnum="11274;0;0">99</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="990" sdnum="11274;">990</td>
+								<td align=right sdval="1090" sdnum="11274;">1090</td>
+								<td align=right sdval="1190" sdnum="11274;0;0">1190</td>
+								<td align=right sdval="396,666666666667" sdnum="11274;0;0">397</td>
+								<td align=right sdval="1250" sdnum="11274;0;0">1250</td>
+								<td align=right sdval="208,333333333333" sdnum="11274;0;0">208</td>
+								<td align=right sdval="1350" sdnum="11274;0;0">1350</td>
+								<td align=right sdval="150" sdnum="11274;0;0">150</td>
+								<td align=right sdval="1390" sdnum="11274;0;0">1390</td>
+								<td align=right sdval="115,833333333333" sdnum="11274;0;0">116</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="1090" sdnum="11274;">1090</td>
+								<td align=right sdval="1190" sdnum="11274;">1190</td>
+								<td align=right sdval="1290" sdnum="11274;0;0">1290</td>
+								<td align=right sdval="430" sdnum="11274;0;0">430</td>
+								<td align=right sdval="1350" sdnum="11274;0;0">1350</td>
+								<td align=right sdval="225" sdnum="11274;0;0">225</td>
+								<td align=right sdval="1450" sdnum="11274;0;0">1450</td>
+								<td align=right sdval="161,111111111111" sdnum="11274;0;0">161</td>
+								<td align=right sdval="1490" sdnum="11274;0;0">1490</td>
+								<td align=right sdval="124,166666666667" sdnum="11274;0;0">124</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="1190" sdnum="11274;">1190</td>
+								<td align=right sdval="1290" sdnum="11274;">1290</td>
+								<td align=right sdval="1390" sdnum="11274;0;0">1390</td>
+								<td align=right sdval="463,333333333333" sdnum="11274;0;0">463</td>
+								<td align=right sdval="1450" sdnum="11274;0;0">1450</td>
+								<td align=right sdval="241,666666666667" sdnum="11274;0;0">242</td>
+								<td align=right sdval="1550" sdnum="11274;0;0">1550</td>
+								<td align=right sdval="172,222222222222" sdnum="11274;0;0">172</td>
+								<td align=right sdval="1590" sdnum="11274;0;0">1590</td>
+								<td align=right sdval="132,5" sdnum="11274;0;0">133</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="1290" sdnum="11274;">1290</td>
+								<td align=right sdval="1390" sdnum="11274;">1390</td>
+								<td align=right sdval="1550" sdnum="11274;0;0">1550</td>
+								<td align=right sdval="516,666666666667" sdnum="11274;0;0">517</td>
+								<td align=right sdval="1650" sdnum="11274;0;0">1650</td>
+								<td align=right sdval="275" sdnum="11274;0;0">275</td>
+								<td align=right sdval="1750" sdnum="11274;0;0">1750</td>
+								<td align=right sdval="194,444444444444" sdnum="11274;0;0">194</td>
+								<td align=right sdval="1790" sdnum="11274;0;0">1790</td>
+								<td align=right sdval="149,166666666667" sdnum="11274;0;0">149</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="1390" sdnum="11274;">1390</td>
+								<td align=right sdval="1490" sdnum="11274;">1490</td>
+								<td align=right sdval="1650" sdnum="11274;0;0">1650</td>
+								<td align=right sdval="550" sdnum="11274;0;0">550</td>
+								<td align=right sdval="1750" sdnum="11274;0;0">1750</td>
+								<td align=right sdval="291,666666666667" sdnum="11274;0;0">292</td>
+								<td align=right sdval="1850" sdnum="11274;0;0">1850</td>
+								<td align=right sdval="205,555555555556" sdnum="11274;0;0">206</td>
+								<td align=right sdval="1890" sdnum="11274;0;0">1890</td>
+								<td align=right sdval="157,5" sdnum="11274;0;0">158</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="1490" sdnum="11274;">1490</td>
+								<td align=right sdval="1650" sdnum="11274;">1650</td>
+								<td align=right sdval="1750" sdnum="11274;0;0">1750</td>
+								<td align=right sdval="583,333333333333" sdnum="11274;0;0">583</td>
+								<td align=right sdval="1850" sdnum="11274;0;0">1850</td>
+								<td align=right sdval="308,333333333333" sdnum="11274;0;0">308</td>
+								<td align=right sdval="1950" sdnum="11274;0;0">1950</td>
+								<td align=right sdval="216,666666666667" sdnum="11274;0;0">217</td>
+								<td align=right sdval="2050" sdnum="11274;0;0">2050</td>
+								<td align=right sdval="170,833333333333" sdnum="11274;0;0">171</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="1990" sdnum="11274;">1990</td>
+								<td align=right sdval="2290" sdnum="11274;">2290</td>
+								<td align=right sdval="2490" sdnum="11274;">2490</td>
+								<td align=right sdval="830" sdnum="11274;0;0">830</td>
+								<td align=right sdval="2590" sdnum="11274;">2590</td>
+								<td align=right sdval="431,666666666667" sdnum="11274;0;0">432</td>
+								<td align=right sdval="2750" sdnum="11274;">2750</td>
+								<td align=right sdval="305,555555555556" sdnum="11274;0;0">306</td>
+								<td align=right sdval="2990" sdnum="11274;">2990</td>
+								<td align=right sdval="249,166666666667" sdnum="11274;0;0">249</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="2490" sdnum="11274;">2490</td>
+								<td align=right sdval="2790" sdnum="11274;">2790</td>
+								<td align=right sdval="2990" sdnum="11274;">2990</td>
+								<td align=right sdval="996,666666666667" sdnum="11274;0;0">997</td>
+								<td align=right sdval="3150" sdnum="11274;">3150</td>
+								<td align=right sdval="525" sdnum="11274;0;0">525</td>
+								<td align=right sdval="3290" sdnum="11274;">3290</td>
+								<td align=right sdval="365,555555555556" sdnum="11274;0;0">366</td>
+								<td align=right sdval="3490" sdnum="11274;">3490</td>
+								<td align=right sdval="290,833333333333" sdnum="11274;0;0">291</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="4490" sdnum="11274;">4490</td>
+								<td align=right sdval="4990" sdnum="11274;">4990</td>
+								<td align=right sdval="5390" sdnum="11274;">5390</td>
+								<td align=right sdval="1796,66666666667" sdnum="11274;0;0">1797</td>
+								<td align=right sdval="5590" sdnum="11274;">5590</td>
+								<td align=right sdval="931,666666666667" sdnum="11274;0;0">932</td>
+								<td align=right sdval="5890" sdnum="11274;">5890</td>
+								<td align=right sdval="654,444444444444" sdnum="11274;0;0">654</td>
+								<td align=right sdval="6190" sdnum="11274;">6190</td>
+								<td align=right sdval="515,833333333333" sdnum="11274;0;0">516</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="4990" sdnum="11274;">4990</td>
+								<td align=right sdval="5590" sdnum="11274;">5590</td>
+								<td align=right sdval="5990" sdnum="11274;">5990</td>
+								<td align=right sdval="1996,66666666667" sdnum="11274;0;0">1997</td>
+								<td align=right sdval="6290" sdnum="11274;">6290</td>
+								<td align=right sdval="1048,33333333333" sdnum="11274;0;0">1048</td>
+								<td align=right sdval="6590" sdnum="11274;">6590</td>
+								<td align=right sdval="732,222222222222" sdnum="11274;0;0">732</td>
+								<td align=right sdval="6890" sdnum="11274;">6890</td>
+								<td align=right sdval="574,166666666667" sdnum="11274;0;0">574</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="5990" sdnum="11274;">5990</td>
+								<td align=right sdval="6690" sdnum="11274;">6690</td>
+								<td align=right sdval="7190" sdnum="11274;">7190</td>
+								<td align=right sdval="2396,66666666667" sdnum="11274;0;0">2397</td>
+								<td align=right sdval="7490" sdnum="11274;">7490</td>
+								<td align=right sdval="1248,33333333333" sdnum="11274;0;0">1248</td>
+								<td align=right sdval="7790" sdnum="11274;">7790</td>
+								<td align=right sdval="865,555555555556" sdnum="11274;0;0">866</td>
+								<td align=right sdval="8290" sdnum="11274;">8290</td>
+								<td align=right sdval="690,833333333333" sdnum="11274;0;0">691</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="6490" sdnum="11274;">6490</td>
+								<td align=right sdval="7490" sdnum="11274;">7490</td>
+								<td align=right sdval="7990" sdnum="11274;">7990</td>
+								<td align=right sdval="2663,33333333333" sdnum="11274;0;0">2663</td>
+								<td align=right sdval="8490" sdnum="11274;">8490</td>
+								<td align=right sdval="1415" sdnum="11274;0;0">1415</td>
+								<td align=right sdval="8990" sdnum="11274;">8990</td>
+								<td align=right sdval="998,888888888889" sdnum="11274;0;0">999</td>
+								<td align=right sdval="9490" sdnum="11274;">9490</td>
+								<td align=right sdval="790,833333333333" sdnum="11274;0;0">791</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="6990" sdnum="11274;">6990</td>
+								<td align=right sdval="7990" sdnum="11274;">7990</td>
+								<td align=right sdval="8490" sdnum="11274;0;0">8490</td>
+								<td align=right sdval="2830" sdnum="11274;0;0">2830</td>
+								<td align=right sdval="8990" sdnum="11274;0;0">8990</td>
+								<td align=right sdval="1498,33333333333" sdnum="11274;0;0">1498</td>
+								<td align=right sdval="9490" sdnum="11274;0;0">9490</td>
+								<td align=right sdval="1054,44444444444" sdnum="11274;0;0">1054</td>
+								<td align=right sdval="9990" sdnum="11274;0;0">9990</td>
+								<td align=right sdval="832,5" sdnum="11274;0;0">833</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="8490" sdnum="11274;">8490</td>
+								<td align=left><br></td>
+								<td align=left><br></td>
+								<td align=left><br></td>
+								<td align=left><br></td>
+								<td align=left><br></td>
+								<td align=left><br></td>
+								<td align=left><br></td>
+								<td align=right sdval="11990" sdnum="11274;">11990</td>
+								<td align=right sdval="999,166666666667" sdnum="11274;0;0">999</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="8990" sdnum="11274;">8990</td>
+								<td align=right sdval="9990" sdnum="11274;">9990</td>
+								<td align=right sdval="10990" sdnum="11274;0;0">10990</td>
+								<td align=right sdval="3663,33333333333" sdnum="11274;0;0">3663</td>
+								<td align=right sdval="11490" sdnum="11274;0;0">11490</td>
+								<td align=right sdval="1915" sdnum="11274;0;0">1915</td>
+								<td align=right sdval="11990" sdnum="11274;0;0">11990</td>
+								<td align=right sdval="1332,22222222222" sdnum="11274;0;0">1332</td>
+								<td align=right sdval="12990" sdnum="11274;0;0">12990</td>
+								<td align=right sdval="1082,5" sdnum="11274;0;0">1083</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="9490" sdnum="11274;">9490</td>
+								<td align=right sdval="10490" sdnum="11274;">10490</td>
+								<td align=right sdval="11490" sdnum="11274;0;0">11490</td>
+								<td align=right sdval="3830" sdnum="11274;0;0">3830</td>
+								<td align=right sdval="11990" sdnum="11274;0;0">11990</td>
+								<td align=right sdval="1998,33333333333" sdnum="11274;0;0">1998</td>
+								<td align=right sdval="12490" sdnum="11274;0;0">12490</td>
+								<td align=right sdval="1387,77777777778" sdnum="11274;0;0">1388</td>
+								<td align=right sdval="13490" sdnum="11274;0;0">13490</td>
+								<td align=right sdval="1124,16666666667" sdnum="11274;0;0">1124</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="12000" sdnum="11274;">12000</td>
+								<td align=right sdval="13990" sdnum="11274;">13990</td>
+								<td align=right sdval="14990" sdnum="11274;0;0">14990</td>
+								<td align=right sdval="4996,66666666667" sdnum="11274;0;0">4997</td>
+								<td align=right sdval="15490" sdnum="11274;0;0">15490</td>
+								<td align=right sdval="2581,66666666667" sdnum="11274;0;0">2582</td>
+								<td align=right sdval="16490" sdnum="11274;0;0">16490</td>
+								<td align=right sdval="1832,22222222222" sdnum="11274;0;0">1832</td>
+								<td align=right sdval="17490" sdnum="11274;0;0">17490</td>
+								<td align=right sdval="1457,5" sdnum="11274;0;0">1458</td>
+							</tr>
+							<tr>
+								<td height=17 align=right sdval="12990" sdnum="11274;">12990</td>
+								<td align=right sdval="14990" sdnum="11274;">14990</td>
+								<td align=right sdval="15990" sdnum="11274;0;0">15990</td>
+								<td align=right sdval="5330" sdnum="11274;0;0">5330</td>
+								<td align=right sdval="16490" sdnum="11274;0;0">16490</td>
+								<td align=right sdval="2748,33333333333" sdnum="11274;0;0">2748</td>
+								<td align=right sdval="17490" sdnum="11274;0;0">17490</td>
+								<td align=right sdval="1943,33333333333" sdnum="11274;0;0">1943</td>
+								<td align=right sdval="18490" sdnum="11274;0;0">18490</td>
+								<td align=right sdval="1540,83333333333" sdnum="11274;0;0">1541</td>
+							</tr>
+						</tbody>
+
 <!-- ************************************************************************** -->
-</BODY>
+	</BODY>
 
 </HTML>

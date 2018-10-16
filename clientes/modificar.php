@@ -113,7 +113,6 @@
 	<body>
 
 		<!-- Navbar -->
-
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
 			<div class="d-flex justify-content-end">
@@ -124,19 +123,19 @@
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav mr-auto">
 			    		<li class="nav-item active">
-			    			<a class="nav-link" href="index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
+			    			<a class="nav-link" href="../index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Personal</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Proveedores</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="crud.php" style="color: #fff;">Clientes</a>
+			    			<a class="nav-link" href="../crud.php" style="color: #fff;">Clientes</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="stock.php" style="color: #fff;">Gestionar Stock</a>
+			    			<a class="nav-link" href="../stock.php" style="color: #fff;">Gestionar Stock</a>
 			    		</li>
 			    	</ul>
 			    	<span class="navbar-text">
@@ -144,7 +143,6 @@
 				</div>
 			</div>
 		</nav>
-
 		<!-- End of Navbar -->
 
 		<!-- Content -->
@@ -174,7 +172,7 @@
 						$pdo = conectar();
 
 						//Consultamos los datos actuales del socio:
-						$consulta=$pdo->prepare("SELECT nombre, apellido, DNI FROM personales WHERE id=:numeroRecibido");
+						$consulta=$pdo->prepare("SELECT nombre, apellido, DNI FROM socios WHERE id=:numeroRecibido");
 
 						//Vinculamos el parámetro :numeroRecibido con el id recibido por GET:
 						$consulta->bindValue(':numeroRecibido',$_GET['id']);
@@ -184,37 +182,23 @@
 
 						//Armamos un formulario para que el usuario ingrese los nuevos datos:
 						echo '<div class="container" align="center">
-
-							<h1>Modificar Empleado</h1>';
-							// Formulario
-							echo '<form action="guardarModifEmpleados.php" method="post">';
-
-							//ID , Hidden
+							<h1>Modificar Socio</h1>';
+							echo '<form action="guardarModif.php" method="post">';
 							echo "<input name='numero' type='hidden' value='{$_GET['id']}'>";
-
-							//Input Nombre
 							echo '<div class="input-group">';
 								echo "<label> Nombre: </label>
 									<input type='text' name='nombre' value='{$datos[0]['nombre']}' required>
 								</div>";
-
-							//Input Apellido
 							echo '<div class="input-group">';
 								echo "<label> Apellido: </label>
 									<input type='text' name='apellido' value='{$datos[0]['apellido']}' required>
 									</div>";
-
-							//Input DNI
 							echo '<div class="input-group">';
 								echo "<label> DNI: </label>
 									<input name='DNI' type='number' value='{$datos[0]['DNI']}' min=7000000 required>
 								</div>";
-
-							//Submit
 							echo '<input type="submit" value="Modificar datos" class="btn btn btn-primary">';
 							echo '<a href="crud.php" class="btn btn btn-primary"> Cancelar </a>';
-
-							//Cierre Formulario
 							echo '</form>
 						</div>';
 
