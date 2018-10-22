@@ -32,7 +32,8 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
 			<div class="d-flex justify-content-end">
-		    <a class="navbar-brand" style="color: #fff;">
+		    <a class="navbar-brand" href="#"  style="color: #fff;">
+			    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="Sistema de Logística Master Game">
 			    Sistema de Logística
 			</a>
 			<div class="nav navbar-nav navbar-right">

@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="estilo.css">
 <?php
-	include('funciones.php');
+	include('../Conectar.php');
 	//$id = $_POST['id'];
 	$nombre = $_POST['nombre'];
 	$precio = $_POST['precio'];

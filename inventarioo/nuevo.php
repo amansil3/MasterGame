@@ -32,9 +32,10 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
 			<div class="d-flex justify-content-end">
-		    <a class="navbar-brand" style="color: #fff;">
+		    <a class="navbar-brand" href="../index.html"  style="color: #fff;">
+			    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="Sistema de Logística Master Game">
 			    Sistema de Logística
-			</a>
+			   </a>
 			<div class="nav navbar-nav navbar-right">
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav mr-auto">
@@ -42,16 +43,16 @@
 			    			<a class="nav-link" href="../index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    			<a class="nav-link" href="../empleados/FichasEmpleados.php" style="color: #fff;">Personal</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    			<a class="nav-link" href="../proveedores/FichasEmpleados.php" style="color: #fff;">Proveedores</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../crud.php" style="color: #fff;">Clientes</a>
+			    			<a class="nav-link" href="../clientes/crud.php" style="color: #fff;">Clientes</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../stock.php" style="color: #fff;">Gestionar Stock</a>
+			    			<a class="nav-link" href="../inventarioo/nuevo.php" style="color: #fff;">Gestionar Stock</a>
 			    		</li>
 			    	</ul>
 			    	<span class="navbar-text">
@@ -93,7 +94,7 @@
 						echo "<span id='advertencia' style='color:red'></span><br>";	
 						echo "<br>";
 						echo "Precio: <input name='precio' type='text'><br>";
-						echo "<input type='button' value='Agregar nuevo producto' onclick='validacion();'>";
+						echo "<input type='submit' value='Agregar nuevo producto'>";
 						echo "</form>";
 					
 					
@@ -142,8 +143,35 @@
 								  </td>
 								</tr>';
 						}
-						echo '</table>';
-					?>
+						?>
+						</table>
+
+						<!-- start: Delete Coupon Modal -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						        <div class="modal-content">
+						            <div class="modal-header">
+						                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						                 <h3 class="modal-title" id="myModalLabel">Warning!</h3>
+
+						            </div>
+						            <div class="modal-body">
+						                 <h4> Are you sure you want to DELETE?</h4>
+
+						            </div>
+						            <!--/modal-body-collapse -->
+						            <div class="modal-footer">
+						                <button type="button" class="btn btn-danger" id="btnDelteYes" href="#">Yes</button>
+						                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+						            </div>
+						            <!--/modal-footer-collapse -->
+						        </div>
+						        <!-- /.modal-content -->
+						    </div>
+						    <!-- /.modal-dialog -->
+						</div>
+						<!-- /.modal -->
+					
 						<a class="btn btn-info" href=../index.html style="margin: 1rem 0rem 0rem 0rem;">Volver al inicio</a>
 					</main>
 
