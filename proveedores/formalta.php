@@ -117,9 +117,10 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
 			<div class="d-flex justify-content-end">
-		    <a class="navbar-brand" style="color: #fff;">
+		    <a class="navbar-brand" href="../index.html"  style="color: #fff;">
+			    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="Sistema de Logística Master Game">
 			    Sistema de Logística
-			</a>
+			   </a>
 			<div class="nav navbar-nav navbar-right">
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav mr-auto">
@@ -127,16 +128,16 @@
 			    			<a class="nav-link" href="../index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    			<a class="nav-link" href="../empleados/FichasEmpleados.php" style="color: #fff;">Personal</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    			<a class="nav-link" href="../proveedores/FichasEmpleados.php" style="color: #fff;">Proveedores</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../crud.php" style="color: #fff;">Clientes</a>
+			    			<a class="nav-link" href="../clientes/crud.php" style="color: #fff;">Clientes</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../stock.php" style="color: #fff;">Gestionar Stock</a>
+			    			<a class="nav-link" href="../inventarioo/nuevo.php" style="color: #fff;">Gestionar Stock</a>
 			    		</li>
 			    	</ul>
 			    	<span class="navbar-text">
@@ -148,7 +149,7 @@
 		<!-- Form -->
 
 		<div class="container" align="center">
-			<h1>Alta de Clientes</h1>
+			<h1>Alta de Proveedores</h1>
 
 		<form method="post" action="alta.php">
 			<div class="input-group">
@@ -156,16 +157,12 @@
 				<input type="text" name="nombre" value="" required minlength="3">
 			</div>
 			<div class="input-group">
-				<label>Apellido:</label>
-				<input type="text" name="apellido" value="" required minlength="3">
-			</div>
-			<div class="input-group">
 				<label>Teléfono:</label>
 				<input type="number" name="telefono" required minlength="2000000">
 			</div>
 			<div class="input-group">
-				<label>DNI:</label>
-				<input type="number" name="DNI" required min="10000000">
+				<label>CUIT:</label>
+				<input type="number" name="CUIT" required min="10000000">
 			</div>
 			<div class="input-group">
 				<label>Dirección:</label>
@@ -178,10 +175,10 @@
 			<div class="card text-center" style="width: 20rem;">
 			   <div class="card-body">
 			    <p class="card-text">
-			    	<a href="crud.php" class="btn btn btn-primary"> Volver a la página de socios </a>
+			    	<a href="Proveedores.php" class="btn btn btn-primary"> Volver a la página de Proveedores </a>
 			    </p>
 			    <p class="card-text">
-			    	<a href="index.html" class="btn btn btn-primary"> Volver al Inicio </a>
+			    	<a href="../index.html" class="btn btn btn-primary"> Volver al Inicio </a>
 			    </p>
 			  </div>
 			</div>

@@ -7,7 +7,7 @@
 	<script src="/MasterGame/js/bootstrap.bundle.js"></script>
 
 	<!-- Load CSS & Icons library -->
-	<link rel="stylesheet" href="/object/css/bootstrap.css">
+	<link rel="stylesheet" href="/MasterGame/css/bootstrap.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	<!-- Responsive design for mobile navigation -->
@@ -69,10 +69,7 @@
 				<!-- Left Sidebar -->
 
 				<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
-					helloworld!
-					helloworld!
-					helloworld!
-					helloworld!
+					
 				</div>
 
 				<!-- Main body -->
@@ -98,11 +95,11 @@
 						echo "</form>";
 					
 					
-						echo "<h1>Modificar o dar de baja un producto</h1>";
+						echo "<h1>Listado de Productos</h1>";
 
 						/* Se creará una simple tabla que mostrará todos los productos cargados y la opción de eliminarlos o modificarlos */
 
-						$modificar= $pdo->prepare("SELECT id, nombre, precio, activo FROM productos GROUP BY id;");
+						$modificar= $pdo->prepare("SELECT id, nombre, precio, activo FROM productos ORDER BY id ASC;");
 						$modificar-> execute();
 						$modificacion = $modificar->fetchAll(PDO::FETCH_ASSOC);
 						
@@ -145,33 +142,7 @@
 						}
 						?>
 						</table>
-
-						<!-- start: Delete Coupon Modal -->
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						    <div class="modal-dialog">
-						        <div class="modal-content">
-						            <div class="modal-header">
-						                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						                 <h3 class="modal-title" id="myModalLabel">Warning!</h3>
-
-						            </div>
-						            <div class="modal-body">
-						                 <h4> Are you sure you want to DELETE?</h4>
-
-						            </div>
-						            <!--/modal-body-collapse -->
-						            <div class="modal-footer">
-						                <button type="button" class="btn btn-danger" id="btnDelteYes" href="#">Yes</button>
-						                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-						            </div>
-						            <!--/modal-footer-collapse -->
-						        </div>
-						        <!-- /.modal-content -->
-						    </div>
-						    <!-- /.modal-dialog -->
-						</div>
-						<!-- /.modal -->
-					
+				
 						<a class="btn btn-info" href=../index.html style="margin: 1rem 0rem 0rem 0rem;">Volver al inicio</a>
 					</main>
 
@@ -181,11 +152,11 @@
 					<ul class="section-nav" style="list-style: none; margin-top: 4rem;">
 						<li class="toc-entry toc-h2">
 							<a href="formAlta.php" style="color:#99979c"> 
-								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo cliente 
+								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta un nuevo ítem
 							</a> 
 						</li>
 						<li class="toc-entry toc-h2">
-							<a href="index.html" style="color:#99979c">
+							<a href="../index.html" style="color:#99979c">
 								<i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
 							</a>
 						</li>

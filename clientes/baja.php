@@ -67,10 +67,7 @@
 				<!-- Left Sidebar -->
 
 				<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
-					helloworld!
-					helloworld!
-					helloworld!
-					helloworld!
+					
 				</div>
 
 				<!-- End of Sidebar -->
@@ -120,7 +117,7 @@
 							</a> 
 						</li>
 						<li class="toc-entry toc-h2">
-							<a href="index.html" style="color:#99979c">
+							<a href="../index.html" style="color:#99979c">
 								<i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
 							</a>
 						</li>

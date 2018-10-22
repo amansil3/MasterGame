@@ -116,9 +116,10 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
 			<div class="d-flex justify-content-end">
-		    <a class="navbar-brand" style="color: #fff;">
+		    <a class="navbar-brand" href="../index.html"  style="color: #fff;">
+			    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="Sistema de Logística Master Game">
 			    Sistema de Logística
-			</a>
+			   </a>
 			<div class="nav navbar-nav navbar-right">
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav mr-auto">
@@ -126,16 +127,16 @@
 			    			<a class="nav-link" href="../index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    			<a class="nav-link" href="../empleados/FichasEmpleados.php" style="color: #fff;">Personal</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    			<a class="nav-link" href="../proveedores/FichasEmpleados.php" style="color: #fff;">Proveedores</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../crud.php" style="color: #fff;">Clientes</a>
+			    			<a class="nav-link" href="../clientes/crud.php" style="color: #fff;">Clientes</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../stock.php" style="color: #fff;">Gestionar Stock</a>
+			    			<a class="nav-link" href="../inventarioo/nuevo.php" style="color: #fff;">Gestionar Stock</a>
 			    		</li>
 			    	</ul>
 			    	<span class="navbar-text">
@@ -172,7 +173,7 @@
 						$pdo = conectar();
 
 						//Consultamos los datos actuales del socio:
-						$consulta=$pdo->prepare("SELECT nombre, apellido, DNI FROM personales WHERE id=:numeroRecibido");
+						$consulta=$pdo->prepare("SELECT nombre, CUIT, direccion, telefono FROM proveedores WHERE id=:numeroRecibido");
 
 						//Vinculamos el parámetro :numeroRecibido con el id recibido por GET:
 						$consulta->bindValue(':numeroRecibido',$_GET['id']);
@@ -183,9 +184,9 @@
 						//Armamos un formulario para que el usuario ingrese los nuevos datos:
 						echo '<div class="container" align="center">
 
-							<h1>Modificar Empleado</h1>';
+							<h1>Modificar Proveedor</h1>';
 							// Formulario
-							echo '<form action="guardarModifEmpleados.php" method="post">';
+							echo '<form action="guardarModif.php" method="post">';
 
 							//ID , Hidden
 							echo "<input name='numero' type='hidden' value='{$_GET['id']}'>";
@@ -196,17 +197,23 @@
 									<input type='text' name='nombre' value='{$datos[0]['nombre']}' required>
 								</div>";
 
-							//Input Apellido
-							echo '<div class="input-group">';
-								echo "<label> Apellido: </label>
-									<input type='text' name='apellido' value='{$datos[0]['apellido']}' required>
-									</div>";
-
 							//Input DNI
 							echo '<div class="input-group">';
-								echo "<label> DNI: </label>
-									<input name='DNI' type='number' value='{$datos[0]['DNI']}' min=7000000 required>
+								echo "<label> CUIT: </label>
+									<input name='CUIT' type='number' value='{$datos[0]['CUIT']}' min=7000000 required>
 								</div>";
+							
+							//Input Telefono
+							echo '<div class="input-group">';
+								echo "<label> Teléfono: </label>
+									<input type='number' name='telefono' value='{$datos[0]['telefono']}' required>
+									</div>";
+
+							//Input Dirección
+							echo '<div class="input-group">';
+								echo "<label> Dirección: </label>
+									<input type='text' name='direccion' value='{$datos[0]['direccion']}' required>
+									</div>";
 
 							//Submit
 							echo '<input type="submit" value="Modificar datos" class="btn btn btn-primary">';
@@ -231,7 +238,7 @@
 							</a> 
 						</li>
 						<li class="toc-entry toc-h2">
-							<a href="index.html" style="color:#99979c">
+							<a href="../index.html" style="color:#99979c">
 								<i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
 							</a>
 						</li>

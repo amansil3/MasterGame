@@ -32,9 +32,10 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
 			<div class="d-flex justify-content-end">
-		    <a class="navbar-brand" style="color: #fff;">
+		    <a class="navbar-brand" href="../index.html"  style="color: #fff;">
+			    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="Sistema de Logística Master Game">
 			    Sistema de Logística
-			</a>
+			   </a>
 			<div class="nav navbar-nav navbar-right">
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav mr-auto">
@@ -42,16 +43,16 @@
 			    			<a class="nav-link" href="../index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    			<a class="nav-link" href="../empleados/FichasEmpleados.php" style="color: #fff;">Personal</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    			<a class="nav-link" href="../proveedores/FichasEmpleados.php" style="color: #fff;">Proveedores</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../crud.php" style="color: #fff;">Clientes</a>
+			    			<a class="nav-link" href="../clientes/crud.php" style="color: #fff;">Clientes</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../stock.php" style="color: #fff;">Gestionar Stock</a>
+			    			<a class="nav-link" href="../inventarioo/nuevo.php" style="color: #fff;">Gestionar Stock</a>
 			    		</li>
 			    	</ul>
 			    	<span class="navbar-text">
@@ -67,10 +68,7 @@
 
 				<!-- Left Sidebar -->
 				<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
-					helloworld!
-					helloworld!
-					helloworld!
-					helloworld!
+					
 				</div>
 				<!-- End of Sidebar -->
 
@@ -84,8 +82,7 @@
 
 						//Tomando por Post las variables del formulario:
 						$nombre = $_POST['nombre'];
-						$apellido = $_POST['apellido'];
-						$DNI = $_POST['DNI'];
+						$CUIT = $_POST['CUIT'];
 						$telefono = $_POST['telefono'];
 						$direccion = $_POST['direccion'];
 
@@ -93,30 +90,29 @@
 						$pdo = conectar();
 
 						//Preparo la sentencia INSERT, con parámetros llamados :a, :b, :c, :d, :e, :f
-						$insercion = $pdo -> prepare("INSERT INTO socios (nombre, apellido, telefono, DNI, direccion) VALUES (:a, :b, :c, :d, :e);");
+						$insercion = $pdo -> prepare("INSERT INTO proveedores (nombre, CUIT, telefono, direccion) VALUES (:a, :b, :c, :d);");
 
 
 						//Le asigno valor a los parámetros :a , :b, :c, :d, :e, :f
 						$insercion -> bindValue(':a',$nombre);
-						$insercion -> bindValue(':b',$apellido);
+						$insercion -> bindValue(':b',$CUIT);
 						$insercion -> bindValue(':c',$telefono);
-						$insercion -> bindValue(':d',$DNI);
-						$insercion -> bindValue(':e',$direccion);
+						$insercion -> bindValue(':d',$direccion);
 
 
 						//Ejecutamos la sentencia preparada antes:
 						if ($insercion -> execute() ) {
 						 //Si la inserción fue exitosa:
-							echo "El Cliente fue agregado."."<br><br>";
+							echo "El proveedor fue agregado."."<br><br>";
 						}
 						else {
-						    echo "Error al agregar al cliente";
+						    echo "Error al agregar al proveedor";
 						}
 					
 					?>	
 					<!-- Links -->
-					<a href="crud.php" class="btn btn btn-primary"> Volver a la página de socios </a>
-					<a href="index.html" class="btn btn btn-primary"> Volver al Inicio </a>
+					<a href="Proveedores.php" class="btn btn btn-primary"> Volver a la página de proveedores </a>
+					<a href="../index.html" class="btn btn btn-primary"> Volver al Inicio </a>
 
 				</main>
 				<!-- End of Main Body-->
@@ -126,7 +122,7 @@
 					<ul class="section-nav" style="list-style: none; margin-top: 4rem;">
 						<li class="toc-entry toc-h2">
 							<a href="formAlta.php" style="color:#99979c"> 
-								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo socio 
+								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo proveedor 
 							</a> 
 						</li>
 						<li class="toc-entry toc-h2">

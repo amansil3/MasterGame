@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="estilo.css">
 <?php
-	include('funciones.php');
+	include('../Conectar.php');
 	$pdo = conectar();
 	
 	/* Se preparan los datos actuales de los juegos */
