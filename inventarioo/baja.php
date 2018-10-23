@@ -16,6 +16,7 @@
 	if($eliminar->execute()) {
 		/* Si es exitosa la eliminacion */
 		echo "Producto eliminado correctamente";
+		header("Location: nuevo.php");
 	}
 	else {
 		/* Cualquier error que suceda */

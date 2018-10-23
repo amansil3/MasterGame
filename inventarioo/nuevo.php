@@ -23,7 +23,7 @@
 	<meta charset="utf-8" />
 
 	<title>
-		Clientes
+		Inventario
 	</title>
 	</head>
 	<body>
@@ -109,12 +109,44 @@
 							echo '<td>'.$unaModificacion['id'].'</td>';
 							echo '<td>'.$unaModificacion['nombre'].'</td>';
 							echo '<td>'.$unaModificacion['precio'].'</td>';
+
 							/* Link para eliminar un juego */
 							if($unaModificacion['activo'] == 1) {
-								echo '<td>
-										<a class="btn btn-danger" href="baja.php?id='.$unaModificacion['id'].'">
-											<i class="fa fa-trash-alt"></i>
-										</a>
+							
+							/* Modal */
+							echo '<td>
+									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal'.$unaModificacion['id'].'">
+									  <i class="fa fa-edit"></i>
+									</button>';
+
+									//Acá genero un modal para cada elemento del foreach
+									echo '<div class="modal fade" id="exampleModal'.$unaModificacion['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel1">Borrar Producto</h5>
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									          <span aria-hidden="true">&times;</span>
+									        </button>
+									      </div>
+									      <div class="modal-body">';
+
+									      echo "Desea borrar el producto ".$unaModificacion['nombre']."?";
+									      
+									      $pdo = conectar();
+
+											/* Preparamos la eliminacion */
+											$eliminar=$pdo->prepare("DELETE FROM productos WHERE id=:num");
+
+											/* Vinculamos el parámetro :num con el id que se obtiene por GET */
+											$eliminar->bindValue(':num',$unaModificacion['id']);
+
+										echo '<div class="modal-footer">';
+												echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">No, cerrar</button>
+												<a class="btn btn-danger" href="baja.php?id='.$unaModificacion['id'].'">
+												Borrar
+											</a>
+										</div>
 									  </td>';
 							}
 							else {
@@ -122,12 +154,15 @@
 							}
 
 							/* Link para modificar un juego */
+
+							/* Modal */
 							echo '<td>
 									<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal'.$unaModificacion['id'].'">
 									  <i class="fa fa-edit"></i>
-									</button>
+									</button>';
 
-									<div class="modal fade" id="exampleModal'.$unaModificacion['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									//Acá genero un modal para cada elemento del foreach
+									echo '<div class="modal fade" id="exampleModal'.$unaModificacion['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									  <div class="modal-dialog" role="document">
 									    <div class="modal-content">
 									      <div class="modal-header">
@@ -137,18 +172,17 @@
 									        </button>
 									      </div>
 									      <div class="modal-body">';
+
+												//Conecto a la BD
 									      	    $pdo = conectar();
 	
 												/* Se preparan los datos actuales de los juegos */
-												
 												$productoactual=$pdo->prepare("SELECT nombre, precio FROM productos WHERE id=:num");
 												
 												/* Se linkea el parámetro :num con el id que se recibe por GET */
-												
 												$productoactual->bindValue(':num',$unaModificacion['id']);
 
 												/* Se ejecuta la preparacion */
-												
 												$productoactual->execute();
 
 												$info = $productoactual->fetchAll(PDO::FETCH_ASSOC);
