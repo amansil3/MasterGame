@@ -3,8 +3,8 @@
 	<head>
 	
 	<!-- Load js files -->
-	<script src="/MasterGame/jquery/jquery-3.2.1.min.js"></script>
-	<script src="/MasterGame/js/bootstrap.bundle.js"></script>
+	<script src="/MasterGame/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/MasterGame/vendor/js/bootstrap.bundle.js"></script>
 
 	<!-- Load CSS & Icons library -->
 	<link rel="stylesheet" href="/MasterGame/css/bootstrap.css">
@@ -30,7 +30,7 @@
 
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
-		style="position: sticky; z-index: 1071; top: 0;">
+		style="position: sticky;">
 			<div class="d-flex justify-content-end">
 		    <a class="navbar-brand" href="../index.html"  style="color: #fff;">
 			    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="Sistema de Logística Master Game">
@@ -83,18 +83,7 @@
 						/* Conexión al servidor */
 						
 						$pdo=conectar();
-						
-						/* Se crea un formulario para agregar un nuevo juego, su genero y precio */
-						
-						echo "<form action='alta.php' method='post' id='form' name='form'>";
-						echo "Nombre de producto <input name='nombre' type='text'>";
-						echo "<span id='advertencia' style='color:red'></span><br>";	
-						echo "<br>";
-						echo "Precio: <input name='precio' type='text'><br>";
-						echo "<input type='submit' value='Agregar nuevo producto'>";
-						echo "</form>";
-					
-					
+
 						echo "<h1>Listado de Productos</h1>";
 
 						/* Se creará una simple tabla que mostrará todos los productos cargados y la opción de eliminarlos o modificarlos */
@@ -134,9 +123,53 @@
 
 							/* Link para modificar un juego */
 							echo '<td>
-									<a class="btn btn-info" href="modificacion.php?id='.$unaModificacion['id'].'">
-									<i class="fa fa-edit"></i>
-									</a>
+									<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal'.$unaModificacion['id'].'">
+									  <i class="fa fa-edit"></i>
+									</button>
+
+									<div class="modal fade" id="exampleModal'.$unaModificacion['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel1">Modificar Producto</h5>
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									          <span aria-hidden="true">&times;</span>
+									        </button>
+									      </div>
+									      <div class="modal-body">';
+									      	    $pdo = conectar();
+	
+												/* Se preparan los datos actuales de los juegos */
+												
+												$productoactual=$pdo->prepare("SELECT nombre, precio FROM productos WHERE id=:num");
+												
+												/* Se linkea el parámetro :num con el id que se recibe por GET */
+												
+												$productoactual->bindValue(':num',$unaModificacion['id']);
+
+												/* Se ejecuta la preparacion */
+												
+												$productoactual->execute();
+
+												$info = $productoactual->fetchAll(PDO::FETCH_ASSOC);
+
+												/* Se arma un simple formulario para ingresar la informacion nueva de los juegos */
+												
+												echo '<form action="prodmodificado.php" method="post">';
+												echo "<input name='id' type='hidden' value='{$unaModificacion['id']}'>";
+												echo "Nombre del producto: <input name='nombre' value='{$info[0]['nombre']}'><br>";
+												echo '</select><br>';
+												echo "Precio: <input type='number' name='precio' value='{$info[0]['precio']}'>";
+												echo '<div class="modal-footer">';
+												echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>';
+												echo '<button type="submit" class="btn btn-primary">Modificar producto</button>';
+												echo '</form>
+												</div>										
+									      </div>
+									    </div>
+									  </div>
+									</div>
+
 								  </td>
 								</tr>';
 						}
@@ -150,15 +183,46 @@
 
 				<div class="d-none d-xl-block col-xl-2 bd-toc">
 					<ul class="section-nav" style="list-style: none; margin-top: 4rem;">
+
 						<li class="toc-entry toc-h2">
-							<a href="formAlta.php" style="color:#99979c"> 
-								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta un nuevo ítem
-							</a> 
-						</li>
-						<li class="toc-entry toc-h2">
-							<a href="../index.html" style="color:#99979c">
-								<i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
-							</a>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+							  <i class="fa fa-plus" style="margin-right: 0.2rem;"></i> Agregar un nuevo ítem
+							</button>
+
+							<!-- Modal -->
+							<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title" id="exampleModalLabel">Agregar un producto</h5>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+							      	<?php
+								        $pdo=conectar();
+							
+										/* Se crea un formulario para agregar un nuevo juego, su genero y precio */
+										
+										echo "<form action='alta.php' method='post' id='form' name='form'>";
+										echo "Nombre de producto <input name='nombre' type='text'>";
+										echo "<span id='advertencia' style='color:red'></span><br>";	
+										echo "<br>";
+										echo "Precio: <input name='precio' type='text'><br>";
+										echo '</div>
+								      	<div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+								        <button type="submit" class="btn btn-primary">Agregar Producto</button>';
+
+										echo '</form>
+										</div>';
+									?>
+							      </div>
+							    </div>
+							  </div>
+							</div>
 						</li>
 					</ul>
 				</div>
@@ -168,4 +232,10 @@
 		</div>
 
 	</body> 
+	
+	<script type="text/javascript"> 
+		function pupo(item){
+			console.log(item)
+		}
+	</script>
 </html>

@@ -3,9 +3,8 @@
 	<head>
 	
 	<!-- Load js files -->
-	<script src="/MasterGame/jquery/jquery-3.2.1.min.js"></script>
-	<script src="/MasterGame/js/bootstrap.bundle.js"></script>
-	<script src="/MasterGame/js/chart.js"></script>
+	<script src="/MasterGame/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/MasterGame/vendor/js/bootstrap.bundle.js"></script>
 
 	<!-- Load CSS & Icons library -->
 	<link rel="stylesheet" href="/MasterGame/css/bootstrap.css">

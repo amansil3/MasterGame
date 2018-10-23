@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="estilo.css">
 <?php
-	include('funciones.php');
+	include('../Conectar.php');
 	$pdo = conectar();
 	
 	/* Se prepara la modificación */
@@ -19,6 +19,7 @@
 		try {
 			$modprecio->execute();
 			echo "Exito ! El producto fue modificado";
+			header("Location: nuevo.php");
 		}
 		catch (PDOException $e) {
 			echo $e->getMessage();

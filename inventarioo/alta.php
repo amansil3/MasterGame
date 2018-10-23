@@ -24,7 +24,8 @@
 		echo "Error al agregar el juego";
 		die();
 		}
-		
-	echo '<center><a href=index.html>Volver al inicio</a></center><br>';
-	echo '<center><a href=nuevo_juego.php>Volver atras</a></center>';
-	?>
+	else {
+		header("Location: nuevo.php");
+	}
+
+?>
