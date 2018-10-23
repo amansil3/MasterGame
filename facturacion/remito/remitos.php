@@ -50,7 +50,7 @@
 	<!-- START OF PHP -->
 
 		<?php
-			require('Conectar.php');
+			require('../../Conectar.php');
 		?>
 		<?php
 			//Conecto a la BD

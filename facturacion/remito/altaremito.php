@@ -1,5 +1,5 @@
 <?php
-	require('../Conectar.php');
+	require('../../Conectar.php');
 ?>
 
 <?php
