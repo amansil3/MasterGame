@@ -117,21 +117,109 @@
 									    		</a>
 									    	 </td>';
 									    //Celda con el link para eliminar:
-									    echo '<td>
-									    		<a href="baja.php?id='.$elSocio['id'].'">
-									    			<button class="btn btn-danger">
-										    			<i class="far fa-trash-alt"></i>	
-										    		</button>
-									    		</a>
-									    	 </td>
-									   	</tr>';
-									}
+									   /* Modal */
+										echo '<td>
+												<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal'.$elSocio['id'].'">
+												  <i class="fa fa-trash-alt"></i>
+												</button>';
+
+												//Acá genero un modal para cada elemento del foreach
+												echo '<div class="modal fade" id="exampleModal'.$elSocio['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+												  <div class="modal-dialog" role="document">
+												    <div class="modal-content">
+												      <div class="modal-header">
+												        <h5 class="modal-title" id="exampleModalLabel1">Borrar Producto</h5>
+												        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												          <span aria-hidden="true">&times;</span>
+												        </button>
+												      </div>
+												      <div class="modal-body">';
+
+												      echo "Desea borrar al cliente ".$elSocio['socio'].' '.$elSocio['apellido']."?";
+												      
+												      $pdo = conectar();
+
+														/* Preparamos la eliminacion */
+														$eliminar=$pdo->prepare("DELETE FROM socios WHERE id=:num");
+
+														/* Vinculamos el parámetro :num con el id que se obtiene por el foreach */
+														$eliminar->bindValue(':num',$elSocio['id']);
+
+													echo '<div class="modal-footer">';
+															echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">No, cerrar</button>
+															<a class="btn btn-danger" href="baja.php?id='.$elSocio['id'].'">
+															Borrar
+														</a>
+													</div>
+												  </td>';
+										}
 								echo '</tbody>
 							  </table>';
 					?>
-				</main>
+					<div class="container">
+						<div class="row">
+							<div class="col-6">
+								<a class="btn btn-info" href=../index.html><i class="fa fa-home"></i> Volver al inicio </a>
+							</div>
 
-				<!-- Right Sidebar -->
+							<div class="col-6">
+								<!-- Botón de Agregar -->
+								<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+								  <i class="fa fa-plus"></i> Agregar un cliente
+								</button>
+
+								<!-- Modal (o ventana emergente) -->
+								<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="exampleModalLabel">Agregar un producto</h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								      							
+											<!-- Se crea un formulario para agregar un nuevo juego, su genero y precio -->
+											<form method="post" action="alta.php">
+												<div class="input-group">
+													<label>Nombre:</label>
+													<input type="text" name="nombre" value="" required minlength="3">
+												</div>
+												<div class="input-group">
+													<label>Apellido:</label>
+													<input type="text" name="apellido" value="" required minlength="3">
+												</div>
+												<div class="input-group">
+													<label>Teléfono:</label>
+													<input type="number" name="telefono" required minlength="2000000">
+												</div>
+												<div class="input-group">
+													<label>DNI:</label>
+													<input type="number" name="DNI" required min="10000000">
+												</div>
+												<div class="input-group">
+													<label>Dirección:</label>
+													<input type="text" name="direccion"  name="direccion" required minlength="8">
+												</div>
+
+										      	<div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+										        <button type="submit" class="btn btn-primary">Agregar cliente</button>
+
+											</form>
+										</div>
+										
+								      </div> <!-- Cierre del Body del Modal -->
+								    </div> <!-- Cierre del Contenido del Modal -->
+								  </div> <!-- Cierre del Modal Dialog -->
+								</div> <!-- Cierre del Modal -->
+							</div> <!-- Cierre de la columna -->
+						</div> <!-- Cierre de la fila -->
+					</div> <!-- Cierre del Contenedor -->
+				</main> <!-- Cierre del Contenido Principal -->
+
+				<!-- Right Sidebar 
 
 				<div class="d-none d-xl-block col-xl-2 bd-toc">
 					<ul class="section-nav" style="list-style: none; margin-top: 4rem;">
@@ -146,7 +234,7 @@
 							</a>
 						</li>
 					</ul>
-				</div>
+				</div> -->
 
 			</div>
 

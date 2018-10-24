@@ -119,5 +119,5 @@
 			?>
 		<!-- END OF PHP -->
 
-			<a href=/MasterGame/indexnico.html class="btn btn-success" style="margin-top: 2rem;">Volver al menu de Facturación</a>
-			<a href=/MasterGame/index.html class="btn btn-success" style="margin-top: 2rem;">Volver al Inicio</a>
+			<a href=../facturacion.html class="btn btn-success" style="margin-top: 2rem;">Volver al menu de Facturación</a>
+			<a href=../../index.html class="btn btn-success" style="margin-top: 2rem;">Volver al Inicio</a>

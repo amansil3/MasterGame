@@ -94,6 +94,7 @@
 					//Ejecutamos la eliminación, mostrando un mensaje de éxito o error según corresponda:
 					if($eliminacion->execute()) {
 					    echo "Socio eliminado correctamente";
+					    header("Location: crud.php");
 					}
 					else {
 					    echo "Error al eliminar al socio";

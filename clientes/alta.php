@@ -106,6 +106,7 @@
 						if ($insercion -> execute() ) {
 						 //Si la inserción fue exitosa:
 							echo "El Cliente fue agregado."."<br><br>";
+							header("Location: crud.php");
 						}
 						else {
 						    echo "Error al agregar al cliente";
