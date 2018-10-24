@@ -62,18 +62,15 @@
 		</nav>
 
 		<!-- Content -->
-
 		<div class="container-fluid" style="margin-top: 3rem;">
+
 			<div class="row flex-xl-nowrap">
 
 				<!-- Left Sidebar -->
-
 				<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
-					
 				</div>
 
 				<!-- Main body -->
-
 				<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
 					<?php
 						/* Se incluye el archivo donde se encuentra la función conectar para conectarse al servidor */
@@ -81,19 +78,16 @@
 					?>
 					<?php
 						/* Conexión al servidor */
-						
 						$pdo=conectar();
 
 						echo "<h1>Listado de Productos</h1>";
 
 						/* Se creará una simple tabla que mostrará todos los productos cargados y la opción de eliminarlos o modificarlos */
-
 						$modificar= $pdo->prepare("SELECT id, nombre, precio, activo FROM productos ORDER BY id ASC;");
 						$modificar-> execute();
 						$modificacion = $modificar->fetchAll(PDO::FETCH_ASSOC);
 						
 						/* Mostramos los resultados en una tabla: */
-						
 						echo '<table class="table table-bordered table-sm table-hover table-striped" style="text-align:center;">
 								<thead class="thead-dark" style="text-align:center";>
 									<tr>
@@ -116,7 +110,7 @@
 							/* Modal */
 							echo '<td>
 									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal'.$unaModificacion['id'].'">
-									  <i class="fa fa-edit"></i>
+									  <i class="fa fa-trash-alt"></i>
 									</button>';
 
 									//Acá genero un modal para cada elemento del foreach
@@ -138,7 +132,7 @@
 											/* Preparamos la eliminacion */
 											$eliminar=$pdo->prepare("DELETE FROM productos WHERE id=:num");
 
-											/* Vinculamos el parámetro :num con el id que se obtiene por GET */
+											/* Vinculamos el parámetro :num con el id que se obtiene por el foreach */
 											$eliminar->bindValue(':num',$unaModificacion['id']);
 
 										echo '<div class="modal-footer">';
@@ -208,58 +202,65 @@
 								</tr>';
 						}
 						?>
-						</table>
-				
-						<a class="btn btn-info" href=../index.html style="margin: 1rem 0rem 0rem 0rem;">Volver al inicio</a>
-					</main>
+						</table style="margin-bottom: 3rem;">
+						
+						<div class="container">
+							<div class="row">
+								<div class="col-6">
+									<a class="btn btn-info" href=../index.html><i class="fa fa-home"></i> Volver al inicio </a>
+								</div>
+
+								<div class="col-6">
+									<!-- Botón de Agregar -->
+									<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+									  <i class="fa fa-plus"></i> Agregar un nuevo ítem
+									</button>
+
+									<!-- Modal (o ventana emergente) -->
+									<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">Agregar un producto</h5>
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									          <span aria-hidden="true">&times;</span>
+									        </button>
+									      </div>
+									      <div class="modal-body">
+									      	<?php
+										        $pdo=conectar();
+									
+												/* Se crea un formulario para agregar un nuevo juego, su genero y precio */
+												
+												echo "<form action='alta.php' method='post' id='form' name='form'>";
+												echo "Nombre de producto <input name='nombre' type='text' required>";
+												echo "<span id='advertencia' style='color:red'></span><br>";	
+												echo "<br>";
+												echo "Precio: <input name='precio' type='number' required><br>";
+												echo '</div>
+										      	<div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+										        <button type="submit" class="btn btn-primary">Agregar Producto</button>';
+
+												echo '</form>
+												</div>';
+											?>
+									      </div> <!-- Cierre del Body del Modal -->
+									    </div> <!-- Cierre del Contenido del Modal -->
+									  </div> <!-- Cierre del Modal Dialog -->
+									</div> <!-- Cierre del Modal -->
+								</div> <!-- Cierre de la columna -->
+							</div> <!-- Cierre de la fila -->
+						</div> <!-- Cierre del Contenedor -->
+					</main> <!-- Cierre del Contenido Principal -->
 
 				<!-- Right Sidebar -->
-
 				<div class="d-none d-xl-block col-xl-2 bd-toc">
 					<ul class="section-nav" style="list-style: none; margin-top: 4rem;">
-
 						<li class="toc-entry toc-h2">
-							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-							  <i class="fa fa-plus" style="margin-right: 0.2rem;"></i> Agregar un nuevo ítem
-							</button>
-
-							<!-- Modal -->
-							<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-							  <div class="modal-dialog" role="document">
-							    <div class="modal-content">
-							      <div class="modal-header">
-							        <h5 class="modal-title" id="exampleModalLabel">Agregar un producto</h5>
-							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							          <span aria-hidden="true">&times;</span>
-							        </button>
-							      </div>
-							      <div class="modal-body">
-							      	<?php
-								        $pdo=conectar();
-							
-										/* Se crea un formulario para agregar un nuevo juego, su genero y precio */
-										
-										echo "<form action='alta.php' method='post' id='form' name='form'>";
-										echo "Nombre de producto <input name='nombre' type='text'>";
-										echo "<span id='advertencia' style='color:red'></span><br>";	
-										echo "<br>";
-										echo "Precio: <input name='precio' type='text'><br>";
-										echo '</div>
-								      	<div class="modal-footer">
-								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-								        <button type="submit" class="btn btn-primary">Agregar Producto</button>';
-
-										echo '</form>
-										</div>';
-									?>
-							      </div>
-							    </div>
-							  </div>
-							</div>
 						</li>
 					</ul>
-				</div>
+				</div> <!-- Cierre de la barra Derecha -->
 
 			</div>
 
@@ -267,9 +268,4 @@
 
 	</body> 
 	
-	<script type="text/javascript"> 
-		function pupo(item){
-			console.log(item)
-		}
-	</script>
 </html>

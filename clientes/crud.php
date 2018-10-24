@@ -74,6 +74,7 @@
 				<!-- Main body -->
 
 				<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+					<h1> Clientes </h1>
 					<?php
 						require('../Conectar.php');
 
