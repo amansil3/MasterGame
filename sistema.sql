@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2018 a las 16:55:05
+-- Tiempo de generación: 24-10-2018 a las 16:01:58
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -21,33 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `sistema`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `actividades`
---
-
-CREATE TABLE `actividades` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(30) NOT NULL,
-  `nivel` varchar(15) DEFAULT NULL,
-  `personal_id` int(11) DEFAULT NULL,
-  `cupos` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `actividades`
---
-
-INSERT INTO `actividades` (`id`, `nombre`, `nivel`, `personal_id`, `cupos`) VALUES
-(1, 'Natación', 'Inicial', 1, 30),
-(2, 'Natación', 'Intermedio', 1, 30),
-(3, 'Natación', 'Avanzado', 2, 30),
-(4, 'Aquagym', 'Inicial', 3, 15),
-(5, 'Aquagym', 'Intermedio', 3, 15),
-(6, 'Aquagym', 'Avanzado', 3, 15),
-(7, 'Nado Libre', NULL, NULL, 15);
 
 -- --------------------------------------------------------
 
@@ -92,17 +65,43 @@ CREATE TABLE `personales` (
 
 INSERT INTO `personales` (`id`, `nombre`, `apellido`, `DNI`, `fecha_ingreso_laboral`, `telefono`, `labor_id`) VALUES
 (1, 'Juan', 'Perez', 39369741, '2018-07-06', 4493473, 2),
-(2, 'Pamela', 'Suárez', 33011224, '0005-07-11', 4493473, 2),
+(2, 'Pamelaa', 'Suárez', 33011224, '0005-07-11', 4493473, 2),
 (3, 'Matias', 'Solano', 31900054, '2018-07-06', 4302989, 2),
 (4, 'James', 'Rodriguez', 20156741, '2018-07-06', 4805452, 2),
-(5, 'Jefferson', 'Da Silva', 9154789, '2018-07-06', 4105479, 4),
-(6, 'Carolina', 'Jerez', 33756731, '2018-07-06', 4632525, 4),
 (7, 'Maximiliano', 'Sanchez', 39412589, '2018-07-06', 4915230, 4),
 (8, 'German', 'Novelli', 36584195, '2018-07-06', 4301319, 5),
 (9, 'Lorena', 'Chazarreta', 38485795, '2018-07-06', 4258762, 5),
 (10, 'Gustavo', 'Fernandez', 39472795, '2018-07-06', 4408320, 5),
-(11, 'Fernando', 'Pajaro', 12457842, '2018-07-06', 4805420, 6),
-(12, 'Ludmila', 'Soria', 30257842, '2018-07-06', 4217489, 6);
+(11, 'Fernando', 'Pajaro', 12457842, '2018-07-06', 4805420, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `marca` varchar(100) NOT NULL,
+  `modelo` varchar(50) NOT NULL,
+  `nombre` text NOT NULL,
+  `precio` int(11) NOT NULL,
+  `activo` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `marca`, `modelo`, `nombre`, `precio`, `activo`) VALUES
+(7, 'Intel', 'Pentium', 'Procesador', 19000, 1),
+(9, 'ViewSonic', 'SA125', 'Monitor', 5000, 1),
+(12, 'Logitech', 'M135', 'Mouse', 380, 1),
+(13, 'Razr', 'Biasu1400', 'Mouse', 380, 1),
+(16, 'PlatiniumGames', 'PS4', 'Nier Automata', 800, 1),
+(17, 'Noga', 'Biasu3000', 'Teclado', 1, 1),
+(18, 'Nintendo', 'Nintendo', 'Mario Kart', 400, 0),
+(19, 'Samsung', 'Core', 'Celular', 800, 0);
 
 -- --------------------------------------------------------
 
@@ -117,6 +116,13 @@ CREATE TABLE `proveedores` (
   `telefono` varchar(100) NOT NULL,
   `direccion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `proveedores`
+--
+
+INSERT INTO `proveedores` (`id`, `cuit`, `nombre`, `telefono`, `direccion`) VALUES
+(1, 12223441, 'Air', '4901212', 'San Lorenzo 4411');
 
 -- --------------------------------------------------------
 
@@ -201,39 +207,6 @@ INSERT INTO `socios` (`id`, `nombre`, `apellido`, `telefono`, `DNI`, `direccion`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `socio_actividad`
---
-
-CREATE TABLE `socio_actividad` (
-  `socio_id` int(11) NOT NULL,
-  `actividad_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `socio_actividad`
---
-
-INSERT INTO `socio_actividad` (`socio_id`, `actividad_id`) VALUES
-(2, 1),
-(3, 2),
-(4, 2),
-(5, 1),
-(6, 2),
-(7, 3),
-(8, 5),
-(9, 5),
-(9, 6),
-(10, 1),
-(10, 6),
-(11, 7),
-(12, 7),
-(13, 1),
-(15, 3),
-(49, 1);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -250,13 +223,6 @@ CREATE TABLE `usuarios` (
 --
 
 --
--- Indices de la tabla `actividades`
---
-ALTER TABLE `actividades`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `profesor_id` (`personal_id`);
-
---
 -- Indices de la tabla `labores`
 --
 ALTER TABLE `labores`
@@ -268,6 +234,12 @@ ALTER TABLE `labores`
 ALTER TABLE `personales`
   ADD PRIMARY KEY (`id`),
   ADD KEY `labor_id` (`labor_id`);
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `proveedores`
@@ -290,14 +262,6 @@ ALTER TABLE `socios`
   ADD UNIQUE KEY `DNI` (`DNI`);
 
 --
--- Indices de la tabla `socio_actividad`
---
-ALTER TABLE `socio_actividad`
-  ADD PRIMARY KEY (`socio_id`,`actividad_id`),
-  ADD KEY `actividad_id` (`actividad_id`),
-  ADD KEY `socio_id` (`socio_id`);
-
---
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -315,10 +279,16 @@ ALTER TABLE `labores`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `remitos`
@@ -347,13 +317,6 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `personales`
   ADD CONSTRAINT `personales_ibfk_1` FOREIGN KEY (`labor_id`) REFERENCES `labores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `socio_actividad`
---
-ALTER TABLE `socio_actividad`
-  ADD CONSTRAINT `socio_actividad_ibfk_1` FOREIGN KEY (`socio_id`) REFERENCES `socios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `socio_actividad_ibfk_2` FOREIGN KEY (`actividad_id`) REFERENCES `actividades` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
