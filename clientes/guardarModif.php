@@ -46,7 +46,7 @@
 			    			<a class="nav-link" href="../empleados/FichasEmpleados.php" style="color: #fff;">Personal</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../proveedores/FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    			<a class="nav-link" href="../proveedores/Proveedores.php" style="color: #fff;">Proveedores</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
 			    			<a class="nav-link" href="../clientes/crud.php" style="color: #fff;">Clientes</a>
@@ -81,7 +81,7 @@
 						require('Conectar.php');
 						$pdo = conectar();
 						//Preparamos la sentencia de modificacion:
-						$modificacion=$pdo->prepare("UPDATE socios,socio_actividad SET
+						$modificacion=$pdo->prepare("UPDATE socios SET
 						                                nombre = :nombre, apellido = :apellido, DNI = :DNI
 						                                WHERE id=:id");
 						//Vinculamos los parámetros con los datos recibidos por POST:

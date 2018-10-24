@@ -29,12 +29,14 @@
 	<body>
 
 		<!-- Navbar -->
+		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
 			<div class="d-flex justify-content-end">
-		    <a class="navbar-brand" style="color: #fff;">
+		    <a class="navbar-brand" href="../index.html"  style="color: #fff;">
+			    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="Sistema de Logística Master Game">
 			    Sistema de Logística
-			</a>
+			   </a>
 			<div class="nav navbar-nav navbar-right">
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav mr-auto">
@@ -42,16 +44,16 @@
 			    			<a class="nav-link" href="../index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    			<a class="nav-link" href="../empleados/FichasEmpleados.php" style="color: #fff;">Personal</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    			<a class="nav-link" href="../proveedores/Proveedores.php" style="color: #fff;">Proveedores</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../crud.php" style="color: #fff;">Clientes</a>
+			    			<a class="nav-link" href="../clientes/crud.php" style="color: #fff;">Clientes</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../stock.php" style="color: #fff;">Gestionar Stock</a>
+			    			<a class="nav-link" href="../inventarioo/nuevo.php" style="color: #fff;">Gestionar Stock</a>
 			    		</li>
 			    	</ul>
 			    	<span class="navbar-text">
@@ -69,10 +71,7 @@
 				<!-- Left Sidebar -->
 
 				<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
-					helloworld!
-					helloworld!
-					helloworld!
-					helloworld!
+					
 				</div>
 
 				<!-- Main body -->
@@ -100,27 +99,16 @@
 						}
 					?>
 
-	  			<a href="index.html" class="btn btn-primary">Volver al inicio</a>
+	  			<a href="../index.html" class="btn btn-primary">Volver al inicio</a>
 
-		  			
+	  			<a href="FichasEmpleados.php" class="btn btn-primary">Volver a la Ficha de Empleados</a>
 
 	  			</main>
 
 				<!-- Right Sidebar -->
 
 				<div class="d-none d-xl-block col-xl-2 bd-toc">
-					<ul class="section-nav" style="list-style: none; margin-top: 4rem;">
-						<li class="toc-entry toc-h2">
-							<a href="formAlta.php" style="color:#99979c"> 
-								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo socio 
-							</a> 
-						</li>
-						<li class="toc-entry toc-h2">
-							<a href="index.html" style="color:#99979c">
-								<i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
-							</a>
-						</li>
-					</ul>
+					
 				</div>
 
 			</div>

@@ -31,33 +31,38 @@
 	<body>
 
 		<!-- Navbar -->
-
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
-
-		    <a class="navbar-brand" href="#">
-			    <img src="/object/images/cn.png" width="80" height="30" class="d-inline-block align-top" alt="">
-			    Club de Natación
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarText">
-				<ul class="navbar-nav mr-auto">
-		    		<li class="nav-item active">
-		    			<a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
-		    		</li>
-		    		<li class="nav-item">
-		    			<a class="nav-link" href="FichasEmpleados.php">Personal</a>
-		    		</li>
-		    		<li class="nav-item">
-		    			<a class="nav-link" href="crud.php">Socios</a>
-		    		</li>
-		    	</ul>
-		    	<span class="navbar-text">
-		    	</span>
+			<div class="d-flex justify-content-end">
+		    <a class="navbar-brand" href="index.html"  style="color: #fff;">
+			    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="Sistema de Logística Master Game">
+			    Sistema de Logística
+			   </a>
+			<div class="nav navbar-nav navbar-right">
+				<div class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav mr-auto">
+			    		<li class="nav-item active">
+			    			<a class="nav-link" href="index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="empleados/FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="proveedores/Proveedores.php" style="color: #fff;">Proveedores</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="clientes/crud.php" style="color: #fff;">Clientes</a>
+			    		</li>
+			    		<li class="nav-item" style="margin-right: 1rem;">
+			    			<a class="nav-link" href="inventarioo/nuevo.php" style="color: #fff;">Gestionar Stock</a>
+			    		</li>
+			    	</ul>
+			    	<span class="navbar-text">
+			    	</span>
+				</div>
 			</div>
 		</nav>
+		<!-- End of Navbar -->
 
 		<!-- Content -->
 
@@ -67,10 +72,7 @@
 				<!-- Left Sidebar -->
 
 				<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
-					helloworld!
-					helloworld!
-					helloworld!
-					helloworld!
+
 				</div>
 
 				<!-- Main body -->
@@ -89,7 +91,7 @@
 					$tamañorow = sizeof($row);
 
 					echo '<div class="container" style="margin-bottom:2rem;">';
-					echo "Hay un total de ".$tamañorow." personas trabajando en el club";
+					echo "Hay un total de ".$tamañorow." personas trabajando en el local";
 					echo '</div>';
 
 					$st = $pdo->prepare('SELECT * FROM socios');
@@ -99,7 +101,7 @@
 					$tamañoro = sizeof($ro);
 
 					echo '<div class="container" style="margin-bottom:2rem;">';
-					echo "Hay un total de ".$tamañoro." personas asociadas al club";
+					echo "Hay un total de ".$tamañoro." clientes";
 					echo '</div>';
 
 					echo '<div class="container-fluid" style="width: 500px; height: 800px;">
@@ -111,7 +113,7 @@
 						var myChart = new Chart(ctx, {
 						    type: "bar",
 						    data: {
-						        labels: ["Socios", "Trabajadores"],
+						        labels: ["Clientes", "Trabajadores"],
 						        datasets: [{
 						            label: "Personas",
 						            data: ['.$tamañoro.','.$tamañorow.'],
@@ -149,14 +151,8 @@
 	  			</main>
 
 				<!-- Right Sidebar -->
-
 				<div class="d-none d-xl-block col-xl-2 bd-toc">
 					<ul class="section-nav" style="list-style: none; margin-top: 4rem;">
-						<li class="toc-entry toc-h2">
-							<a href="formAlta.php" style="color:#99979c"> 
-								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo socio 
-							</a> 
-						</li>
 						<li class="toc-entry toc-h2">
 							<a href="index.html" style="color:#99979c">
 								<i class="fa fa-home" aria-hidden="true"></i> Volver al inicio

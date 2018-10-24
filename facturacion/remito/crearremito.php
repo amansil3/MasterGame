@@ -31,40 +31,37 @@
 	<body>
 
 		<!-- Navbar -->
-
+<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
-			
-		    <a class="navbar-brand" href="#"  style="color: #fff;">
+			<div class="d-flex justify-content-end">
+		    <a class="navbar-brand" href="../../index.html"  style="color: #fff;">
+			    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="Sistema de Logística Master Game">
 			    Sistema de Logística
-			</a>
-
-			<!-- Logo & Links to other pages -->
+			   </a>
 			<div class="nav navbar-nav navbar-right">
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav mr-auto">
 			    		<li class="nav-item active">
-			    			<a class="nav-link" href="/MasterGame/index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
+			    			<a class="nav-link" href="../../index.html" style="margin-right: 1rem; color: #fff;">Inicio <span class="sr-only">(current)</span></a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="/MasterGame/FichasEmpleados.php" style="color: #fff;">Personal</a>
+			    			<a class="nav-link" href="../../empleados/FichasEmpleados.php" style="color: #fff;">Personal</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="/MasterGame/FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    			<a class="nav-link" href="../../proveedores/Proveedores.php" style="color: #fff;">Proveedores</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="/MasterGame/crud.php" style="color: #fff;">Clientes</a>
+			    			<a class="nav-link" href="../../clientes/crud.php" style="color: #fff;">Clientes</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="/MasterGame/stock.php" style="color: #fff;">Gestionar Stock</a>
+			    			<a class="nav-link" href="../../inventarioo/nuevo.php" style="color: #fff;">Gestionar Stock</a>
 			    		</li>
 			    	</ul>
 			    	<span class="navbar-text">
 			    	</span>
 				</div>
 			</div>
-			<!-- End of Logo & Links to other pages -->
-
 		</nav>
 
 		<!-- End of Navbar -->
@@ -248,13 +245,13 @@
 
 								        		$pdo = conectar();
 
-								        		$consulta = $pdo -> prepare("SELECT nombre FROM productos");
+								        		$consulta = $pdo -> prepare("SELECT nombre, marca, modelo FROM productos");
 
 								        		$consulta->execute();
 								        		$resultado = $consulta -> fetchAll(PDO::FETCH_ASSOC);
 
 								        		foreach ($resultado as $unResultado) {
-								        			echo '<option>'.$unResultado['nombre']. '</option>';
+								        			echo '<option>'.$unResultado['nombre'].' '.$unResultado['marca'].' '.$unResultado['modelo'].'</option>';
 								        		}
 								        		echo '</select>'
 								        	?>
@@ -308,7 +305,7 @@
 					<div class="container">
 						<div class="row justify-content-center">
 							<div class="col-1">
-								<a class="fa fa-home" style="margin-top: 1.5rem; margin-left: 2rem; font-size: 50px; color: #17a2b8" title="Volver al inicio" href="../index.html"></a>
+								<a class="fa fa-home" style="margin-top: 1.5rem; margin-left: 2rem; font-size: 50px; color: #17a2b8" title="Volver al inicio" href="../../index.html"></a>
 							</div>
 						</div>
 					</div>

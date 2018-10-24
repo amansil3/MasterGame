@@ -29,8 +29,9 @@
 	<body>
 
 		<!-- Navbar -->
+		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
-		style="position: sticky;">
+		style="position: sticky; z-index: 1071; top: 0;">
 			<div class="d-flex justify-content-end">
 		    <a class="navbar-brand" href="../index.html"  style="color: #fff;">
 			    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="Sistema de Logística Master Game">
@@ -46,7 +47,7 @@
 			    			<a class="nav-link" href="../empleados/FichasEmpleados.php" style="color: #fff;">Personal</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
-			    			<a class="nav-link" href="../proveedores/FichasEmpleados.php" style="color: #fff;">Proveedores</a>
+			    			<a class="nav-link" href="../proveedores/Proveedores.php" style="color: #fff;">Proveedores</a>
 			    		</li>
 			    		<li class="nav-item" style="margin-right: 1rem;">
 			    			<a class="nav-link" href="../clientes/crud.php" style="color: #fff;">Clientes</a>
@@ -83,25 +84,34 @@
 						echo "<h1>Listado de Productos</h1>";
 
 						/* Se creará una simple tabla que mostrará todos los productos cargados y la opción de eliminarlos o modificarlos */
-						$modificar= $pdo->prepare("SELECT id, nombre, precio, activo FROM productos ORDER BY id ASC;");
+						$modificar= $pdo->prepare("SELECT id, nombre, marca, modelo, precio, activo FROM productos WHERE activo = 1 ORDER BY id ASC;");
 						$modificar-> execute();
 						$modificacion = $modificar->fetchAll(PDO::FETCH_ASSOC);
 						
 						/* Mostramos los resultados en una tabla: */
+
+						/* Encabezado de la tabla */
 						echo '<table class="table table-bordered table-sm table-hover table-striped" style="text-align:center;">
 								<thead class="thead-dark" style="text-align:center";>
 									<tr>
 										<th>Numero</th>
 										<th>Producto</th>
+										<th>Marca</th>
+										<th>Modelo</th>
 										<th>Precio</th>
 										<th>Baja</th>
 										<th>Modificación</th>
+										<th>Venta</th>
 									</tr>
 								</thead>';
+
+							/* Cuerpo de la Tabla */
 						foreach ($modificacion as $unaModificacion) {
 							echo '<tr>';
 							echo '<td>'.$unaModificacion['id'].'</td>';
 							echo '<td>'.$unaModificacion['nombre'].'</td>';
+							echo '<td>'.$unaModificacion['marca'].'</td>';
+							echo '<td>'.$unaModificacion['modelo'].'</td>';
 							echo '<td>'.$unaModificacion['precio'].'</td>';
 
 							/* Link para eliminar un juego */
@@ -109,47 +119,49 @@
 							
 							/* Modal */
 							echo '<td>
-									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal'.$unaModificacion['id'].'">
+									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal'.$unaModificacion['id'].'">
 									  <i class="fa fa-trash-alt"></i>
 									</button>';
 
 									//Acá genero un modal para cada elemento del foreach
-									echo '<div class="modal fade" id="exampleModal'.$unaModificacion['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-									  <div class="modal-dialog" role="document">
-									    <div class="modal-content">
-									      <div class="modal-header">
-									        <h5 class="modal-title" id="exampleModalLabel1">Borrar Producto</h5>
-									        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									echo '<div class="modal fade" id="Modal'.$unaModificacion['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';//Modal
+									echo '<div class="modal-dialog" role="document">';
+									    echo '<div class="modal-content">';
+									      echo'<div class="modal-header">';
+									        echo'<h5 class="modal-title" id="exampleModalLabel1">Borrar Producto</h5>'; //Titulo del Modal
+									        echo'<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									          <span aria-hidden="true">&times;</span>
 									        </button>
 									      </div>
-									      <div class="modal-body">';
+									      <div class="modal-body">'; //Boton X para cerrar el modal. Cuerpo del Modal
 
-									      echo "Desea borrar el producto ".$unaModificacion['nombre']."?";
+									      //Pregunto al usuario si de verdad quiere borrar el producto
+									      echo "Desea borrar el producto ".$unaModificacion['nombre'].' de ID '.$unaModificacion['id']."?";
 									      
 									      $pdo = conectar();
 
 											/* Preparamos la eliminacion */
 											$eliminar=$pdo->prepare("DELETE FROM productos WHERE id=:num");
 
+											
 											/* Vinculamos el parámetro :num con el id que se obtiene por el foreach */
 											$eliminar->bindValue(':num',$unaModificacion['id']);
 
-										echo '<div class="modal-footer">';
-												echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">No, cerrar</button>
-												<a class="btn btn-danger" href="baja.php?id='.$unaModificacion['id'].'">
+											
+
+										echo '<div class="modal-footer">'; //Pie del Modal
+												echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">No, cerrar</button>'; //Cerrar Modal
+												echo'<a class="btn btn-danger" href="baja.php?id='.$unaModificacion['id'].'">
 												Borrar
-											</a>
-										</div>
-									  </td>';
-							}
-							else {
-								echo '<td>NO</td>';
+												</a>'; //Aceptar la Baja, redirección
+										echo '</div>
+									  </td>'; //Cierre de TD
 							}
 
 							/* Link para modificar un juego */
-
 							/* Modal */
+
+							//Botón para abrir la ventana
 							echo '<td>
 									<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal'.$unaModificacion['id'].'">
 									  <i class="fa fa-edit"></i>
@@ -171,7 +183,7 @@
 									      	    $pdo = conectar();
 	
 												/* Se preparan los datos actuales de los juegos */
-												$productoactual=$pdo->prepare("SELECT nombre, precio FROM productos WHERE id=:num");
+												$productoactual=$pdo->prepare("SELECT nombre, precio, marca, modelo FROM productos WHERE id=:num");
 												
 												/* Se linkea el parámetro :num con el id que se recibe por GET */
 												$productoactual->bindValue(':num',$unaModificacion['id']);
@@ -183,34 +195,195 @@
 
 												/* Se arma un simple formulario para ingresar la informacion nueva de los juegos */
 												
-												echo '<form action="prodmodificado.php" method="post">';
-												echo "<input name='id' type='hidden' value='{$unaModificacion['id']}'>";
-												echo "Nombre del producto: <input name='nombre' value='{$info[0]['nombre']}'><br>";
-												echo '</select><br>';
-												echo "Precio: <input type='number' name='precio' value='{$info[0]['precio']}'>";
-												echo '<div class="modal-footer">';
-												echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>';
-												echo '<button type="submit" class="btn btn-primary">Modificar producto</button>';
-												echo '</form>
+												echo '<form action="prodmodificado.php" method="post">'; 
+												echo "<input name='id' type='hidden' value='{$unaModificacion['id']}'>"; //Dirijo el ID
+												echo "Nombre del producto: <input name='nombre' value='{$info[0]['nombre']}'><br>"; //Input Nombre
+												echo "Marca: <input name='marca' value='{$info[0]['marca']}'><br>"; //Input Marca
+												echo "Modelo: <input name='modelo' value='{$info[0]['modelo']}'><br>"; // Input Modelo
+												echo "Precio: <input type='number' name='precio' value='{$info[0]['precio']}'>"; //Input Precio
+												echo '<div class="modal-footer">'; //Pie del Modal
+												echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>'; //Botón de cerrar
+												echo '<button type="submit" class="btn btn-primary">Modificar producto</button>'; //Botón para enviar el formulario a prodmodificado.php
+												echo '</form> 
 												</div>										
 									      </div>
 									    </div>
 									  </div>
 									</div>
 
+								  </td>';
+
+								// Celda para declarar la venta del producto y cambiar su estado de activo 1 a 0
+								echo '<td>
+									<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Modal_venta'.$unaModificacion['id'].'">
+									  <i class="fa fa-dollar-sign"></i>
+									</button>'; //Botón para Abrir el Modal
+
+									//Acá genero un modal para cada elemento del foreach
+									echo '<div class="modal fade" id="Modal_venta'.$unaModificacion['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel1">Vender Producto</h5>
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									          <span aria-hidden="true">&times;</span>
+									        </button>
+									      </div>
+									      <div class="modal-body">';
+
+									      		/* Pregunto al Usuario si quiere vender el producto*/
+
+									      		echo "Asigne un valor de venta para ".$unaModificacion['nombre'].' '.$unaModificacion['marca'].' '.$unaModificacion['modelo'];
+
+									      		echo '<input type="number" name="valor_venta" placeholder="Ingrese precio de venta">';
+
+												//Conecto a la BD
+									      	    $pdo = conectar();
+	
+												/* Preparamos la venta*/
+												$producto=$pdo->prepare("SELECT activo FROM productos WHERE id=:num");
+												
+												/* Se linkea el parámetro :num con el id que se recibe por GET */
+												$producto->bindValue(':num',$unaModificacion['id']);
+
+												/* Se ejecuta la preparacion */
+												$producto->execute();
+
+												$info1 = $producto->fetchAll(PDO::FETCH_ASSOC);
+
+												/*Pie del Modal*/
+												echo '<div class="modal-footer">';
+
+												/* Se arma un simple formulario para ingresar la informacion nueva de los juegos */
+												echo '<form action="venta.php" method="post">'; 
+												echo "<input name='id' type='hidden' value='{$unaModificacion['id']}'>"; //Dirijo el ID
+												echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">No, cerrar</button>
+													<button type="submit" class="btn btn-success">	
+													Si, vender
+												</a>
+												</form>
+											</div>'; /* /Cierre del pie del modal*/							
+									 echo '</div>
+									    </div>
+									  </div>
+									</div>
 								  </td>
 								</tr>';
 						}
 						?>
 						</table style="margin-bottom: 3rem;">
+
+
+						<!-- Tabla para Productos Vendidos -->
+						<?php
+						/* Conexión al servidor */
+						$pdo=conectar();
+
+						echo "<h1>Listado de Productos Vendidos</h1>";
+
+						/* Se creará una simple tabla que mostrará todos los productos cargados y la opción de eliminarlos o modificarlos */
+						$modificar1= $pdo->prepare("SELECT id, nombre, marca, modelo, precio, activo FROM productos WHERE activo = 0 ORDER BY id ASC;");
+						$modificar1-> execute();
+						$modificacion1 = $modificar1->fetchAll(PDO::FETCH_ASSOC);
 						
+						/* Mostramos los resultados en una tabla: */
+
+						/* Encabezado de la tabla */
+						echo '<table class="table table-bordered table-sm table-hover table-striped" style="text-align:center;">
+								<thead class="thead-dark" style="text-align:center";>
+									<tr>
+										<th>Numero</th>
+										<th>Producto</th>
+										<th>Marca</th>
+										<th>Modelo</th>
+										<th>Precio</th>
+										<th>Precio de venta</th>
+										<th>Devolver</th>
+									</tr>
+								</thead>';
+
+							/* Cuerpo de la Tabla */
+						foreach ($modificacion1 as $unaModificacion1) {
+							echo '<tr>';
+							echo '<td>'.$unaModificacion1['id'].'</td>';
+							echo '<td>'.$unaModificacion1['nombre'].'</td>';
+							echo '<td>'.$unaModificacion1['marca'].'</td>';
+							echo '<td>'.$unaModificacion1['modelo'].'</td>';
+							echo '<td>'.$unaModificacion1['precio'].'</td>';
+							echo '<td>Precio de Venta</td>';
+
+							/* Link para reactivar un producto */
+							if($unaModificacion1['activo'] == 0) {
+							echo '<td>
+									<button type="button" class="btn btn-info" data-toggle="modal" data-target="#Modal_Devolucion'.$unaModificacion1['id'].'">
+									  <i class="fas fa-backward"></i>
+									</button>'; //Botón para Abrir el Modal
+
+									//Acá genero un modal para cada elemento del foreach
+									echo '<div class="modal fade" id="Modal_Devolucion'.$unaModificacion1['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="Modal_Devolucion">Devolver Producto</h5>
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									          <span aria-hidden="true">&times;</span>
+									        </button>
+									      </div>
+									      <div class="modal-body">';
+
+									      		/* Pregunto al Usuario si quiere vender el producto*/
+
+									      		echo "¿Seguro que desea devolver el producto ".$unaModificacion1['nombre'].' '.$unaModificacion1['marca'].' '.$unaModificacion1['modelo']."?";
+
+												//Conecto a la BD
+									      	    $pdo = conectar();
+	
+												/* Preparamos la venta*/
+												$productoD=$pdo->prepare("SELECT activo FROM productos WHERE id=:num");
+												
+												/* Se linkea el parámetro :num con el id que se recibe por GET */
+												$productoD->bindValue(':num',$unaModificacion1['id']);
+
+												/* Se ejecuta la preparacion */
+												$productoD->execute();
+
+												$info11 = $productoD->fetchAll(PDO::FETCH_ASSOC);
+
+												/*Pie del Modal*/
+												echo '<div class="modal-footer">';
+
+												/* Se arma un simple formulario para ingresar la informacion nueva de los juegos */
+												echo '<form action="noventa.php" method="post">'; 
+												echo "<input name='id' type='hidden' value='{$unaModificacion1['id']}'>"; //Dirijo el ID
+													echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">No, cerrar</button>
+														<button type="submit" class="btn btn-info">	
+														Si, devolver
+														</button>
+													</form>
+											</div>'; /* /Cierre del pie del modal*/							
+									 echo '</div>
+									    </div>
+									  </div>
+									</div>
+								  </td>
+								</tr>';
+							}
+						}
+						?>
+						</table style="margin-bottom: 3rem;">
+
+						<!-- Contenedor para los botones -->
 						<div class="container">
+							<!-- Posiciono en Fila -->
 							<div class="row">
+								<!-- Elijo la ubicación espacial de cada botón -->
 								<div class="col-6">
+									<!-- Link -->
 									<a class="btn btn-info" href=../index.html><i class="fa fa-home"></i> Volver al inicio </a>
 								</div>
-
+								<!-- Elijo la ubicación espacial de cada botón -->
 								<div class="col-6">
+
 									<!-- Botón de Agregar -->
 									<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
 									  <i class="fa fa-plus"></i> Agregar un nuevo ítem
@@ -218,24 +391,24 @@
 
 									<!-- Modal (o ventana emergente) -->
 									<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-									  <div class="modal-dialog" role="document">
-									    <div class="modal-content">
-									      <div class="modal-header">
-									        <h5 class="modal-title" id="exampleModalLabel">Agregar un producto</h5>
-									        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									  <div class="modal-dialog" role="document"> <!-- Ventana -->
+									    <div class="modal-content"> <!-- Contenido -->
+									      <div class="modal-header">	<!-- Encabezado del Modal -->
+									        <h5 class="modal-title" id="exampleModalLabel">Agregar un producto</h5> <!-- Titulo del Modal -->
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <!-- Botón de Cierre del Modal -->
 									          <span aria-hidden="true">&times;</span>
 									        </button>
 									      </div>
-									      <div class="modal-body">
+									      <div class="modal-body"> <!-- Cuerpo del Modal -->
 									      	<?php
+									      		//Conecto a la BD
 										        $pdo=conectar();
 									
 												/* Se crea un formulario para agregar un nuevo juego, su genero y precio */
-												
 												echo "<form action='alta.php' method='post' id='form' name='form'>";
-												echo "Nombre de producto <input name='nombre' type='text' required>";
-												echo "<span id='advertencia' style='color:red'></span><br>";	
-												echo "<br>";
+												echo "Nombre de producto <input name='nombre' type='text' required><br>";
+												echo "Marca <input name='marca' type='text' required><br>";
+												echo "Modelo <input name='modelo' type='text' required><br>";
 												echo "Precio: <input name='precio' type='number' required><br>";
 												echo '</div>
 										      	<div class="modal-footer">
@@ -245,14 +418,14 @@
 												echo '</form>
 												</div>';
 											?>
-									      </div> <!-- Cierre del Body del Modal -->
-									    </div> <!-- Cierre del Contenido del Modal -->
-									  </div> <!-- Cierre del Modal Dialog -->
-									</div> <!-- Cierre del Modal -->
-								</div> <!-- Cierre de la columna -->
-							</div> <!-- Cierre de la fila -->
-						</div> <!-- Cierre del Contenedor -->
-					</main> <!-- Cierre del Contenido Principal -->
+									      </div> <!-- /Cierre del Body del Modal -->
+									    </div> <!-- /Cierre del Contenido del Modal -->
+									  </div> <!-- /Cierre del Modal Dialog -->
+									</div> <!-- /Cierre del Modal -->
+								</div> <!-- /Cierre de la columna -->
+							</div> <!-- /Cierre de la fila -->
+						</div> <!-- /Cierre del Contenedor -->
+					</main> <!-- /Cierre del Contenido Principal -->
 
 				<!-- Right Sidebar -->
 				<div class="d-none d-xl-block col-xl-2 bd-toc">
@@ -260,7 +433,7 @@
 						<li class="toc-entry toc-h2">
 						</li>
 					</ul>
-				</div> <!-- Cierre de la barra Derecha -->
+				</div> <!-- /Cierre de la barra Derecha -->
 
 			</div>
 
