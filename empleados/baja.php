@@ -28,7 +28,6 @@
 	<body>
 
 		<!-- Navbar -->
-		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
 		style="position: sticky; z-index: 1071; top: 0;">
 			<div class="d-flex justify-content-end">
@@ -69,6 +68,7 @@
 				<!-- Left Sidebar -->
 
 				<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+
 				</div>
 
 				<!-- End of Sidebar -->

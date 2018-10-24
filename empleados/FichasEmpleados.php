@@ -86,7 +86,7 @@
 					//Nos conectamos a la BD
 					$pdo = conectar();
 					//Ejecuto la consulta
-					$stmt = $pdo->prepare('SELECT personales.nombre, personales.apellido, personales.DNI, personales.labor_id, personales.fecha_ingreso_laboral, labores.id, labores.nombre as laburo FROM personales JOIN labores ON personales.labor_id=labores.id');
+					$stmt = $pdo->prepare('SELECT personales.id as id, personales.nombre, personales.apellido, personales.DNI, personales.fecha_ingreso_laboral, labores.nombre as laburo FROM personales JOIN labores ON personales.labor_id=labores.id');
 					$stmt->execute();
 					$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
