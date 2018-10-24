@@ -238,24 +238,9 @@
 								    <label>Productos</label>
 								    <div class="input-group-prepend">
 								        <span class="input-group-text" id="basic-addon1"><i class="fas fa-boxes"></i></span>
-								        
-								        <select name="producto">
-								        	<?php
-								        		require('../../Conectar.php');
-
-								        		$pdo = conectar();
-
-								        		$consulta = $pdo -> prepare("SELECT nombre, marca, modelo FROM productos");
-
-								        		$consulta->execute();
-								        		$resultado = $consulta -> fetchAll(PDO::FETCH_ASSOC);
-
-								        		foreach ($resultado as $unResultado) {
-								        			echo '<option>'.$unResultado['nombre'].' '.$unResultado['marca'].' '.$unResultado['modelo'].'</option>';
-								        		}
-								        		echo '</select>'
-								        	?>
-								        </select>
+								        <div class="input-group-prepend">
+								        	<textarea class="form-control" name="producto" placeholder="Productos" cols="40" rows="5" required></textarea>
+								    	</div>
 									</div>
 								</div>
 								<div class="col-md-6">
