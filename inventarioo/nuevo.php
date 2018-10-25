@@ -31,7 +31,7 @@
 		<!-- Navbar -->
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
-		style="position: sticky; z-index: 1071; top: 0;">
+		style="position: sticky;">
 			<div class="d-flex justify-content-end">
 		    <a class="navbar-brand" href="../index.html"  style="color: #fff;">
 			    <img src="/MasterGame/images/mg2.jpg" width="80" height="30" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="Sistema de Logística Master Game">
@@ -221,7 +221,7 @@
 
 									//Acá genero un modal para cada elemento del foreach
 									echo '<div class="modal fade" id="Modal_venta'.$unaModificacion['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-									  <div class="modal-dialog" role="document">
+									  <div class="modal-dialog modal-dialog-centered" role="document">
 									    <div class="modal-content">
 									      <div class="modal-header">
 									        <h5 class="modal-title" id="exampleModalLabel1">Vender Producto</h5>
@@ -229,39 +229,87 @@
 									          <span aria-hidden="true">&times;</span>
 									        </button>
 									      </div>
-									      <div class="modal-body">';
+									      <div class="modal-body">
+									      	 <div class="container-fluid">
+									      	 	<div class="row">';
 
-									      		/* Pregunto al Usuario si quiere vender el producto*/
+											      		/* Pregunto al Usuario si quiere vender el producto*/
 
-									      		echo "Asigne un valor de venta para ".$unaModificacion['nombre'].' '.$unaModificacion['marca'].' '.$unaModificacion['modelo'];
+											      		echo "Asigne un valor de venta para ".$unaModificacion['nombre'].' '.$unaModificacion['marca'].' '.$unaModificacion['modelo'].'<br>';
 
-									      		echo '<input type="number" name="valor_venta" placeholder="Ingrese precio de venta">';
+												echo '</div>';
+											    echo '<div class="row">';
+											    
+											      		//Conecto a la BD
+											      	    $pdo = conectar();
+			
+														/* Preparamos la venta*/
+														$producto=$pdo->prepare("SELECT activo FROM productos WHERE id=:num");
+														
+														/* Se linkea el parámetro :num con el id que se recibe por GET */
+														$producto->bindValue(':num',$unaModificacion['id']);
 
-												//Conecto a la BD
-									      	    $pdo = conectar();
-	
-												/* Preparamos la venta*/
-												$producto=$pdo->prepare("SELECT activo FROM productos WHERE id=:num");
-												
-												/* Se linkea el parámetro :num con el id que se recibe por GET */
-												$producto->bindValue(':num',$unaModificacion['id']);
+														/* Se ejecuta la preparacion */
+														$producto->execute();
 
-												/* Se ejecuta la preparacion */
-												$producto->execute();
+														$info1 = $producto->fetchAll(PDO::FETCH_ASSOC);
+														echo '<form action="venta.php" method="post">'; 
+											      		echo '<input type="number" name="valor_venta" placeholder="Ingrese precio de venta" required> <br>';
 
-												$info1 = $producto->fetchAll(PDO::FETCH_ASSOC);
+											      echo'</div>';
+											     echo '<div class="row">';
+											      		echo '¿Quien realizo la venta?
+											      		</div>
+											      		<div class="row">';
 
+											      		echo '<select name="empleado" required>';
+
+												      		$pdo = conectar();
+
+												      		$insercion = $pdo -> prepare("SELECT id, nombre, apellido FROM personales");
+															$insercion -> execute();
+															$ins1 = $insercion -> fetchAll(PDO::FETCH_ASSOC);
+
+															foreach ($ins1 as $ins) {
+																echo '<option style="margin-bottom: 1rem;" value="'.$ins['id'].'">'.$ins['nombre'].' '.$ins['apellido'].'</option>';
+															}
+														echo '</select>';
+
+													echo'</div>';
+
+													echo '<div class="row">';
+											      		echo '¿Que cliente compró el producto?
+											      		</div>
+											      		<div class="row">';
+
+											      		echo '<select name="cliente" required>';
+
+												      		$pdo = conectar();
+
+												      		$insercion = $pdo -> prepare("SELECT id, nombre, apellido FROM socios");
+															$insercion -> execute();
+															$ins1 = $insercion -> fetchAll(PDO::FETCH_ASSOC);
+															
+															foreach ($ins1 as $ins) {
+																echo '<option style="margin-bottom: 1rem;" value="'.$ins['id'].'">'.$ins['nombre'].' '.$ins['apellido'].'</option>';
+															}
+														echo '</select>';
+														
+													echo'</div>';
+												echo '</div>';
+											echo '</div>';
 												/*Pie del Modal*/
-												echo '<div class="modal-footer">';
-
+											echo '<div class="modal-footer" style="margin-top: 1rem;">';
+												echo '<div class="row">';
 												/* Se arma un simple formulario para ingresar la informacion nueva de los juegos */
-												echo '<form action="venta.php" method="post">'; 
+												
 												echo "<input name='id' type='hidden' value='{$unaModificacion['id']}'>"; //Dirijo el ID
 												echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">No, cerrar</button>
 													<button type="submit" class="btn btn-success">	
 													Si, vender
-												</a>
-												</form>
+													</button>
+													</form>
+											    </div>
 											</div>'; /* /Cierre del pie del modal*/							
 									 echo '</div>
 									    </div>
@@ -282,7 +330,7 @@
 						echo "<h1>Listado de Productos Vendidos</h1>";
 
 						/* Se creará una simple tabla que mostrará todos los productos cargados y la opción de eliminarlos o modificarlos */
-						$modificar1= $pdo->prepare("SELECT id, nombre, marca, modelo, precio, activo FROM productos WHERE activo = 0 ORDER BY id ASC;");
+						$modificar1= $pdo->prepare("SELECT productos.id as prodid, productos.nombre as nombreprod, productos.marca, productos.modelo, productos.precio, productos.activo, venta.precio_venta, socios.nombre as nombrecliente, socios.apellido as apellidocliente, personales.nombre as nombreempleado, personales.apellido as apellidoempleado FROM productos WHERE activo = 0 JOIN socios ON venta.cliente_id=socios.id JOIN personales ON venta.cliente_id=personales.id ORDER BY id ASC;");
 						$modificar1-> execute();
 						$modificacion1 = $modificar1->fetchAll(PDO::FETCH_ASSOC);
 						
@@ -298,6 +346,8 @@
 										<th>Modelo</th>
 										<th>Precio</th>
 										<th>Precio de venta</th>
+										<th>Cliente</th>
+										<th>Vendedor</th>
 										<th>Devolver</th>
 									</tr>
 								</thead>';
@@ -305,12 +355,14 @@
 							/* Cuerpo de la Tabla */
 						foreach ($modificacion1 as $unaModificacion1) {
 							echo '<tr>';
-							echo '<td>'.$unaModificacion1['id'].'</td>';
-							echo '<td>'.$unaModificacion1['nombre'].'</td>';
+							echo '<td>'.$unaModificacion1['prodid'].'</td>';
+							echo '<td>'.$unaModificacion1['nombreprod'].'</td>';
 							echo '<td>'.$unaModificacion1['marca'].'</td>';
 							echo '<td>'.$unaModificacion1['modelo'].'</td>';
 							echo '<td>'.$unaModificacion1['precio'].'</td>';
-							echo '<td>Precio de Venta</td>';
+							echo '<td>'.$unaModificacion1['precio_venta'].'</td>';
+							echo '<td>'.$unaModificacion1['nombrecliente'].'</td>';
+							echo '<td>'.$unaModificacion1['nombreempleado'].'</td>';
 
 							/* Link para reactivar un producto */
 							if($unaModificacion1['activo'] == 0) {
