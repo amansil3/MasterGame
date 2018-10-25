@@ -330,7 +330,31 @@
 						echo "<h1>Listado de Productos Vendidos</h1>";
 
 						/* Se creará una simple tabla que mostrará todos los productos cargados y la opción de eliminarlos o modificarlos */
-						$modificar1= $pdo->prepare("SELECT productos.id as prodid, productos.nombre as nombreprod, productos.marca, productos.modelo, productos.precio, productos.activo, venta.precio_venta, socios.nombre as nombrecliente, socios.apellido as apellidocliente, personales.nombre as nombreempleado, personales.apellido as apellidoempleado FROM productos WHERE activo = 0 JOIN socios ON venta.cliente_id=socios.id JOIN personales ON venta.cliente_id=personales.id ORDER BY id ASC;");
+						$modificar1= $pdo->prepare("SELECT 
+							venta.id as idventa, 
+							venta.precio_venta, 
+							venta.producto_id, 
+							venta.cliente_id, 
+							venta.empleado_id, 
+							personales.id as idempleado, 
+							personales.nombre as nombreempleado, 
+							personales.apellido as apellidoempleado, 
+							socios.nombre as nombrecliente, 
+							socios.apellido as apellidocliente,
+							productos.id as id,
+							productos.nombre as nomprod,
+							productos.marca as marca,
+							productos.modelo as modelo,
+							productos.precio as precio,
+							productos.activo as activo
+							FROM venta 
+							JOIN personales 
+								ON venta.empleado_id=personales.id 
+							JOIN socios 
+								on venta.cliente_id=socios.id
+							JOIN productos
+								on venta.producto_id=productos.id 
+							");
 						$modificar1-> execute();
 						$modificacion1 = $modificar1->fetchAll(PDO::FETCH_ASSOC);
 						
@@ -344,35 +368,35 @@
 										<th>Producto</th>
 										<th>Marca</th>
 										<th>Modelo</th>
-										<th>Precio</th>
+										<th>Precio de Compra</th>
 										<th>Precio de venta</th>
 										<th>Cliente</th>
 										<th>Vendedor</th>
-										<th>Devolver</th>
 									</tr>
 								</thead>';
 
 							/* Cuerpo de la Tabla */
 						foreach ($modificacion1 as $unaModificacion1) {
 							echo '<tr>';
-							echo '<td>'.$unaModificacion1['prodid'].'</td>';
-							echo '<td>'.$unaModificacion1['nombreprod'].'</td>';
+							echo '<td>'.$unaModificacion1['idventa'].'</td>';
+							echo '<td>'.$unaModificacion1['nomprod'].'</td>';
 							echo '<td>'.$unaModificacion1['marca'].'</td>';
 							echo '<td>'.$unaModificacion1['modelo'].'</td>';
 							echo '<td>'.$unaModificacion1['precio'].'</td>';
 							echo '<td>'.$unaModificacion1['precio_venta'].'</td>';
-							echo '<td>'.$unaModificacion1['nombrecliente'].'</td>';
-							echo '<td>'.$unaModificacion1['nombreempleado'].'</td>';
+							echo '<td>'.$unaModificacion1['nombreempleado'].' '.$unaModificacion1['apellidoempleado'].'</td>';
+							echo '<td>'.$unaModificacion1['nombrecliente'].' '.$unaModificacion1['apellidocliente'].'</td>';
 
-							/* Link para reactivar un producto */
+
+							/* Link para reactivar un producto 
 							if($unaModificacion1['activo'] == 0) {
 							echo '<td>
-									<button type="button" class="btn btn-info" data-toggle="modal" data-target="#Modal_Devolucion'.$unaModificacion1['id'].'">
+									<button type="button" class="btn btn-info" data-toggle="modal" data-target="#Modal_Devolucion'.$unaModificacion1['idventa'].'">
 									  <i class="fas fa-backward"></i>
-									</button>'; //Botón para Abrir el Modal
+									</button>'; Botón para Abrir el Modal
 
-									//Acá genero un modal para cada elemento del foreach
-									echo '<div class="modal fade" id="Modal_Devolucion'.$unaModificacion1['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									Acá genero un modal para cada elemento del foreach
+									echo '<div class="modal fade" id="Modal_Devolucion'.$unaModificacion1['idventa'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									  <div class="modal-dialog" role="document">
 									    <div class="modal-content">
 									      <div class="modal-header">
@@ -383,28 +407,28 @@
 									      </div>
 									      <div class="modal-body">';
 
-									      		/* Pregunto al Usuario si quiere vender el producto*/
+									      		 Pregunto al Usuario si quiere vender el producto
 
-									      		echo "¿Seguro que desea devolver el producto ".$unaModificacion1['nombre'].' '.$unaModificacion1['marca'].' '.$unaModificacion1['modelo']."?";
+									      		echo "¿Seguro que desea devolver el producto ".$unaModificacion1['nomprod'].' '.$unaModificacion1['marca'].' '.$unaModificacion1['modelo']."?";
 
 												//Conecto a la BD
 									      	    $pdo = conectar();
 	
-												/* Preparamos la venta*/
+												 Preparamos la venta
 												$productoD=$pdo->prepare("SELECT activo FROM productos WHERE id=:num");
 												
-												/* Se linkea el parámetro :num con el id que se recibe por GET */
+												 Se linkea el parámetro :num con el id que se recibe por GET 
 												$productoD->bindValue(':num',$unaModificacion1['id']);
 
-												/* Se ejecuta la preparacion */
+												Se ejecuta la preparacion 
 												$productoD->execute();
 
 												$info11 = $productoD->fetchAll(PDO::FETCH_ASSOC);
 
-												/*Pie del Modal*/
+												Pie del Modal
 												echo '<div class="modal-footer">';
 
-												/* Se arma un simple formulario para ingresar la informacion nueva de los juegos */
+												Se arma un simple formulario para ingresar la informacion nueva de los juegos 
 												echo '<form action="noventa.php" method="post">'; 
 												echo "<input name='id' type='hidden' value='{$unaModificacion1['id']}'>"; //Dirijo el ID
 													echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">No, cerrar</button>
@@ -412,14 +436,14 @@
 														Si, devolver
 														</button>
 													</form>
-											</div>'; /* /Cierre del pie del modal*/							
+											</div>'; 	 /Cierre del pie del modal							
 									 echo '</div>
 									    </div>
 									  </div>
 									</div>
 								  </td>
 								</tr>';
-							}
+							}*/
 						}
 						?>
 						</table style="margin-bottom: 3rem;">
