@@ -170,7 +170,7 @@
 						$pdo = conectar();
 
 						//Consultamos los datos actuales del socio:
-						$consulta=$pdo->prepare("SELECT nombre, apellido, DNI FROM personales WHERE id=:numeroRecibido");
+						$consulta=$pdo->prepare("SELECT nombre, apellido, fecha_ingreso_laboral, DNI FROM personales WHERE id=:numeroRecibido");
 
 						//Vinculamos el parámetro :numeroRecibido con el id recibido por GET:
 						$consulta->bindValue(':numeroRecibido',$_GET['id']);
@@ -204,6 +204,12 @@
 							echo '<div class="input-group">';
 								echo "<label> DNI: </label>
 									<input name='DNI' type='number' value='{$datos[0]['DNI']}' min=7000000 required>
+								</div>";
+
+							//Input DNI
+							echo '<div class="input-group">';
+								echo "<label> Fecha de Ingreso: </label>
+									<input name='fecha' type='date' value='{$datos[0]['fecha_ingreso_laboral']}' required>
 								</div>";
 
 							//Submit

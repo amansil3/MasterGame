@@ -83,12 +83,13 @@
 						$pdo = conectar();
 						//Preparamos la sentencia de modificacion:
 						$modificacion=$pdo->prepare("UPDATE personales SET
-						                                nombre = :nombre, apellido = :apellido, DNI = :DNI
+						                                nombre = :nombre, apellido = :apellido, DNI = :DNI, fecha_ingreso_laboral = :fecha
 						                                WHERE id=:id");
 						//Vinculamos los parámetros con los datos recibidos por POST:
 						$modificacion->bindValue(':nombre',$_POST['nombre']);
 						$modificacion->bindValue(':apellido',$_POST['apellido']);
 						$modificacion->bindValue(':DNI',$_POST['DNI']);
+						$modificacion->bindValue(':fecha',$_POST['fecha']);
 						$modificacion->bindValue(':id', $_POST['numero']);
 						//Ejecutamos la modificación, mostrando un mensaje de éxito o error según corresponda:
 						if($modificacion->execute()) {

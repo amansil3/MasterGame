@@ -170,6 +170,10 @@
 				<input type="number" name="DNI" required min="10000000">
 			</div>
 			<div class="input-group">
+				<label>Fecha ingreso laboral:</label>
+				<input type="date" name="fecha" required>
+			</div>
+			<div class="input-group">
 				<label>Labor:</label>
 				<select name="labor" required>
 					<?php

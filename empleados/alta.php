@@ -87,12 +87,13 @@
 						$DNI = $_POST['DNI'];
 						$telefono = $_POST['telefono'];
 						$labor = $_POST['labor'];
+						$fecha_ingreso_laboral = $_POST['fecha'];
 
 						//Conecto a la BD
 						$pdo = conectar();
 
 						//Preparo la sentencia INSERT, con parámetros llamados :a, :b, :c, :d, :e, :f
-						$insercion = $pdo -> prepare("INSERT INTO personales (nombre, apellido, telefono, DNI, labor_id) VALUES (:a, :b, :c, :d, :e);");
+						$insercion = $pdo -> prepare("INSERT INTO personales (nombre, apellido, telefono, DNI, labor_id, fecha_ingreso_laboral) VALUES (:a, :b, :c, :d, :e, :f);");
 
 
 						//Le asigno valor a los parámetros :a , :b, :c, :d, :e, :f
@@ -101,6 +102,7 @@
 						$insercion -> bindValue(':c',$telefono);
 						$insercion -> bindValue(':d',$DNI);
 						$insercion -> bindValue(':e',$labor);
+						$insercion -> bindValue(':f',$fecha_ingreso_laboral);
 
 
 						//Ejecutamos la sentencia preparada antes:
