@@ -69,10 +69,7 @@
 
 				<!-- Left Sidebar -->
 				<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
-					helloworld!
-					helloworld!
-					helloworld!
-					helloworld!
+					
 				</div>
 				<!-- End of Sidebar -->
 
@@ -89,13 +86,13 @@
 						$apellido = $_POST['apellido'];
 						$DNI = $_POST['DNI'];
 						$telefono = $_POST['telefono'];
-						$direccion = $_POST['direccion'];
+						$labor = $_POST['labor'];
 
 						//Conecto a la BD
 						$pdo = conectar();
 
 						//Preparo la sentencia INSERT, con parámetros llamados :a, :b, :c, :d, :e, :f
-						$insercion = $pdo -> prepare("INSERT INTO socios (nombre, apellido, telefono, DNI, direccion) VALUES (:a, :b, :c, :d, :e);");
+						$insercion = $pdo -> prepare("INSERT INTO personales (nombre, apellido, telefono, DNI, labor_id) VALUES (:a, :b, :c, :d, :e);");
 
 
 						//Le asigno valor a los parámetros :a , :b, :c, :d, :e, :f
@@ -103,22 +100,22 @@
 						$insercion -> bindValue(':b',$apellido);
 						$insercion -> bindValue(':c',$telefono);
 						$insercion -> bindValue(':d',$DNI);
-						$insercion -> bindValue(':e',$direccion);
+						$insercion -> bindValue(':e',$labor);
 
 
 						//Ejecutamos la sentencia preparada antes:
 						if ($insercion -> execute() ) {
 						 //Si la inserción fue exitosa:
-							echo "El Cliente fue agregado."."<br><br>";
+							echo "El trabajador fue agregado."."<br><br>";
 						}
 						else {
-						    echo "Error al agregar al cliente";
+						    echo "Error al agregar al trabajador";
 						}
 					
 					?>	
 					<!-- Links -->
-					<a href="crud.php" class="btn btn btn-primary"> Volver a la página de socios </a>
-					<a href="index.html" class="btn btn btn-primary"> Volver al Inicio </a>
+					<a href="FichasEmpleados.php" class="btn btn btn-primary"> Volver a la página de empleados </a>
+					<a href="../index.html" class="btn btn btn-primary"> Volver al Inicio </a>
 
 				</main>
 				<!-- End of Main Body-->
@@ -128,11 +125,11 @@
 					<ul class="section-nav" style="list-style: none; margin-top: 4rem;">
 						<li class="toc-entry toc-h2">
 							<a href="formAlta.php" style="color:#99979c"> 
-								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo socio 
+								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo trabajador
 							</a> 
 						</li>
 						<li class="toc-entry toc-h2">
-							<a href="index.html" style="color:#99979c">
+							<a href="../index.html" style="color:#99979c">
 								<i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
 							</a>
 						</li>

@@ -150,7 +150,7 @@
 		<!-- Form -->
 
 		<div class="container" align="center">
-			<h1>Alta de Clientes</h1>
+			<h1>Alta de Empleados</h1>
 
 		<form method="post" action="alta.php">
 			<div class="input-group">
@@ -170,23 +170,41 @@
 				<input type="number" name="DNI" required min="10000000">
 			</div>
 			<div class="input-group">
-				<label>Dirección:</label>
-				<input type="text" name="direccion"  name="direccion" required minlength="8">
+				<label>Labor:</label>
+				<select name="labor" required>
+					<?php
+						require('../Conectar.php');
+
+						//Conecto a la BD
+						$pdo = conectar();
+
+						$insercion = $pdo -> prepare("SELECT labores.id, labores.nombre  FROM labores");
+						$insercion -> execute();
+						$ins1 = $insercion -> fetchAll(PDO::FETCH_ASSOC);
+
+						foreach ($ins1 as $ins) {
+							echo '<option value="'.$ins['id'].'">'.$ins['nombre'].'</option>';
+						}
+						
+					?>
+				</select>
 			</div>
 			<div class="input-group">
 				<button type="submit" class="btn btn-success" name="register_btn">Dar de Alta</button>
 			</div>
-		</form>
-			<div class="card text-center" style="width: 20rem;">
+			<div class="card text-left" style="width: 20rem; border-style: hidden; margin-right: 8rem;">
 			   <div class="card-body">
 			    <p class="card-text">
-			    	<a href="crud.php" class="btn btn btn-primary"> Volver a la página de socios </a>
+			    	<a href="../FichasEmpleados.php" class="btn btn btn-primary"> Volver a la página de empleados </a>
 			    </p>
 			    <p class="card-text">
-			    	<a href="index.html" class="btn btn btn-primary"> Volver al Inicio </a>
+			    	<a href="../index.html" class="btn btn btn-primary"> Volver al Inicio </a>
 			    </p>
 			  </div>
 			</div>
+		  </form>
+
 		</div>
+
 	</body>
 </html>

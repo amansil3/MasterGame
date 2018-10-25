@@ -156,10 +156,7 @@
 				<!-- Left Sidebar -->
 
 				<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
-					helloworld!
-					helloworld!
-					helloworld!
-					helloworld!
+					
 				</div>
 
 				<!-- End of Sidebar -->
@@ -220,7 +217,7 @@
 
 							//Submit
 							echo '<input type="submit" value="Modificar datos" class="btn btn btn-primary">';
-							echo '<a href="crud.php" class="btn btn btn-primary"> Cancelar </a>';
+							echo '<a href="Proveedores.php" class="btn btn btn-primary"> Cancelar </a>';
 
 							//Cierre Formulario
 							echo '</form>
@@ -237,7 +234,7 @@
 					<ul class="section-nav" style="list-style: none; margin-top: 4rem;">
 						<li class="toc-entry toc-h2">
 							<a href="formAlta.php" style="color:#99979c"> 
-								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo socio 
+								<i class="fa fa-plus" aria-hidden="true"></i> Dar de alta a un nuevo proveedor
 							</a> 
 						</li>
 						<li class="toc-entry toc-h2">
