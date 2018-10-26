@@ -170,7 +170,7 @@
 						$pdo = conectar();
 
 						//Consultamos los datos actuales del socio:
-						$consulta=$pdo->prepare("SELECT nombre, apellido, DNI, telefono, direccion FROM socios WHERE id=:numeroRecibido");
+						$consulta=$pdo->prepare("SELECT nombre, apellido, DNI FROM socios WHERE id=:numeroRecibido");
 
 						//Vinculamos el parámetro :numeroRecibido con el id recibido por GET:
 						$consulta->bindValue(':numeroRecibido',$_GET['id']);
@@ -195,14 +195,6 @@
 								echo "<label> DNI: </label>
 									<input name='DNI' type='number' value='{$datos[0]['DNI']}' min=7000000 required>
 								</div>";
-							echo '<div class="input-group">';
-								echo "<label> Dirección: </label>
-									<input name='direccion' type='text' value='{$datos[0]['direccion']}' minlenght='3' required>
-								</div>";
-							echo '<div class="input-group">';
-								echo "<label> Teléfono: </label>
-									<input name='telefon' type='number' value='{$datos[0]['telefono']}' min=400 required>
-								</div>";
 							echo '<input type="submit" value="Modificar datos" class="btn btn btn-primary">';
 							echo '<a href="crud.php" class="btn btn btn-primary"> Cancelar </a>';
 							echo '</form>
@@ -223,7 +215,7 @@
 							</a> 
 						</li>
 						<li class="toc-entry toc-h2">
-							<a href="../index.html" style="color:#99979c">
+							<a href="index.html" style="color:#99979c">
 								<i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
 							</a>
 						</li>
