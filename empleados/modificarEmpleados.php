@@ -218,12 +218,9 @@
 
 							//Submit
 							echo '<input type="submit" value="Modificar datos" class="btn btn btn-primary">';
-							echo '<a href="FichasEmpleados.php" class="btn btn btn-primary"> Cancelar </a>';
-							echo '<input placeholder="Día" value="'.date("d-m-Y").'" type="text" class="form-control" id="fecha_planificada" readonly="true" style="text-align: center;">';
-							//Cierre Formulario
+							echo '<a href="FichasEmpleados.php" class="btn btn btn-primary"> Cancelar </a>';						//Cierre Formulario
 							echo '</form>
 						</div>';
-						echo '<script> $("#fecha_planificada").datepicker({}); </script>'
 						?>
 				</main>
 

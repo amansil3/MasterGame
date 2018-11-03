@@ -80,17 +80,73 @@
 						/* Conexión al servidor */
 						$pdo=conectar();
 
-						echo "<h1>Listado de Productos</h1>";
+						echo '<h1>Listado de Productos</h1>';
+
+
 
 						/* Se creará una simple tabla que mostrará todos los productos cargados y la opción de eliminarlos o modificarlos */
-						$modificar= $pdo->prepare("SELECT id, nombre, marca, modelo, precio, activo FROM productos WHERE activo = 1 ORDER BY id ASC;");
-						$modificar-> execute();
-						$modificacion = $modificar->fetchAll(PDO::FETCH_ASSOC);
-						
-						/* Mostramos los resultados en una tabla: */
 
-						/* Encabezado de la tabla */
-						echo '<table class="table table-bordered table-sm table-hover table-striped" style="text-align:center;">
+						try {
+
+					    // Find out how many items are in the table
+						$pdo = conectar();
+
+					    $t = $pdo->prepare('SELECT COUNT(*) as total FROM productos WHERE activo=1 ORDER BY id ASC');
+					    $t -> execute();
+
+					    $to = $t->fetchAll(PDO::FETCH_ASSOC);
+					    
+					    $total=$to[0]['total'];
+
+					    // How many items to list per page
+					    $limit = 5;
+
+					    // How many pages will there be
+					    $pages = ceil($total / $limit);
+
+					    // What page are we currently on?
+					    $page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
+					        'options' => array(
+					            'default'   => 1,
+					            'min_range' => 1,
+					        ),
+					    )));
+
+					    // Calculate the offset for the query
+					    $offset = ($page - 1)  * $limit;
+
+					    // Some information to display to the user
+					    $start = $offset + 1;
+					    $end = min(($offset + $limit), $total);
+
+					   
+
+					    // Prepare the paged query
+					    $stmt = $pdo->prepare('
+					        SELECT
+					            *
+					        FROM
+					            productos
+					        ORDER BY
+					            nombre
+					        LIMIT
+					            :limit
+					        OFFSET
+					            :offset
+					    ');
+
+					    // Bind the query params
+					    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+					    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+					    $stmt->execute();
+
+					    // Do we have any results?
+					    if ($stmt->rowCount() > 0) {
+					        // Define how we want to fetch the results
+					        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+					        $iterator = new IteratorIterator($stmt);
+
+					        echo '<table class="table table-bordered table-sm table-hover table-striped" style="text-align:center;">
 								<thead class="thead-dark" style="text-align:center";>
 									<tr>
 										<th>Numero</th>
@@ -104,61 +160,55 @@
 									</tr>
 								</thead>';
 
-							/* Cuerpo de la Tabla */
-						foreach ($modificacion as $unaModificacion) {
-							echo '<tr>';
-							echo '<td>'.$unaModificacion['id'].'</td>';
-							echo '<td>'.$unaModificacion['nombre'].'</td>';
-							echo '<td>'.$unaModificacion['marca'].'</td>';
-							echo '<td>'.$unaModificacion['modelo'].'</td>';
-							echo '<td>'.$unaModificacion['precio'].'</td>';
+					        // Display the results
+					        foreach ($iterator as $unaModificacion) {
+					            echo '<tr>';
+								echo '<td>'.$unaModificacion['id'].'</td>';
+								echo '<td>'.$unaModificacion['nombre'].'</td>';
+								echo '<td>'.$unaModificacion['marca'].'</td>';
+								echo '<td>'.$unaModificacion['modelo'].'</td>';
+								echo '<td>'.$unaModificacion['precio'].'</td>';
 
-							/* Link para eliminar un juego */
-							if($unaModificacion['activo'] == 1) {
-							
-							/* Modal */
-							echo '<td>
-									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal'.$unaModificacion['id'].'">
-									  <i class="fa fa-trash-alt"></i>
-									</button>';
+								/* Modal */
+								echo '<td>
+										<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal'.$unaModificacion['id'].'">
+										  <i class="fa fa-trash-alt"></i>
+										</button>';
 
-									//Acá genero un modal para cada elemento del foreach
-									echo '<div class="modal fade" id="Modal'.$unaModificacion['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';//Modal
-									echo '<div class="modal-dialog" role="document">';
-									    echo '<div class="modal-content">';
-									      echo'<div class="modal-header">';
-									        echo'<h5 class="modal-title" id="exampleModalLabel1">Borrar Producto</h5>'; //Titulo del Modal
-									        echo'<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									          <span aria-hidden="true">&times;</span>
-									        </button>
-									      </div>
-									      <div class="modal-body">'; //Boton X para cerrar el modal. Cuerpo del Modal
+										//Acá genero un modal para cada elemento del foreach
+										echo '<div class="modal fade" id="Modal'.$unaModificacion['id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">';//Modal
+										echo '<div class="modal-dialog" role="document">';
+										    echo '<div class="modal-content">';
+										      echo'<div class="modal-header">';
+										        echo'<h5 class="modal-title" id="exampleModalLabel1">Borrar Producto</h5>'; //Titulo del Modal
+										        echo'<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">'; //Boton X para cerrar el modal. Cuerpo del Modal
 
-									      //Pregunto al usuario si de verdad quiere borrar el producto
-									      echo "Desea borrar el producto ".$unaModificacion['nombre'].' de ID '.$unaModificacion['id']."?";
-									      
-									      $pdo = conectar();
+										      //Pregunto al usuario si de verdad quiere borrar el producto
+										      echo "Desea borrar el producto ".$unaModificacion['nombre'].' de ID '.$unaModificacion['id']."?";
+										      
+										      $pdo = conectar();
 
-											/* Preparamos la eliminacion */
-											$eliminar=$pdo->prepare("DELETE FROM productos WHERE id=:num");
+												/* Preparamos la eliminacion */
+												$eliminar=$pdo->prepare("DELETE FROM productos WHERE id=:num");
 
-											
-											/* Vinculamos el parámetro :num con el id que se obtiene por el foreach */
-											$eliminar->bindValue(':num',$unaModificacion['id']);
+												
+												/* Vinculamos el parámetro :num con el id que se obtiene por el foreach */
+												$eliminar->bindValue(':num',$unaModificacion['id']);
 
-											
+												
 
-										echo '<div class="modal-footer">'; //Pie del Modal
-												echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">No, cerrar</button>'; //Cerrar Modal
-												echo'<a class="btn btn-danger" href="baja.php?id='.$unaModificacion['id'].'">
-												Borrar
-												</a>'; //Aceptar la Baja, redirección
-										echo '</div>
-									  </td>'; //Cierre de TD
-							}
+											echo '<div class="modal-footer">'; //Pie del Modal
+													echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">No, cerrar</button>'; //Cerrar Modal
+													echo'<a class="btn btn-danger" href="baja.php?id='.$unaModificacion['id'].'">
+													Borrar
+													</a>'; //Aceptar la Baja, redirección
+											echo '</div>
+										  </td>'; //Cierre de TD
 
-							/* Link para modificar un juego */
-							/* Modal */
 
 							//Botón para abrir la ventana
 							echo '<td>
@@ -236,9 +286,11 @@
 
 											      		echo "Asigne un valor de venta para ".$unaModificacion['nombre'].' '.$unaModificacion['marca'].' '.$unaModificacion['modelo'].'<br>';
 
-												echo '</div>';
-											    echo '<div class="row">';
-											    
+														echo '</div>';
+													    echo '<div class="row">';
+
+														echo '<form action="venta.php" method="post">'; 
+
 											      		//Conecto a la BD
 											      	    $pdo = conectar();
 			
@@ -252,7 +304,6 @@
 														$producto->execute();
 
 														$info1 = $producto->fetchAll(PDO::FETCH_ASSOC);
-														echo '<form action="venta.php" method="post">'; 
 											      		echo '<input type="number" name="valor_venta" placeholder="Ingrese precio de venta" required> <br>';
 
 											      echo'</div>';
@@ -316,86 +367,52 @@
 									</div>
 								  </td>
 								</tr>';
-						}
-						?>
-						</table style="margin-bottom: 3rem;">
 
+						}//cierre del foreach
 
-						<!-- Tabla para Productos Vendidos -->
-						<?php
-						/* Conexión al servidor */
-						$pdo=conectar();
+						echo '</table>';
+							// The "back" link
+						    $prevlink = ($page > 1) ? '
+						    <a class="" href="?page=1" title="Primera Página">&laquo;</a> 
+						    <a class="" href="?page=' . ($page - 1) . '" title="Página Anterior">&lsaquo;</a>'
+						     :'<span class="disabled">&laquo;</span>
+						      <span class="disabled">&lsaquo;</span>';
+						    
+						    // The "forward" link
+						    $nextlink = ($page < $pages) ? 
+						    '<a href="?page=' . ($page + 1) . '" title="Próxima Página">&rsaquo;</a> 
+						    <a href="?page=' . $pages . '" title="Última Página">&raquo;</a>'
+						     : '<span class="disabled">&rsaquo;</span> 
+						     <span class="disabled">&raquo;</span>';
 
-						echo "<h1>Listado de Productos Vendidos</h1>";
+						    // Display the paging information
+						    echo '<div id="paging"><p>', $prevlink, ' Página ', $page, ' de ', $pages, ' páginas, mostrando ', $start, '-', $end, ' de ', $total, ' resultados ', $nextlink, ' </p></div>';
+					    }// cierre del if
+					
+					    else {
+					        echo '<p>No results could be displayed.</p>';
+					    }
 
-						/* Se creará una simple tabla que mostrará todos los productos cargados y la opción de eliminarlos o modificarlos */
-						$modificar1= $pdo->prepare("SELECT 
-							productos.id, 
-							productos.nombre as nombreprod, 
-							productos.marca, 
-							productos.modelo, 
-							productos.precio, 
-							productos.activo,
-							venta.id as ventaid, 
-							venta.precio_venta, 
-							socios.nombre as nombrecliente, 
-							socios.apellido as apellidocliente, 
-							personales.nombre as nombreempleado, 
-							personales.apellido as apellidoempleado 
-							FROM venta
-								JOIN socios 
-									ON venta.cliente_id=socios.id 
-								JOIN personales 
-									ON venta.empleado_id=personales.id 
-								JOIN productos
-									ON venta.producto_id=productos.id 
-						");
-						$modificar1-> execute();
-						$modificacion1 = $modificar1->fetchAll(PDO::FETCH_ASSOC);
-						
-						/* Mostramos los resultados en una tabla: */
+					} 
 
-						/* Encabezado de la tabla */
-						echo '<table class="table table-bordered table-sm table-hover table-striped" style="text-align:center;">
-								<thead class="thead-dark" style="text-align:center";>
-									<tr>
-										<th>Numero</th>
-										<th>Producto</th>
-										<th>Marca</th>
-										<th>Modelo</th>
-										<th>Precio</th>
-										<th>Precio de venta</th>
-										<th>Cliente</th>
-										<th>Vendedor</th>
-									</tr>
-								</thead>';
+					catch (Exception $e) {
+					    echo '<p>', $e->getMessage(), '</p>';
+					}
 
-							/* Cuerpo de la Tabla */
-						foreach ($modificacion1 as $unaModificacion1) {
-							echo '<tr>';
-							echo '<td>'.$unaModificacion1['ventaid'].'</td>';
-							echo '<td>'.$unaModificacion1['nombreprod'].'</td>';
-							echo '<td>'.$unaModificacion1['marca'].'</td>';
-							echo '<td>'.$unaModificacion1['modelo'].'</td>';
-							echo '<td>'.$unaModificacion1['precio'].'</td>';
-							echo '<td>'.$unaModificacion1['precio_venta'].'</td>';
-							echo '<td>'.$unaModificacion1['nombrecliente'].' '.$unaModificacion1['apellidocliente'].'</td>';
-							echo '<td>'.$unaModificacion1['nombreempleado'].' '.$unaModificacion1['apellidoempleado'].'</td>';
-						}
-						?>
-						</table style="margin-bottom: 3rem;">
+					?>
+
 
 						<!-- Contenedor para los botones -->
 						<div class="container">
 							<!-- Posiciono en Fila -->
 							<div class="row">
 								<!-- Elijo la ubicación espacial de cada botón -->
-								<div class="col-6">
+								<div class="col-3">
 									<!-- Link -->
 									<a class="btn btn-info" href=../index.html><i class="fa fa-home"></i> Volver al inicio </a>
 								</div>
 								<!-- Elijo la ubicación espacial de cada botón -->
-								<div class="col-6">
+								<div class="col-3">
 
 									<!-- Botón de Agregar -->
 									<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
@@ -433,9 +450,16 @@
 											?>
 									      </div> <!-- /Cierre del Body del Modal -->
 									    </div> <!-- /Cierre del Contenido del Modal -->
-									  </div> <!-- /Cierre del Modal Dialog -->
 									</div> <!-- /Cierre del Modal -->
 								</div> <!-- /Cierre de la columna -->
+								<div class="col-3">
+									<a class="btn btn-info" href=productosvendidos.php><i class="fa fa-hand-holding-usd"></i> Ir a productos vendidos </a>
+								</div>
+								<div class="col-3">
+									<a class="btn btn-success" href="busqueda.php">
+												Buscar <i class="fas fa-search"></i>
+									</a>
+								</div>
 							</div> <!-- /Cierre de la fila -->
 						</div> <!-- /Cierre del Contenedor -->
 					</main> <!-- /Cierre del Contenido Principal -->

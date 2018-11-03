@@ -82,7 +82,9 @@
 						//La función conectar() está definida en Conectar.php, y conecta a la BD, 
 						//retornando un objeto de clase PDO con la conexión.
 
-						$consulta = $pdo->prepare("SELECT socios.nombre as socio, socios.apellido, socios.DNI, socios.id  FROM socios");
+						$consulta = $pdo->prepare("SELECT 
+							*
+							FROM socios");
 
 						//Aqui no hay parámetros, puede ejecutarse esta consulta con
 						// $pdo->query(), lo omitimos por brevedad.
@@ -97,6 +99,8 @@
 										<th scope="col">Nombre</th>
 										<th scope="col">Apellido</th>
 										<th scope="col">DNI</th>
+										<th scope="col">Telefono</th>
+										<th scope="col">Direccion</th>
 										<th scope="col">Editar</th>
 										<th scope="col">Borrar</th>
 									</tr>
@@ -104,9 +108,12 @@
 								<tbody>';
 									foreach ($resultado as $elSocio) {
 									    echo '<tr>';
-									    echo '<td>'. $elSocio['socio']. '</td>';
+									    echo '<td>'. $elSocio['nombre']. '</td>';
 									    echo '<td>'. $elSocio['apellido'] .'</td>';
-									    echo '<td style="text-align=center">'. $elSocio['DNI'] .'</td>';
+									    echo '<td>'. $elSocio['DNI'] .'</td>';
+									    echo '<td>'. $elSocio['telefono'] .'</td>';
+									    echo '<td>'. $elSocio['direccion'] .'</td>';
+
 
 									    //Celda con el link para editar:
 									   echo '<td>

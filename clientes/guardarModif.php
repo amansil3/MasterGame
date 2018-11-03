@@ -78,16 +78,24 @@
 				<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
 
 					<?php
-						require('Conectar.php');
+						require('../Conectar.php');
 						$pdo = conectar();
 						//Preparamos la sentencia de modificacion:
-						$modificacion=$pdo->prepare("UPDATE socios SET
-						                                nombre = :nombre, apellido = :apellido, DNI = :DNI
-						                                WHERE id=:id");
+						$modificacion=$pdo->prepare("
+							UPDATE socios 
+							SET 
+							nombre = :nombre,
+							apellido = :apellido, 
+							DNI = :DNI,
+							direccion = :d,
+							telefono = :t
+							WHERE id=:id");
 						//Vinculamos los parámetros con los datos recibidos por POST:
 						$modificacion->bindValue(':nombre',$_POST['nombre']);
 						$modificacion->bindValue(':apellido',$_POST['apellido']);
 						$modificacion->bindValue(':DNI',$_POST['DNI']);
+						$modificacion->bindValue(':t',$_POST['telefono']);
+						$modificacion->bindValue(':d',$_POST['direccion']);
 						$modificacion->bindValue(':id', $_POST['numero']);
 						//Ejecutamos la modificación, mostrando un mensaje de éxito o error según corresponda:
 						if($modificacion->execute()) {
@@ -98,7 +106,7 @@
 						}
 					?>
 
-	  			<a href="index.html" class="btn btn-primary">Volver al inicio</a>
+	  			<a href="../index.html" class="btn btn-primary">Volver al inicio</a>
 
 		  			
 
@@ -114,7 +122,7 @@
 							</a> 
 						</li>
 						<li class="toc-entry toc-h2">
-							<a href="index.html" style="color:#99979c">
+							<a href="../index.html" style="color:#99979c">
 								<i class="fa fa-home" aria-hidden="true"></i> Volver al inicio
 							</a>
 						</li>
