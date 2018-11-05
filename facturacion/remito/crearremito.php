@@ -144,17 +144,7 @@
 							  </div>
 							</div>
 
-							<!-- Email input-->
-							<div class="form-row"> 
-								<div class="col-md-6">
-									<label>Email</label>
-		    						<div class="input-group-prepend">
-									    <span class="input-group-text" id="basic-addon1"><i class="fa fa-at"></i></span>
-							  			<input name="email" placeholder="example@example.com" class="form-control"  type="text" required>
-							    	</div>
-								</div>
-
-								<!-- Telefono input-->
+							<!-- Telefono input-->
 								<div class="col-md-6">
 									<label>Teléfono</label>
 		    						<div class="input-group-prepend">
@@ -164,74 +154,6 @@
 								</div>
 							</div>
 
-							<!-- Otro Row-->
-							<div class="form-row">
-
-								<!-- Dirección input-->
-								<div class="col-md-6">
-									<label>Dirección</label>
-		    						<div class="input-group-prepend">
-									    <span class="input-group-text" id="basic-addon1"><i class="fa fa-home"></i></span>
-							  			<input name="direccion" placeholder="Dirección" class="form-control"  type="text" required>
-							    	</div>
-								</div>
-
-								<!-- Ciudad input-->
-								<div class="col-md-6">
-									<label>Ciudad</label>
-		    						<div class="input-group-prepend">
-									    <span class="input-group-text" id="basic-addon1"><i class="fa fa-city"></i></span>
-							  			<input name="direccion" placeholder="Ciudad" class="form-control"  type="text" required>
-							    	</div>
-								</div>
-							</div>
-
-							<!-- Otro Row-->
-							<div class="form-row">
-
-								<!-- Ciudad input-->
-								<div class="col-md-4">
-									<label>Código Postal</label>
-		    						<div class="input-group-prepend">
-									    <span class="input-group-text" id="basic-addon1"><i class="fa fa-city"></i></span>
-							  			<input name="codigo_postal" placeholder="Código Postal" class="form-control"  type="number" required>
-							    	</div>
-								</div>
-
-								<!-- Select Provincias -->
-								<div class="col-md-8">
-									<label>Provincia</label>
-									<div class="input-group-prepend">
-									    <span class="input-group-text" id="basic-addon1"><i class="fas fa-globe-americas"></i></span>
-									    <select name="provincias" class="form-control selectpicker" required>
-										    <option value=" " >Elegir Provincia</option>
-										    <option value="Buenos Aires">Bs. As.</option>
-									        <option value="Catamarca">Catamarca</option>
-									        <option value="Chaco">Chaco</option>
-									        <option value="Chubut">Chubut</option>
-									        <option value="Cordoba">Cordoba</option>
-									        <option value="Corrientes">Corrientes</option>
-									        <option value="Entre Rios">Entre Rios</option>
-									        <option value="Formosa">Formosa</option>
-									        <option value="Jujuy">Jujuy</option>
-									        <option value="La Pampa">La Pampa</option>
-									        <option value="La Rioja">La Rioja</option>
-									        <option value="Mendoza">Mendoza</option>
-									        <option value="Misiones">Misiones</option>
-									        <option value="Neuquen">Neuquen</option>
-									        <option value="Rio Negro">Rio Negro</option>
-									        <option value="Salta">Salta</option>
-									        <option value="San Juan">San Juan</option>
-									        <option value="San Luis">San Luis</option>
-									        <option value="Santa Cruz">Santa Cruz</option>
-									        <option value="Santa Fe">Santa Fe</option>
-									        <option value="Sgo. del Estero">Sgo. del Estero</option>
-									        <option value="Tierra del Fuego">Tierra del Fuego</option>
-									        <option value="Tucuman">Tucuman</option> 
-										</select>
-									  </div>
-								</div>
-							</div>
 
 							<!-- Text areas -->
 							<!-- ROW-->
